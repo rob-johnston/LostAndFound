@@ -1,0 +1,28 @@
+//Created by bhulapriy on 1/08/16
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/skeleton.css')
+block body
+    include navBar
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    .jumbotron
+        .container
+            p
+            form(name="login")
+                input(type='text', name="username",placeholder="Username")
+                br
+                input(type='password', name="password",placeholder="Password")
+                br
+                input(type='submit',value='Login')
+
