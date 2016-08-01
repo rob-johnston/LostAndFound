@@ -9,7 +9,7 @@ a {
 
 
 .btn-custom {
-  color: ##FFFFFF;
+  color: #FFFFFF;
   background-color: #7bae23;   /* change  button color */
   border-radius: 0!important;    /* button border radius */
   padding: 6px 10px;              /* Button size change*/
@@ -33,6 +33,8 @@ a {
 
 .logo{
   position: relative;
+  top:0;
+  bottom:90;
 }
 
 .searchbar{
@@ -40,6 +42,18 @@ a {
 }
 
 .login{
-  
+
 }
 
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+}
+
+.social {
+  text-align: right;
+}
