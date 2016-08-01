@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg').native;
-var database = "postgres://johnstrobe:@depot:5432/SWEN302";
+pg.defaults.ssl= true;
+var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,7 +23,7 @@ router.get('/search', function(req, res, next) {
     }
     console.log("connection successful");
     //hardcoded example query here, will need to build it properly for searching
-    client.query("SELECT * FROM items;", function(error,result){
+    client.query("SELECT * FROM Items", function(error,result){
       done();
       if(error){
         console.log("query failed");
