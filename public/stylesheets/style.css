@@ -6,3 +6,40 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.btn-custom {
+  color: ##FFFFFF;
+  background-color: #7bae23;   /* change  button color */
+  border-radius: 0!important;    /* button border radius */
+  padding: 6px 10px;              /* Button size change*/
+
+}
+
+.btn-custom:hover{
+  background-color:#9AC94B; /* change  button color on hover */
+  border-radius: 0!important;
+
+}
+
+
+.custom-glyph-color{
+  color:#fff;       /* change  magnifying glass color in  button */
+}
+
+.custom-glyph-color:hover{
+  color:#b1b1b1;         /* change  magnifying glass color in  button on mouse hover */
+}
+
+.logo{
+  position: relative;
+}
+
+.searchbar{
+
+}
+
+.login{
+  
+}
+

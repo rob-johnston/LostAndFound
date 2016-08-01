@@ -1,0 +1,19 @@
+//
+   Created by pangaaro on 1/08/16.
+#navBar
+.navbar-header
+    .logo
+        .row
+            +img-responsive ("images/logo.png", "logo")
+    .searchbar
+        .row
+            .col-md-6
+                #custom-search-input
+                    .input-group.col-md-12
+                        input.form-control.input-lg(type='text', placeholder='Harambe')
+                        span.input-group-btn
+                            button.btn.btn-info.btn-lg(type='button')
+                                span.glyphicon.glyphicon-search
+    .login
+        .row
+        +btn-primary("Log In")

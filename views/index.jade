@@ -1,5 +1,7 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='/stylesheets/normalize.css')
+  link(rel='stylesheet', href='/stylesheets/skeleton.css')
+block body
+  include navBar
