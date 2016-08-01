@@ -1,8 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg').native;
+//needed to connect to heroku
 pg.defaults.ssl= true;
+//location of our heroku DB
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
+//dummy data for categories, will need to extract available categories from the database at some point
+var categories = ["phone","clothing","wallet","other"];
+var campus = ["Kelburn","Pipitea","Karori","Design School"];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -38,5 +43,14 @@ router.get('/search', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+/* GET add item page. */
+router.get('/addItem', function(req, res, next) {
+  res.render('addItem', { title: 'Express', categories: categories, campus: campus});
+});
+router.post('/addItem', function (req,res){
+  res.render('addItem', { title: 'Express', categories: categories, campus: campus});
+  console.log(req.body);
+});
 
 module.exports = router;
