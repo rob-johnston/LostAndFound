@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var pg = require('pg').native;
+var pg = require('pg');
 //needed to connect to heroku
 pg.defaults.ssl= true;
 //location of our heroku DB
@@ -51,6 +51,11 @@ router.get('/addItem', function(req, res, next) {
 router.post('/addItem', function (req,res){
   res.render('addItem', { title: 'Express', categories: categories, campus: campus});
   console.log(req.body);
+});
+
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+    res.render('login', { title: 'Log In' });
 });
 
 module.exports = router;
