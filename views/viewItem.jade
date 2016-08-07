@@ -21,6 +21,15 @@ block body
             //else
                 //img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
 
+
+
+
+
+            #editItemBtn.col-sm-12
+                //form(action='/viewItem?id=' + sid, method='post')
+
+                button.btn.btn-default Edit
+
         #itemDetails.col-md-9
             br
             br
@@ -34,10 +43,10 @@ block body
             p Item Description
                 // #{itemDesc}
 
-            p Date Found
+            p Date Found:
                 // #{itemDateFound}
 
-            p Location Found
+            p Location Found:
                 //#{itemLocFound}
 
             p Currently held in (Campus Location):
