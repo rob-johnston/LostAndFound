@@ -55,5 +55,8 @@ a {
 }
 
 .social {
+  display: inline;
   text-align: right;
+  float: right;
+  transform: translate(0%, 95%);
 }
