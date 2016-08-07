@@ -5,9 +5,8 @@ var pg = require('pg');
 pg.defaults.ssl= true;
 //location of our heroku DB
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
-//dummy data for categories, will need to extract available categories from the database at some point
-var categories = ["phone","clothing","wallet","other"];
-var campus = ["Kelburn","Pipitea","Karori","Design School"];
+//our js file for interacting with the db
+var db = require('../db.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -20,34 +19,24 @@ router.get('/search', function(req, res, next) {
   //search logic goes here
  // var urlparts = url.parse(req.url,true);
 
-  pg.connect(database,function(err,client,done){
-    if(err){
-      console.log('cant connect to db');
-      console.log(err);
-      return ;
-    }
-    console.log("connection successful");
-    //hardcoded example query here, will need to build it properly for searching
-    client.query("SELECT * FROM Items", function(error,result){
-      done();
-      if(error){
-        console.log("query failed");
-        console.log(error);
-        return;
-      }
-      //console log the results, which at the moment is one half filled item
-      console.log(result);
-    });
-  });
+  db.getAllItems(function(error,result){
+    console.log();
+    res.render('index', { title: 'Express' });
+  })
 
-  res.render('index', { title: 'Express' });
 });
-
 
 /* GET add item page. */
 router.get('/addItem', function(req, res, next) {
-  res.render('addItem', { title: 'Express', categories: categories, campus: campus});
+  //need to get categories and campus options from DB to give user the current correct options to use
+  db.getCampuses(function(err,campusresult){
+    db.getCategories(function(err,categoryresult){
+      //render page with info from db
+      res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+    })
+  })
 });
+
 router.post('/addItem', function (req,res){
   res.render('addItem', { title: 'Express', categories: categories, campus: campus});
   console.log(req.body);
@@ -62,5 +51,16 @@ router.get('/viewItem', function (req, res) {
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Log In' });
 });
+
+/*GET student view page. */
+router.get('/studentView', function(req,res,next){
+  res.render('studentView', {title: 'Student View'});
+});
+
+router.get('/studentSearchResults', function(req,res,next){
+  res.render('studentSearchResults', {title: 'Search Results'});
+});
+
+
 
 module.exports = router;
