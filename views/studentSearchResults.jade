@@ -1,0 +1,31 @@
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/skeleton.css')
+block body
+    include navBar
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    h3 Searched for TEST
+    br
+    h3 Items Found Today
+    +panel-default
+        p test
+        p test
+        p test
+        p test
+    h3 Items Found This Week
+    +panel-default
+        p test 2
+        p test 2
+        p test 2
+        p test 2
+    include Footer
