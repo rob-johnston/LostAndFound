@@ -1,0 +1,56 @@
+//Created by gelidotris 8/08/16
+
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+append styles
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/skeleton.css')
+block body
+    .row
+        include navBar
+    .row
+        #itemPhoto.col-md-3
+            br
+            br
+            br
+
+            //if itemPhotoSRC == ' ' /* If there is no image for the item */
+            img(src="images/defaultImg.png" style="width:200px;")
+
+            //else
+                //img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
+
+
+
+
+
+            #editItemBtn.col-sm-12
+                //form(action='/viewItem?id=' + sid, method='post')
+
+                button.btn.btn-default Edit
+
+        #itemDetails.col-md-9
+            br
+            br
+            br
+            h3 Item Name
+                //#{itemName}
+
+            h6 Category:
+                //#{itemCategory}
+
+            p Item Description
+                // #{itemDesc}
+
+            p Date Found:
+                // #{itemDateFound}
+
+            p Location Found:
+                //#{itemLocFound}
+
+            p Currently held in (Campus Location):
+                //#{itemCampusLoc}
+
+
+    include Footer
