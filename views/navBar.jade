@@ -7,14 +7,14 @@
         #logo
         +img-responsive ("images/logo.png", "logo")
     +nav_item
-        form.navbar-form.navbar-right
+        form.navbar-form.navbar-right(role='search', action = "/search", method = "get")
             form.form-group(action="/",method="get")
                 input.input-block-level(type="text", name="mysearch", placeholder="Search")
                 button.btn.btn-small(type="submit") Submit
     +nav_item
-        form.navbar-form.navbar-right
-            div(id="divId")
-                +a-btn-success("/login") Login
+        //form.navbar-form.navbar-right
+        div(id="divId")
+            +a-btn-success("/login") Login
     +nav_item
         div(id="divIdlogout", style="display:none;")
             button(class="btn" onclick="toggleLogin('','')") Logout
