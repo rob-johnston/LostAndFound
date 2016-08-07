@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2112e63f-ee8f-4967-9937-635000c70f09" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/Statistics.jade" afterPath="$PROJECT_DIR$/views/statistics.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Footer.jade" afterPath="$PROJECT_DIR$/views/Footer.jade" />
     </list>
     <ignored path="LostAndFound.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -454,7 +450,7 @@
       <workItem from="1470015395884" duration="9708000" />
       <workItem from="1470008943836" duration="13905000" />
       <workItem from="1470610803253" duration="73000" />
-      <workItem from="1470611975246" duration="2120000" />
+      <workItem from="1470611975246" duration="2141000" />
     </task>
     <task id="LOCAL-00001" summary="added vertsync css&#10;">
       <created>1470613028972</created>
@@ -463,11 +459,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470613028972</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="re-aligned footer">
+      <created>1470614355426</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1470614355426</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16098000" />
+    <option name="totallyTimeSpent" value="16119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1917" y="-3" width="1926" height="1087" extended-state="6" />
@@ -505,7 +508,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added vertsync css&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added vertsync css&#10;" />
+    <MESSAGE value="re-aligned footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-aligned footer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
