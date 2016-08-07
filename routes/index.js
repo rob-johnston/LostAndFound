@@ -73,6 +73,9 @@ router.get('/studentSearchResults', function(req,res,next){
   res.render('studentSearchResults', {title: 'Search Results'});
 });
 
-
+/*GET statistics view page. */
+router.get('/statistics', function(req,res,next){
+  res.render('statistics', {title: 'Statistics'});
+});
 
 module.exports = router;
