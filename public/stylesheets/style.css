@@ -75,3 +75,9 @@ a {
   top: 50%;
   transform: translateY(150%);
 }
+
+.vertsyncresults{
+  position: relative;
+  top: 50%;
+  transform: translateY(-5%);
+}
