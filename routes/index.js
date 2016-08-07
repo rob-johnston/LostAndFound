@@ -47,4 +47,15 @@ router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Log In' });
 });
 
+/*GET student view page. */
+router.get('/studentView', function(req,res,next){
+  res.render('studentView', {title: 'Student View'});
+});
+
+router.get('/studentSearchResults', function(req,res,next){
+  res.render('studentSearchResults', {title: 'Search Results'});
+});
+
+
+
 module.exports = router;
