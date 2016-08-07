@@ -53,6 +53,11 @@ router.post('/addItem', function (req,res){
   console.log(req.body);
 });
 
+/* GET view item page. */
+router.get('/viewItem', function (req, res) {
+  res.render('viewItem', { title: 'Item View' });
+});
+
 /* GET login page. */
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Log In' });
