@@ -19,8 +19,9 @@ router.get('/search', function(req, res, next) {
   //search logic goes here
  // var urlparts = url.parse(req.url,true);
 
+  //at the moment just show everything
   db.getAllItems(function(error,result){
-    console.log();
+    console.log(result);
     res.render('index', { title: 'Express' });
   })
 
@@ -38,8 +39,14 @@ router.get('/addItem', function(req, res, next) {
 });
 
 router.post('/addItem', function (req,res){
-  res.render('addItem', { title: 'Express', categories: categories, campus: campus});
-  console.log(req.body);
+  //get info from table for re-rendering ad page + add the item to the db
+  db.getCampuses(function(err,campusresult){
+    db.getCategories(function(err,categoryresult){
+      db.addItem(req.body,function(err,result){
+        res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+      })
+    })
+  })
 });
 
 /* GET login page. */

@@ -16,7 +16,8 @@
         db: db,
         getAllItems: getAllItems,
         getCategories: getCategories,
-        getCampuses: getCampuses
+        getCampuses: getCampuses,
+        addItem: addItem
         //example:example
     };
 
@@ -90,6 +91,41 @@
 
         //the sql statement we need
         var stmt = 'SELECT * FROM campus';
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //submit the statement we want
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                cb(false,result);
+            });
+        });
+    }
+
+    /**
+     * Used to add an item to our database
+     * @param data the required fields to add for the item
+     * @param cb callback
+     */
+    function addItem(data,cb) {
+        //the sql statement we need
+        //last arg is image, need to do get that working
+        var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
+            data.locationFound +'\',\'' + data.campus + '\');'
+        //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID
+        var stmt = 'INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
+            args;
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
