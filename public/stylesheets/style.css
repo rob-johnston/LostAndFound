@@ -41,9 +41,6 @@ a {
 
 }
 
-.login{
-
-}
 
 .footer {
   position: relative;
@@ -59,4 +56,10 @@ a {
   text-align: right;
   float: right;
   transform: translate(0%, 95%);
+}
+
+.vertsync{
+  position: relative;
+  top: 50%;
+  transform: translateY(150%);
 }
