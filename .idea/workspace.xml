@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2112e63f-ee8f-4967-9937-635000c70f09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/statistics.jade" afterPath="$PROJECT_DIR$/views/statistics.jade" />
     </list>
     <ignored path="LostAndFound.iws" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="statistics.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/statistics.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="38" column="79" selection-start-line="38" selection-start-column="79" selection-end-line="38" selection-end-column="79" />
+            <state relative-caret-position="452">
+              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -40,9 +39,25 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="91" column="27" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="173">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding>
+                <marker date="1470627668909" expanded="true" signature="93:116" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="131:337" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="356:458" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="480:553" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="580:673" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="680:735" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="747:751" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="762:806" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1611:1639" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1665:1690" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1700:1740" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1755:1822" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1832:1856" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1871:1966" ph="{...}" />
+                <marker date="1470627668909" expanded="true" signature="1974:2013" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -257,17 +272,10 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/db.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/jsLibraryMappings.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/watcherTasks.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/stylesheets/style.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/index.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/views/addItem.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/index.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/login.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/statistics.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/studentSearchResults.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/studentView.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/viewItem.jade</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -275,10 +283,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/images/kelburnCampus.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/images/lawCampus.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/editItem.jade</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/footer.jade</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -286,7 +290,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/Footer.jade</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -455,7 +458,7 @@
       <workItem from="1470008943836" duration="13905000" />
       <workItem from="1470610803253" duration="73000" />
       <workItem from="1470611975246" duration="2254000" />
-      <workItem from="1470618698529" duration="4748000" />
+      <workItem from="1470618698529" duration="5175000" />
     </task>
     <task id="LOCAL-00001" summary="added vertsync css&#10;">
       <created>1470613028972</created>
@@ -485,11 +488,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470624110792</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="made mock up dot chart, useing fixed points written in the .jade page.&#10;Now need to figure out who to link these data points to the database">
+      <created>1470627648424</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1470627648424</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20980000" />
+    <option name="totallyTimeSpent" value="21407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1917" y="-3" width="1926" height="1087" extended-state="6" />
@@ -529,7 +539,8 @@
     <MESSAGE value="added vertsync css&#10;" />
     <MESSAGE value="re-aligned footer" />
     <MESSAGE value="Working on stats page using SVG" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on stats page using SVG" />
+    <MESSAGE value="made mock up dot chart, useing fixed points written in the .jade page.&#10;Now need to figure out who to link these data points to the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="made mock up dot chart, useing fixed points written in the .jade page.&#10;Now need to figure out who to link these data points to the database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -556,7 +567,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1242">
           <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-          <folding />
+          <folding>
+            <marker date="1470627668909" expanded="true" signature="93:116" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="131:337" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="356:458" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="480:553" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="580:673" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="680:735" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="747:751" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="762:806" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1611:1639" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1665:1690" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1700:1740" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1755:1822" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1832:1856" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1871:1966" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1974:2013" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -728,16 +755,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="91" column="27" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="173">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <marker date="1470627668909" expanded="true" signature="93:116" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="131:337" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="356:458" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="480:553" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="580:673" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="680:735" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="747:751" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="762:806" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1611:1639" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1665:1690" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1700:1740" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1755:1822" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1832:1856" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1871:1966" ph="{...}" />
+            <marker date="1470627668909" expanded="true" signature="1974:2013" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/statistics.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="38" column="79" selection-start-line="38" selection-start-column="79" selection-end-line="38" selection-end-column="79" />
+        <state relative-caret-position="452">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
           <folding />
         </state>
       </provider>
