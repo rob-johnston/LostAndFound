@@ -7,6 +7,8 @@ pg.defaults.ssl= true;
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 //our js file for interacting with the db
 var db = require('../db.js');
+var url = require('url');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,10 +19,10 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
 
   //search logic goes here
- // var urlparts = url.parse(req.url,true);
-
+ var  urlparts = url.parse(req.url,true);
+  console.log(urlparts.query.mysearch);
   //at the moment just show everything
-  db.getAllItems(function(error,result){
+  db.simplesearch(urlparts.query.mysearch,function(err,result){
     console.log(result);
     res.render('index', { title: 'Express' });
   })
