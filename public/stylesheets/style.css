@@ -45,7 +45,6 @@ a {
 .footer {
     position: absolute;
     right: 0;
-    bottom: 0;
     left: 0;
     padding: 1rem;
     background-color: #efefef;
@@ -86,16 +85,54 @@ a {
     transform: translateY(-5%);
 }
 
+.vertsyncstats{
+    position: relative;
+    top: 50%;
+    transform: translateY(10%);
+}
+
 .carousel{
-  width: 40%;
-  height: 12%;
-  align: center;
-  margin-top: 5%;
-  margin-left: 24%;
-  margin-right: 40%;
+  width: 100%;
+  height: 10%;
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%;
-  height:20%;
+  height:10%;
+}
+
+.graph .labels.x-labels {
+    text-anchor: middle;
+}
+
+.graph .labels.y-labels {
+    text-anchor: end;
+}
+
+
+.graph {
+    height: 500px;
+    width: 800px;
+}
+
+.graph .grid {
+    stroke: #ccc;
+    stroke-dasharray: 0;
+    stroke-width: 1;
+}
+
+.labels {
+    font-size: 13px;
+}
+
+.label-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    fill: black;
+}
+
+.data {
+    fill: red;
+    stroke-width: 1;
 }
