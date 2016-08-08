@@ -6,23 +6,15 @@ append styles
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
 block body
     include navBar
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    .jumbotron
-        .container
-            p
-            form(name="login")
-                input(type='text', name="username",placeholder="Username")
-                br
-                input(type='password', name="password",placeholder="Password")
-                br
-                input(type='submit',value='Login')
-
+            form(class="vertsync")
+                div(class="container")
+                    div(class="row")
+                        div(class="six columns offset-by-three")
+                            input(type='text', name="username",placeholder="Username", class="u-full-width")
+                    div(class="row")
+                        div(class="six columns offset-by-three")
+                            input(type='password', name="password",placeholder="Password",class="u-full-width")
+                    div(class="row")
+                        div(class="two columns offset-by-seven")
+                            input(type='submit',value='Login' class="button-primary u-full-width")
+    include footer
