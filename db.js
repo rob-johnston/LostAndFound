@@ -11,7 +11,7 @@
 
 
 
-    //
+    //all the functions we can use here
     module.exports = {
         db: db,
         getAllItems: getAllItems,
@@ -19,7 +19,9 @@
         getCampuses: getCampuses,
         addItem: addItem,
         search: search,
-        simplesearch: simplesearch
+        simplesearch: simplesearch,
+        addCategory: addCategory,
+        addCampus: addCampus
         //example:example
     };
 
@@ -57,6 +59,7 @@
 
      /**
      * Returns all possible categories for an item to have
+      * used when populating the dropdown menu when adding a new item
      * @param cb callback
      */
     function getCategories(cb) {
@@ -87,6 +90,7 @@
 
     /**
      * Returns all the possible campuses
+     * used for populating the dropdown menu when adding a new item
      * @param cb callback
      */
     function getCampuses(cb) {
@@ -223,6 +227,74 @@
             });
         });
     }
+
+    /**
+     * this method is used to add a category to the Categories table in the database
+     * this should only be accessed by a superuser
+     * @param search category to add
+     * @param cb callback
+     */
+    function addCategory(data,cb) {
+
+        var stmt = "INSERT INTO category (cateogy) VALUES ('"+data+"');";
+        console.log(stmt);
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+    /**
+     * this method is used to add a campus to the Campus table in the database
+     * this should only be accessed by a superuser
+     * @param search campus to add
+     * @param cb callback
+     */
+    function addCampus(data,cb) {
+
+        var stmt = "INSERT INTO campus (campus) VALUES ('"+data+"');";
+        console.log(stmt);
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+
 
 
 })();
