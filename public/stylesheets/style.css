@@ -52,15 +52,19 @@ a {
 }
 
 #itemPhoto{
-    position: relative;
-    text-align: left;
-    color: #00b3ee;
+  position: relative;
+  text-align: left;
 }
 
 #itemDetails{
     position: relative;
     text-align: left;
     color: #004d00;
+}
+
+#editItemBtn{
+  position: relative;
+  text-align: justify;
 }
 
 .social {
