@@ -8,9 +8,14 @@ append styles
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
 block body
     include navBar
-        div(class="vertsyncresults")
+        div(class="vertsyncstats")
             h1 Items Returned
             div(class="row")
                 div(class="six columns")
+                    svg(class="graph")
+                        g(class="grid x-grid")
+                            line(x1="90" x2="90" y1="5" y2="371")
+                        g(class="grid y-grid")
+                            line(x1="90" x2="705" y1="370" y2="370")
     include footer
 
