@@ -21,14 +21,12 @@ block body
             //else
                 //img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
 
-
-
-
-
             #editItemBtn.col-sm-12
-                //form(action='/viewItem?id=' + sid, method='post')
+                //form(action='/editItem?id=' + id, method='get')
+                br
+                form(action = "/editItem", method="get")
+                    button.btn.btn-default Edit
 
-                button.btn.btn-default Edit
 
         #itemDetails.col-md-9
             br

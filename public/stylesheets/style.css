@@ -57,13 +57,17 @@ a {
 #itemPhoto{
   position: relative;
   text-align: left;
-  color: #00b3ee;
 }
 
 #itemDetails{
   position: relative;
   text-align: left;
   color: #004d00;
+}
+
+#editItemBtn{
+  position: relative;
+  text-align: justify;
 }
 
 .social {

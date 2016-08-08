@@ -47,9 +47,24 @@ router.get('/viewItem', function (req, res) {
   res.render('viewItem', { title: 'Item View' });
 });
 
+/* GET edit item page. */
+router.get('/editItem', function (req, res, next) {
+  db.getCampuses(function(err,campusresult){
+    db.getCategories(function(err,categoryresult){
+      //render page with info from db
+      res.render('editItem', { title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows});
+    })
+  })
+});
+
+// router.get('/editItem', function (req,res){
+//   res.render('viewItem', { title: 'Item View' /*, categories: categories, campus: campus*/});
+//   //console.log(req.body);
+// });
+
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Log In' });
+  res.render('login', { title: 'Log In' });
 });
 
 /*GET student view page. */
