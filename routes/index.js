@@ -19,10 +19,14 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
 
   //search logic goes here
+  //extract from url search query
  var  urlparts = url.parse(req.url,true);
-  console.log(urlparts.query.mysearch);
-  //at the moment just show everything
-  db.simplesearch(urlparts.query.mysearch,function(err,result){
+  //at the moment use simple search
+  db.simpleSearch(urlparts.query.mysearch,function(err,result){
+    if(err){
+      console.log.print(err);
+      res.render('index', { title: 'Express' });
+    }
     console.log(result);
     res.render('index', { title: 'Express' });
   })
@@ -50,6 +54,16 @@ router.post('/addItem', function (req,res){
     })
   })
 });
+
+/* GET view item page. */
+router.get('/advancedSearch', function (req, res) {
+  db.getCampuses(function(err,campusresult){
+    db.getCategories(function(err,categoryresult){
+        res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+    })
+  })
+});
+
 
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
