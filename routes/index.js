@@ -7,6 +7,7 @@ pg.defaults.ssl= true;
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 //our js file for interacting with the db
 var db = require('../db.js');
+var viewitem = require('../routes/viewitem');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -51,13 +52,11 @@ router.post('/addItem', function (req,res){
 
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
-  res.render('viewItem', { title: 'Item View' });
+  // res.render('viewItem', { title: 'Item View' });
+  viewitem.view(req, res, database, pg);
 });
 
-/* GET view item page. */
-router.get('/viewItem', function (req, res) {
-  res.render('viewItem', { title: 'Item View' });
-});
+
 
 /* GET edit item page. */
 router.get('/editItem', function (req, res, next) {
