@@ -1,0 +1,46 @@
+// Created by gelidotris on 8/08/16.
+
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/skeleton.css')
+
+block body
+    .row
+        include navBar
+    .row
+        br
+        br
+        br
+        br
+        br
+        h3 Edit item
+        br
+        form.centerAdd(action="/viewItem",method="post",id="form2" )
+
+            h4 Item Name
+            input(class="form-control",type="text", name = "itemName", placeholder="name", form="form2", required)
+            h4 Item Description
+            input(class="form-control",type="text", name = "itemDescription", placeholder="description",form="form2", required)
+            h4 Item Category
+            select(class="form-control",name="category" form="form2")
+                each category in categories
+                    option(value='#{category}') #{category.category}
+            h4 Date Found
+            input(class="form-control",type="text", name = "dateFound", form="form2", required)
+            h4 Location Found
+            input(class="form-control",type="text", name = "locationFound", placeholder="eg The Hub",form="form2", required)
+            h4 Which Campus the item is at
+            select(class="form-control",name="campus" form="form2")
+                each location in campus
+                    option(value='#{location}') #{location.campus}
+            h4 Image
+                br
+                img(src="images/defaultImg.png" style="width:200px;")
+                // img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
+                    // TO DO: Delete + Upload Button
+            input.btn.btn-success(action='/viewItem' type="submit" form="form2" value="Save")
+
+    include Footer
+

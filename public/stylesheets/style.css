@@ -1,40 +1,40 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 
 .btn-custom {
-  color: #FFFFFF;
-  background-color: #7bae23;   /* change  button color */
-  border-radius: 0!important;    /* button border radius */
-  padding: 6px 10px;              /* Button size change*/
+    color: #FFFFFF;
+    background-color: #7bae23;   /* change  button color */
+    border-radius: 0!important;    /* button border radius */
+    padding: 6px 10px;              /* Button size change*/
 
 }
 
 .btn-custom:hover{
-  background-color:#9AC94B; /* change  button color on hover */
-  border-radius: 0!important;
+    background-color:#9AC94B; /* change  button color on hover */
+    border-radius: 0!important;
 
 }
 
 
 .custom-glyph-color{
-  color:#fff;       /* change  magnifying glass color in  button */
+    color:#fff;       /* change  magnifying glass color in  button */
 }
 
 .custom-glyph-color:hover{
-  color:#b1b1b1;         /* change  magnifying glass color in  button on mouse hover */
+    color:#b1b1b1;         /* change  magnifying glass color in  button on mouse hover */
 }
 
 .logo{
-  position: relative;
-  top:0;
-  bottom:90px;
+    position: relative;
+    top:0;
+    bottom:90px;
 }
 
 .searchbar{
@@ -43,41 +43,45 @@ a {
 
 
 .footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
 }
 
 #itemPhoto{
   position: relative;
   text-align: left;
-  color: #00b3ee;
 }
 
 #itemDetails{
+    position: relative;
+    text-align: left;
+    color: #004d00;
+}
+
+#editItemBtn{
   position: relative;
-  text-align: left;
-  color: #004d00;
+  text-align: justify;
 }
 
 .social {
-  display: inline;
-  text-align: right;
-  float: right;
-  transform: translate(0%, 95%);
+    display: inline;
+    text-align: right;
+    float: right;
+    transform: translate(0%, 0%);
 }
 
 .vertsync{
-  position: relative;
-  top: 50%;
-  transform: translateY(150%);
+    position: relative;
+    top: 50%;
+    transform: translateY(150%);
 }
 
 .vertsyncresults{
-  position: relative;
-  top: 50%;
-  transform: translateY(-5%);
+    position: relative;
+    top: 50%;
+    transform: translateY(-5%);
 }
