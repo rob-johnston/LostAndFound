@@ -1,0 +1,33 @@
+//Created by gelidotris 8/08/16
+
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+append styles
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/skeleton.css')
+block body
+    .row
+        include navBar
+    .row
+        br
+        br
+        br
+        br
+        br
+        form.centerAdd(action="/advancedSearch",method="get",id="form1" )
+            h6 Keywords
+            input(class="form-control",type="text", name = "keywords", form="form1", required)
+            h6 Item Found Date Range
+            h6 Category Filter
+            select(class="form-control",name="category" form="form1")
+                each category in categories
+                    option(value='#{category.category}') #{category.category}
+            h6 Campus Filter
+            select(class="form-control",name="campus" form="form1")
+                each location in campus
+                    option(value='#{location.campus}') #{location.campus}
+
+            input.btn.btn-success(type="submit" form="form1" value="search")
+
+    include footer
