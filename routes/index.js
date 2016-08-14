@@ -104,13 +104,12 @@ router.get('/studentView', function(req,res,next){
 
 //deals with performing a restricted student search
 router.get('/studentSearchResults', function(req,res,next){
-
     db.getCampuses(function(err,campusresult) {
         db.getCategories(function (err, categoryresult) {
             //if no url params then just load
-            if (url.parse(req.url, true) == null) {
+            if (url.parse(req.url, true).search == '') {
                 //render the page without results!
-                res.render('studentSearchResults', {title: 'Student Search', categories: categoryresult.rows, campus: campusresult.rows});
+                res.render('studentSearchResults', {title: 'Student Search', categories: categoryresult.rows, campus: campusresult.rows, results: null});
             } else {
                 //otherwise perform a student search
                 db.studentSearch(url.parse(req.url, true), function (err, result) {
@@ -118,7 +117,7 @@ router.get('/studentSearchResults', function(req,res,next){
                         console.log("error performing student search");
                     } else {
                         //render student results page with the results from the DB
-                        res.render('studentSearchResults', {title: 'Search Results', categories: categoryresult.rows, campus: campusresult.rows, results: result});
+                        res.render('studentSearchResults', {title: 'Search Results', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
                     }
                 });
             }

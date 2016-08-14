@@ -349,10 +349,9 @@
      * @param cb callback
      */
     function studentSearch(data,cb) {
-
-
+        //format to get info is... data.query.xxxx   where xxxx is category, from , to;
         //base of the statement
-        var stmt = 'SELECT * FROM items;'; //.. where
+        var stmt = "SELECT * FROM items WHERE category LIKE '" + data.query.category + "' ;";
 
        // stmt+=' AND datediscarded IS NULL;';
 
