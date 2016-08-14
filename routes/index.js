@@ -60,7 +60,12 @@ router.post('/addItem', function (req,res){
 router.get('/advancedSearch', function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
-        res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+        //blank load with no search
+        if(url.parse(req.url,true)!=null){
+            res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+        } else {
+            //otherwise perform an advanced search
+        }
     })
   })
 });
@@ -97,8 +102,28 @@ router.get('/studentView', function(req,res,next){
   res.render('studentView', {title: 'Student View'});
 });
 
+//deals with performing a restricted student search
 router.get('/studentSearchResults', function(req,res,next){
-  res.render('studentSearchResults', {title: 'Search Results'});
+
+    db.getCampuses(function(err,campusresult) {
+        db.getCategories(function (err, categoryresult) {
+            //if no url params then just load
+            if (url.parse(req.url, true) == null) {
+                //render the page without results!
+                res.render('studentSearchResults', {title: 'Student Search', categories: categoryresult.rows, campus: campusresult.rows});
+            } else {
+                //otherwise perform a student search
+                db.studentSearch(url.parse(req.url, true), function (err, result) {
+                    if (err) {
+                        console.log("error performing student search");
+                    } else {
+                        //render student results page with the results from the DB
+                        res.render('studentSearchResults', {title: 'Search Results', categories: categoryresult.rows, campus: campusresult.rows, results: result});
+                    }
+                });
+            }
+        })
+    })
 });
 
 /*GET statistics view page. */

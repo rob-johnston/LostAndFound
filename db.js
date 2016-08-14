@@ -22,7 +22,8 @@
         simpleSearch: simpleSearch,
         advancedSearch: advancedSearch,
         addCategory: addCategory,
-        addCampus: addCampus
+        addCampus: addCampus,
+        studentSearch : studentSearch
         //example:example
     };
 
@@ -127,7 +128,6 @@
      */
     function addItem(data,cb) {
         //the sql statement we need
-        //last arg is image, need to do get that working
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\');'
         //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
@@ -229,6 +229,7 @@
             });
         });
     }
+
 
 
     /**
@@ -339,6 +340,47 @@
             });
         });
     }
+
+
+    /**
+     * this method is used to perform a "student search"
+     * this is a search that only uses a category and 2 dates to perform a restricted search
+     * @param search category + date range
+     * @param cb callback
+     */
+    function studentSearch(data,cb) {
+
+
+        //base of the statement
+        var stmt = 'SELECT * FROM items;'; //.. where
+
+       // stmt+=' AND datediscarded IS NULL;';
+
+
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+
 
 
 
