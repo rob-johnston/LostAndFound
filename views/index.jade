@@ -6,18 +6,17 @@ append styles
 block body
   include navBar
   br
-  +carousel("Carousel ID_3",[
-    {
-      image: "images/kelburnCampus.jpg",
-      h1: "Headline #1",
-      p: "Carousel Caption #1",
-      button: {caption: "Sign up today", url: "#"}
-    },
-    {
-      image: "images/lawCampus.jpg",
-      h1: "Headline #2",
-      p: "Carousel Caption #2",
-      button: {caption: "Sign up today", url: "#"}
-    }
-  ])
+  .container main
+      +carousel("Carousel ID_3",[
+        {
+          image: "images/kelburnCampus.jpg",
+          h1: "Lost something at Kelburn?",
+          button: {caption: "Find It", url: "#"}
+        },
+        {
+          image: "images/lawCampus.jpg",
+          h1: "Lost something at Pipitea?",
+          button: {caption: "Find It", url: "#"}
+        }
+      ])
   include footer
