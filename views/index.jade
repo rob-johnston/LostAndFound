@@ -5,18 +5,38 @@ append styles
   link(rel='stylesheet', href='/stylesheets/skeleton.css')
 block body
   include navBar
+    .container.main
+      .row
+        .col-md-4
+            h5
+              i.glyphicon.glyphicon-home
+              small
+                b  Main
+            ul.nav.nav-pills.nav-stacked
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') Add
+            h5
+              i.glyphicon.glyphicon-user
+              small
+                b User
+            ul.nav.nav-pills.nav-stacked
+              li
+                a(href='#') View Statistics
+
   br
-  .container main
+  .container
       +carousel("Carousel ID_3",[
         {
           image: "images/kelburnCampus.jpg",
           h1: "Lost something at Kelburn?",
-          button: {caption: "Find It", url: "#"}
+          button: {caption: "Find It!", url: "#"}
         },
         {
           image: "images/lawCampus.jpg",
           h1: "Lost something at Pipitea?",
-          button: {caption: "Find It", url: "#"}
+          button: {caption: "Find It!", url: "#"}
         }
       ])
   include footer
