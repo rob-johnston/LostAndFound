@@ -30,4 +30,13 @@ block body
 
             input.btn.btn-success(type="submit" form="form1" value="search")
 
+
+        br
+        br
+        h5 results
+        if(results != null)
+            each result in results
+                h6 #{result.itemname}
+                p #{result.description}
+
     include footer

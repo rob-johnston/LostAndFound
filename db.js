@@ -240,9 +240,9 @@
     function advancedSearch(data,cb) {
 
         //need to build this out to make a super complicated SQL query
-
-        var words =  data.split(" ");
         //base of the statement
+        console.log(data);
+        var words = data.keywords.split(" ");
         var stmt = 'SELECT * FROM items WHERE ';
         //loop through to flesh out the query
         for(var i =0; i< words.length; i++){
@@ -250,7 +250,9 @@
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
-        stmt+=' AND datediscarded IS NULL;';
+        stmt+=' AND datediscarded IS NULL ';
+        stmt+= 'AND category LIKE ' + "'"+data.category+"' ";
+        stmt+= 'AND campus LIKE ' + "'"+ data.campus + "';";
 
 
         //connect to db

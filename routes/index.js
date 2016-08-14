@@ -24,13 +24,17 @@ router.get('/search', function(req, res, next) {
  var  urlparts = url.parse(req.url,true);
   //at the moment use simple search
   db.simpleSearch(urlparts.query.mysearch,function(err,result){
-    if(err){
-      console.log.print(err);
-      res.render('index', { title: 'Express' });
-    }
-    console.log(result);
-    res.render('index', { title: 'Express' });
+      db.getCampuses(function(err,campusresult){
+          db.getCategories(function(err,categoryresult){
+              if(err){
+                  console.log.print(err);
+                  res.render('index', { title: 'Express' });
+              }
+              res.render('advancedSearch', { title: 'Express', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows});
+          })
+      })
   })
+
 
 });
 
@@ -56,15 +60,21 @@ router.post('/addItem', function (req,res){
   })
 });
 
-/* GET view item page. */
+/* GET advanced search page. */
 router.get('/advancedSearch', function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
         //blank load with no search
-        if(url.parse(req.url,true)!=null){
+        if(url.parse(req.url,true).search ==''){
             res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
         } else {
-            //otherwise perform an advanced search
+            db.advancedSearch(url.parse(req.url,true).query, function(err,result){
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
+                }
+            })
         }
     })
   })
