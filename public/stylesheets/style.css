@@ -1,12 +1,17 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin-bottom: 60px;
 }
 
 a {
     color: #00B7FF;
 }
-
 
 .btn-custom {
     color: #FFFFFF;
@@ -21,7 +26,6 @@ a {
     border-radius: 0!important;
 
 }
-
 
 .custom-glyph-color{
     color:#fff;       /* change  magnifying glass color in  button */
@@ -41,13 +45,16 @@ a {
 
 }
 
-
 .footer {
     position: absolute;
     right: 0;
     left: 0;
     padding: 1rem;
     background-color: #efefef;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 65px;
 }
 
 #itemPhoto{
