@@ -7,6 +7,7 @@ pg.defaults.ssl= true;
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 //our js file for interacting with the db
 var db = require('../db.js');
+var viewitem = require('../routes/viewitem');
 var url = require('url');
 
 
@@ -19,10 +20,14 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
 
   //search logic goes here
+  //extract from url search query
  var  urlparts = url.parse(req.url,true);
-  console.log(urlparts.query.mysearch);
-  //at the moment just show everything
-  db.simplesearch(urlparts.query.mysearch,function(err,result){
+  //at the moment use simple search
+  db.simpleSearch(urlparts.query.mysearch,function(err,result){
+    if(err){
+      console.log.print(err);
+      res.render('index', { title: 'Express' });
+    }
     console.log(result);
     res.render('index', { title: 'Express' });
   })
@@ -52,13 +57,19 @@ router.post('/addItem', function (req,res){
 });
 
 /* GET view item page. */
-router.get('/viewItem', function (req, res) {
-  res.render('viewItem', { title: 'Item View' });
+router.get('/advancedSearch', function (req, res) {
+  db.getCampuses(function(err,campusresult){
+    db.getCategories(function(err,categoryresult){
+        res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+    })
+  })
 });
+
 
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
-  res.render('viewItem', { title: 'Item View' });
+  // res.render('viewItem', { title: 'Item View' });
+  viewitem.view(req, res, database, pg);
 });
 
 /* GET edit item page. */

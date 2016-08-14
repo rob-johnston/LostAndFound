@@ -19,7 +19,8 @@
         getCampuses: getCampuses,
         addItem: addItem,
         search: search,
-        simplesearch: simplesearch,
+        simpleSearch: simpleSearch,
+        advancedSearch: advancedSearch,
         addCategory: addCategory,
         addCampus: addCampus
         //example:example
@@ -129,7 +130,7 @@
         //last arg is image, need to do get that working
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\');'
-        //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID
+        //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
         var stmt = 'INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
             args;
         //connect to db
@@ -189,10 +190,10 @@
 
     /**
      * a simple search function that takes text from the search bar and uses it to search the DB
-     * @param search query
+     ** @param search query
      * @param cb callback
      */
-    function simplesearch(data,cb) {
+    function simpleSearch(data,cb) {
 
         var words =  data.split(" ");
         //base of the statement
@@ -203,8 +204,9 @@
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
-        stmt+=';';
-        console.log(stmt);
+        stmt+=' AND datediscarded IS NULL;';
+
+
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -228,6 +230,50 @@
         });
     }
 
+
+    /**
+     * a more advanced search query that makes use of filters to search the DB
+     ** @param search query
+     * @param cb callback
+     */
+    function advancedSearch(data,cb) {
+
+        //need to build this out to make a super complicated SQL query
+
+        var words =  data.split(" ");
+        //base of the statement
+        var stmt = 'SELECT * FROM items WHERE ';
+        //loop through to flesh out the query
+        for(var i =0; i< words.length; i++){
+            stmt = stmt + "ItemName LIKE '%" +words[i]+"%'" +  ' OR Description LIKE ' + "'%" + words[i]+"%' OR ";
+        }
+        //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
+        stmt=stmt.substring(0,stmt.length-4);
+        stmt+=' AND datediscarded IS NULL;';
+
+
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
     /**
      * this method is used to add a category to the Categories table in the database
      * this should only be accessed by a superuser
@@ -293,7 +339,6 @@
             });
         });
     }
-
 
 
 
