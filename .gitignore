@@ -28,3 +28,6 @@ build/Release
 
 # Debug log from npm
 npm-debug.log
+
+# Ignore .idea folder to avoid merge conflicts
+/home/pangaaro/SWEN302/LostAndFound/.idea/*
