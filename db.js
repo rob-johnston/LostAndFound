@@ -247,7 +247,7 @@
         //base of the statement
         console.log(data);
         var words = data.keywords.split(" ");
-        var stmt = 'SELECT * FROM items WHERE ';
+        var stmt = 'SELECT * FROM ' + itemtable + ' WHERE ';
         //loop through to flesh out the query
         for(var i =0; i< words.length; i++){
             stmt = stmt + "ItemName LIKE '%" +words[i]+"%'" +  ' OR Description LIKE ' + "'%" + words[i]+"%' OR ";
@@ -296,7 +296,7 @@
      */
     function addCategory(data,cb) {
 
-        var stmt = "INSERT INTO category (cateogy) VALUES ('"+data+"');";
+        var stmt = "INSERT INTO " + categoriestable + " (cateogy) VALUES ('"+data+"');";
         console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -329,7 +329,7 @@
      */
     function addCampus(data,cb) {
 
-        var stmt = "INSERT INTO campus (campus) VALUES ('"+data+"');";
+        var stmt = "INSERT INTO " + campustable + " (campus) VALUES ('"+data+"');";
         console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -367,7 +367,7 @@
         if(data.query.category=='All Categories'){
             data.query.category = '%'
         }
-        var stmt = "SET datestyle = \"ISO,DMY\"; SELECT * FROM items WHERE category LIKE '" + data.query.category + "' ";
+        var stmt = "SET datestyle = \"ISO,DMY\"; SELECT * FROM "+ itemtable +" WHERE category LIKE '" + data.query.category + "' ";
         //if 'from' date is included, add it to the statement
         if(data.query.from!=''){
             stmt += " AND datefound > '"+data.query.from+"' ";
