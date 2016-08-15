@@ -7,6 +7,7 @@ pg.defaults.ssl= true;
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 //our js file for interacting with the db
 var db = require('../db.js');
+var search = require('../search.js');
 var url = require('url');
 
 
@@ -22,7 +23,7 @@ router.get('/search', function(req, res, next) {
   //extract from url search query
  var  urlparts = url.parse(req.url,true);
   //at the moment use simple search
-  db.simpleSearch(urlparts.query.mysearch,function(err,result){
+  search.simpleSearch(urlparts.query.mysearch,function(err,result){
       db.getCampuses(function(err,campusresult){
           db.getCategories(function(err,categoryresult){
               if(err){
@@ -72,7 +73,7 @@ router.get('/advancedSearch', function (req, res) {
         if(url.parse(req.url,true).search ==''){
             res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
         } else {
-            db.advancedSearch(url.parse(req.url,true).query, function(err,result){
+            search.advancedSearch(url.parse(req.url,true).query, function(err,result){
                 if(err) {
                     console.log(err);
                 } else {
@@ -138,7 +139,7 @@ router.get('/studentSearchResults', function(req,res,next){
                 res.render('studentSearchResults', {title: 'Student Search', categories: categoryresult.rows, campus: campusresult.rows, results: null});
             } else {
                 //otherwise perform a student search
-                db.studentSearch(url.parse(req.url, true), function (err, result) {
+                search.studentSearch(url.parse(req.url, true), function (err, result) {
                     if (err) {
                         console.log("error performing student search");
                     } else {
