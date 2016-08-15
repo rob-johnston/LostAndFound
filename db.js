@@ -23,7 +23,7 @@
         advancedSearch: advancedSearch,
         addCategory: addCategory,
         addCampus: addCampus,
-        studentSearch : studentSearch
+        studentSearch : studentSearch,
         //example:example
         viewItem: viewItem,
         editItem: editItem
