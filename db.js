@@ -353,9 +353,16 @@
     function studentSearch(data,cb) {
         //format to get info is... data.query.xxxx   where xxxx is category, from , to;
         //base of the statement
-        var stmt = "SELECT * FROM items WHERE category LIKE '" + data.query.category + "' ;";
-
+        var stmt = "SET datestyle = \"ISO,DMY\"; SELECT * FROM items WHERE category LIKE '" + data.query.category + "' ";
+        if(data.query.from!=null){
+            stmt += " AND datefound > '"+data.query.from+"' ";
+        }
+        if(data.query.to != null){
+            stmt += " AND datefound < '"+data.query.to + "'";
+        }
+        stmt += ";";
        // stmt+=' AND datediscarded IS NULL;';
+
 
 
         //connect to db
