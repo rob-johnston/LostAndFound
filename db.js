@@ -8,7 +8,9 @@
     pg.defaults.ssl= true;
     //location of our heroku DB
     var db = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
-
+    var itemtable = 'items';
+    var campustable = 'campus';
+    var categoriestable = 'category';
 
 
     //all the functions we can use here
@@ -36,7 +38,7 @@
     function getAllItems(cb) {
 
         //the sql statement we need
-        var stmt = 'SELECT * FROM items';
+        var stmt = 'SELECT * FROM '+ itemtable +';';
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -67,7 +69,7 @@
     function getCategories(cb) {
 
         //the sql statement we need
-        var stmt = 'SELECT * FROM category';
+        var stmt = 'SELECT * FROM ' + categoriestable + ';';
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -98,7 +100,7 @@
     function getCampuses(cb) {
 
         //the sql statement we need
-        var stmt = 'SELECT * FROM campus';
+        var stmt = 'SELECT * FROM ' + campustable + ';';
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -131,7 +133,7 @@
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\');'
         //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
-        var stmt = 'SET datestyle = \"ISO,DMY\"; INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
+        var stmt = 'SET datestyle = \"ISO,DMY\"; INSERT INTO ' + itemtable + '(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
             args;
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -197,7 +199,7 @@
 
         var words =  data.split(" ");
         //base of the statement
-        var stmt = 'SELECT * FROM items WHERE ';
+        var stmt = 'SELECT * FROM ' + itemtable + ' WHERE ';
         //loop through to flesh out the query
         for(var i =0; i< words.length; i++){
             stmt = stmt + "ItemName LIKE '%" +words[i]+"%'" +  ' OR Description LIKE ' + "'%" + words[i]+"%' OR ";
@@ -250,9 +252,16 @@
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
+        //include discarded items in search?
         stmt+=' AND datediscarded IS NULL ';
-        stmt+= 'AND category LIKE ' + "'"+data.category+"' ";
-        stmt+= 'AND campus LIKE ' + "'"+ data.campus + "';";
+        //add category if included
+        if(data.category != "All Categories"){
+            stmt+= 'AND category LIKE ' + "'"+data.category+"' ";
+        }
+        //add campus if included
+        if(data.campus != "All Campuses"){
+            stmt+= 'AND campus LIKE ' + "'"+ data.campus + "';";
+        }
 
 
         //connect to db
@@ -346,24 +355,28 @@
 
     /**
      * this method is used to perform a "student search"
-     * this is a search that only uses a category and 2 dates to perform a restricted search
+     * this is a search that only uses a category and  (possibly) 2 dates to perform a restricted search
      * @param search category + date range
      * @param cb callback
      */
     function studentSearch(data,cb) {
         //format to get info is... data.query.xxxx   where xxxx is category, from , to;
-        //base of the statement
+        //base of the statement - set datestyle and match category
+        if(data.query.category=='All Categories'){
+            data.query.category = '%'
+        }
         var stmt = "SET datestyle = \"ISO,DMY\"; SELECT * FROM items WHERE category LIKE '" + data.query.category + "' ";
-        if(data.query.from!=null){
+        //if 'from' date is included, add it to the statement
+        if(data.query.from!=''){
             stmt += " AND datefound > '"+data.query.from+"' ";
         }
-        if(data.query.to != null){
+        //if 'to' date is included then add to statement
+        if(data.query.to != ''){
             stmt += " AND datefound < '"+data.query.to + "'";
         }
+        //adding the final semi colon
         stmt += ";";
        // stmt+=' AND datediscarded IS NULL;';
-
-
 
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -387,9 +400,4 @@
             });
         });
     }
-
-
-
-
-
 })();
