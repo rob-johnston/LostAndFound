@@ -5,7 +5,35 @@ append styles
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
 block body
     include navBar
+
+        form.centerAdd(action="/studentSearchResults",method="get",id="form1" )
+            br
+            br
+            h6 Item Found Date Range
+            h6 From  (use format dd-mm-yy)
+            input(class="form-control",type="text", name = "from", form="form1")
+            h6 To   (use format dd-mm-yy)
+            input(class="form-control",type="text", name = "to", form="form1")
+
+            h6 Category Filter
+            select(class="form-control",name="category" form="form1")
+                each category in categories
+                    option(value='#{category.category}') #{category.category}
+            h6 Campus Filter
+            select(class="form-control",name="campus" form="form1")
+                each location in campus
+                    option(value='#{location.campus}') #{location.campus}
+
+            input.btn.btn-success(type="submit" form="form1" value="search")
+
     div(class="vertsyncresults")
+        br
+        br
+        br
+        br
+        if( results != null )
+            each result in results
+                p #{result.itemname}
         br
         br
         br

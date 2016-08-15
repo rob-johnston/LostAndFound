@@ -23,6 +23,7 @@
         advancedSearch: advancedSearch,
         addCategory: addCategory,
         addCampus: addCampus,
+        studentSearch : studentSearch
         //example:example
         viewItem: viewItem,
         editItem: editItem
@@ -129,11 +130,10 @@
      */
     function addItem(data,cb) {
         //the sql statement we need
-        //last arg is image, need to do get that working
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\');'
         //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
-        var stmt = 'INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
+        var stmt = 'SET datestyle = \"ISO,DMY\"; INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
             args;
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -233,6 +233,7 @@
     }
 
 
+
     /**
      * a more advanced search query that makes use of filters to search the DB
      ** @param search query
@@ -241,9 +242,9 @@
     function advancedSearch(data,cb) {
 
         //need to build this out to make a super complicated SQL query
-
-        var words =  data.split(" ");
         //base of the statement
+        console.log(data);
+        var words = data.keywords.split(" ");
         var stmt = 'SELECT * FROM items WHERE ';
         //loop through to flesh out the query
         for(var i =0; i< words.length; i++){
@@ -251,7 +252,9 @@
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
-        stmt+=' AND datediscarded IS NULL;';
+        stmt+=' AND datediscarded IS NULL ';
+        stmt+= 'AND category LIKE ' + "'"+data.category+"' ";
+        stmt+= 'AND campus LIKE ' + "'"+ data.campus + "';";
 
 
         //connect to db
@@ -341,6 +344,53 @@
             });
         });
     }
+
+
+    /**
+     * this method is used to perform a "student search"
+     * this is a search that only uses a category and 2 dates to perform a restricted search
+     * @param search category + date range
+     * @param cb callback
+     */
+    function studentSearch(data,cb) {
+        //format to get info is... data.query.xxxx   where xxxx is category, from , to;
+        //base of the statement
+        var stmt = "SET datestyle = \"ISO,DMY\"; SELECT * FROM items WHERE category LIKE '" + data.query.category + "' ";
+        if(data.query.from!=null){
+            stmt += " AND datefound > '"+data.query.from+"' ";
+        }
+        if(data.query.to != null){
+            stmt += " AND datefound < '"+data.query.to + "'";
+        }
+        stmt += ";";
+       // stmt+=' AND datediscarded IS NULL;';
+
+
+
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+
 
     // Created by gelidotris 15/08/16
     /**

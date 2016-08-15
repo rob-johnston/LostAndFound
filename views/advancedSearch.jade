@@ -1,4 +1,4 @@
-//Created by gelidotris 8/08/16
+//Created by johnstrobe 8/08/16
 
 extends ../node_modules/jade-bootstrap/_bootstrap
 
@@ -29,5 +29,14 @@ block body
                     option(value='#{location.campus}') #{location.campus}
 
             input.btn.btn-success(type="submit" form="form1" value="search")
+
+
+        br
+        br
+        h5 results
+        if(results != null)
+            each result in results
+                h6 #{result.itemname}
+                p #{result.description}
 
     include footer
