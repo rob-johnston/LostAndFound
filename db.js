@@ -22,8 +22,10 @@
         simpleSearch: simpleSearch,
         advancedSearch: advancedSearch,
         addCategory: addCategory,
-        addCampus: addCampus
+        addCampus: addCampus,
         //example:example
+        viewItem: viewItem,
+        editItem: editItem
     };
 
 
@@ -340,6 +342,82 @@
         });
     }
 
+    // Created by gelidotris 15/08/16
+    /**
+     * Function which is used to view details about an item in the database
+     * @param cb callback
+     */
+    function viewItem(cb) {
+        var stmt = "SELECT * FROM items WHERE itemid = 6";
+
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+
+            console.log("connection successful");
+            //will change to get item id when item links are working in db view
+            client.query(stmt, function(error,result){
+
+                var q = JSON.stringify(result.rows);
+                var queryResult = JSON.parse(q);
+
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+
+                cb(false,queryResult[0]);
+
+            });
+        });
+    }
+
+    // Created by gelidotris 15/08/16
+    /**
+     * Function which is used to edit details about an item in the database
+     * @param cb callback
+     */
+    function editItem(data,cb) {
+        // var convertedDate = new Date(data.dateFound);
+
+
+        //BUGS -- will be fixing
+        //# Can't update date yet - keep getting [error: invalid input syntax for type date: "Invalid Date"] >> left it out of query for now
+        //# Changing category causes value to be [object Object] >> same issue occurs when changing campus value
+        var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
+             + data.category + '\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
+
+        // var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
+        //     + data.category + '\', DateFound = \''+ convertedDate +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
+
+
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //submit the statement we want
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                cb(false,result);
+            });
+        });
+        // });
+    }
 
 
 })();
