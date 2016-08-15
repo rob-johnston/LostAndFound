@@ -54,7 +54,12 @@ router.post('/addItem', function (req,res){
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
       db.addItem(req.body,function(err,result){
-        res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+          if(err){
+              res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item"});
+          }else {
+              res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly"});
+          }
+
       })
     })
   })

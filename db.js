@@ -131,7 +131,7 @@
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\');'
         //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
-        var stmt = 'INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
+        var stmt = 'SET datestyle = \"ISO,DMY\"; INSERT INTO items(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
             args;
         //connect to db
         pg.connect(db,function(err,client,done){
