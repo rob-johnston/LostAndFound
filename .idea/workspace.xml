@@ -39,8 +39,8 @@
       <file leaf-file-name="StatsController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/StatsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            <state relative-caret-position="540">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
               <folding>
                 <element signature="e#0#45#0" expanded="false" />
               </folding>
@@ -461,7 +461,7 @@
       <workItem from="1470610803253" duration="73000" />
       <workItem from="1470611975246" duration="2254000" />
       <workItem from="1470618698529" duration="5615000" />
-      <workItem from="1471209659931" duration="8695000" />
+      <workItem from="1471209659931" duration="9932000" />
     </task>
     <task id="LOCAL-00001" summary="added vertsync css&#10;">
       <created>1470613028972</created>
@@ -519,11 +519,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471218778812</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=" statscontorller connects to DB still need to iron out mistakes in the query">
+      <created>1471228570357</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1471228570357</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30542000" />
+    <option name="totallyTimeSpent" value="31779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="-3" width="1926" height="1060" extended-state="6" />
@@ -567,7 +574,8 @@
     <MESSAGE value="minor fix to graph on statistics.jade view" />
     <MESSAGE value="minor change to graph on statistics.jade view" />
     <MESSAGE value="Working on the controller for the Stats view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on the controller for the Stats view" />
+    <MESSAGE value=" statscontorller connects to DB still need to iron out mistakes in the query" />
+    <option name="LAST_COMMIT_MESSAGE" value=" statscontorller connects to DB still need to iron out mistakes in the query" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -795,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/StatsController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="540">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
           <folding>
             <element signature="e#0#45#0" expanded="false" />
           </folding>
