@@ -7,7 +7,6 @@ pg.defaults.ssl= true;
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 //our js file for interacting with the db
 var db = require('../db.js');
-var viewitem = require('../routes/viewitem');
 var url = require('url');
 
 
@@ -85,27 +84,39 @@ router.get('/advancedSearch', function (req, res) {
   })
 });
 
-
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
-  // res.render('viewItem', { title: 'Item View' });
-  viewitem.view(req, res, database, pg);
+      db.viewItem(function(err,itemresult){
+        res.render('viewItem', {title: 'View Item', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+          itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
+      })
 });
 
 /* GET edit item page. */
-router.get('/editItem', function (req, res, next) {
+router.get('/editItem', function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
-      //render page with info from db
-      res.render('editItem', { title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows});
+      db.viewItem(function(err,itemresult){
+        res.render('editItem', {title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+          itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
+      })
     })
   })
 });
 
-// router.get('/editItem', function (req,res){
-//   res.render('viewItem', { title: 'Item View' /*, categories: categories, campus: campus*/});
-//   //console.log(req.body);
-// });
+router.post('/editItem', function (req,res){
+  //get info from table for re-rendering ad page + add the item to the db
+  db.getCampuses(function(err,campusresult){
+    db.getCategories(function(err,categoryresult){
+      db.editItem(req.body,function(err,result){
+        db.viewItem(function(err,itemresult){
+          res.render('editItem', {title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+            itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
+        })
+      })
+    })
+  })
+});
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
