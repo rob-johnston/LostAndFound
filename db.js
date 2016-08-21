@@ -269,7 +269,6 @@
      * @param cb callback
      */
     function editItem(data,cb) {
-        // var convertedDate = new Date(data.dateFound);
 
 
         //BUGS -- will be fixing
@@ -279,9 +278,9 @@
              + data.category + '\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
 
         // var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-        //     + data.category + '\', DateFound = \''+ convertedDate +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
+        //     + data.category + '\', DateFound = \''+ date.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
 
-
+        console.log(data);
         pg.connect(db,function(err,client,done){
             if(err){
                 //deal with db connection issues
@@ -290,6 +289,7 @@
                 return ;
             }
             console.log("connection successful");
+            console.log("Category: " + JSON.stringify(data.campus));
             //submit the statement we want
             client.query(stmt, function(error,result){
                 done();
@@ -299,9 +299,8 @@
                     return;
                 }
                 cb(false,result);
-            });
         });
         // });
-    }
+    })};
 
 })();

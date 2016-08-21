@@ -1,6 +1,11 @@
 // Created by gelidotris on 8/08/16.
 
-extends ../node_modules/jade-bootstrap/_bootstrap
+include ../node_modules/jade-bootstrap/_bootstrap
+block head
+    link(rel = "stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
+
 append styles
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/normalize.css')
@@ -26,20 +31,31 @@ block body
             h4 Item Category
             select(class="form-control",name="category" form="form2")
                 each category in categories
-                    option(value='#{category}') #{category.category}
+                    option(value='#{category.category}') #{category.category}
             h4 Date Found
-            input(class="form-control",type="text", value='#{itemDateFound}', form="form2", required)
+            script.
+                $(document).ready(function () {
+                    $("#datepicker").datepicker({dateformat: "dd-mm-yy"});
+                });
+            input(type = "text", id = "datepicker")
             h4 Location Found
             input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2", required)
             h4 Which Campus the item is at
             select(class="form-control",name="campus" form="form2")
                 each location in campus
-                    option(value='#{location}') #{location.campus}
+                    option(value='#{location.campus}') #{location.campus}
             h4 Image
                 br
                 img(src="images/defaultImg.png" style="width:200px;")
+
+                // TO DO: Delete + Upload Button functionality
+                #photoFunctions.col-sm-12
+                    form(action = "#", method="get")
+                        button.btn.btn-default Edit Photo
+                    form(action = "#", method="get")
+                        button.btn.btn-default Delete Photo
                 // img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
-                    // TO DO: Delete + Upload Button
+
             input.btn.btn-success(type="submit" form="form2" value="submit")
 
     include Footer

@@ -111,7 +111,7 @@ router.get('/editItem', function (req, res) {
 });
 
 router.post('/editItem', function (req,res){
-  //get info from table for re-rendering ad page + add the item to the db
+  //get info from table for re-rendering ad page + add edited info to the db
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
       db.editItem(req.body,function(err,result){
