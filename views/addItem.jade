@@ -2,9 +2,10 @@
    Created by johnstrobe on 1/08/16.
 include ../node_modules/jade-bootstrap/_bootstrap
 block head
+    link(rel = "stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
     script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
     script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
-    link(rel = "stylesheet", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
+
 
 
 append styles
@@ -31,13 +32,12 @@ block body
                     each category in categories
                         option(value='#{category.category}') #{category.category}
                 h4 Date Found
-                input(class="form-control",type="text", name = "dateFound", form="form1", required)
                 script.
-                    $(document).ready(function() {
-                        $("#dateFound").datepicker({dateformat: "dd-mm-yy"});
+                    $(document).ready(function () {
+                        $("#datepicker").datepicker({dateformat: "dd-mm-yy"});
                     });
-
-            h4 Campus
+                input(type = "text", id = "datepicker")
+                h4 Campus
                 select(class="form-control",name="campus" form="form1")
                     each location in campus
                         option(value='#{location.campus}') #{location.campus}
