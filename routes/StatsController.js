@@ -50,5 +50,4 @@
         });
         queryResult = queryResult*15;
     }
-
-}
+});

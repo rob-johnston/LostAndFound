@@ -1,16 +1,18 @@
 //
    Created by johnstrobe on 1/08/16.
+include ../node_modules/jade-bootstrap/_bootstrap
+block head
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
+    link(rel = "stylesheet", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
 
 
-
-extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
   link(rel='stylesheet', href='/stylesheets/style.css')
   link(rel='stylesheet', href='/stylesheets/normalize.css')
   link(rel='stylesheet', href='/stylesheets/skeleton.css')
 
 block body
-    include navBar
         .row
             br
             br
@@ -30,7 +32,12 @@ block body
                         option(value='#{category.category}') #{category.category}
                 h4 Date Found
                 input(class="form-control",type="text", name = "dateFound", form="form1", required)
-                h4 Campus
+                script.
+                    $(document).ready(function() {
+                        $("#dateFound").datepicker({dateformat: "dd-mm-yy"});
+                    });
+
+            h4 Campus
                 select(class="form-control",name="campus" form="form1")
                     each location in campus
                         option(value='#{location.campus}') #{location.campus}
@@ -40,4 +47,3 @@ block body
                 h4 Image
                 input.btn.btn-success(type="submit" form="form1" value="submit")
 
-    include footer
