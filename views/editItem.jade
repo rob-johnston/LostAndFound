@@ -29,9 +29,12 @@ block body
             h4 Item Description
             input(class="form-control",type="text", name = "itemDescription", value='#{itemDesc}',form="form2", required)
             h4 Item Category
-            select(class="form-control",name="category" form="form2")
+            select(class="form-control",name="category" form="form2",  )
                 each category in categories
-                    option(value='#{itemCategory}') #{category.category}
+                    if(itemCategory==category.category)
+                        option(value='#{itemCategory}',selected='selected') #{category.category}
+                    else
+                        option(value='#{itemCategory}') #{category.category}
             h4 Date Found
             script.
                 $(document).ready(function () {

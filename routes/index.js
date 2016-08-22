@@ -103,6 +103,7 @@ router.get('/editItem', function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
       db.viewItem(function(err,itemresult){
+         console.log("cat here is " +itemresult.category);
         res.render('editItem', {title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
       })
