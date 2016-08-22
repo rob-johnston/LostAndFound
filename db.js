@@ -8,10 +8,19 @@
     pg.defaults.ssl= true;
     //location of our heroku DB
     var db = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
+
+
     //var names of the tables we have
-    var itemtable = 'items';
-    var campustable = 'campus';
-    var categoriestable = 'category';
+    var ITEMS_TABLE = 'items ';
+    var CAMPUSES_TABLE = 'campus ';
+    var CATEGORIES_TABLE = 'category ';
+
+    //going to use some vars for building our sql queries
+    var SELECT_ALL = 'SELECT * FROM ';
+    var INSERT = 'INSERT INTO ';
+    var UPDATE = 'UPDATE ';
+    var WHERE = "WHERE "
+
 
 
     //all the functions we can use here
@@ -37,7 +46,7 @@
     function getAllItems(cb) {
 
         //the sql statement we need
-        var stmt = 'SELECT * FROM '+ itemtable +';';
+        var stmt = SELECT_ALL + ITEMS_TABLE +';';
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -68,7 +77,7 @@
     function getCategories(cb) {
 
         //the sql statement we need
-        var stmt = 'SELECT * FROM ' + categoriestable + ';';
+        var stmt = SELECT_ALL + CATEGORIES_TABLE + ';';
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -99,7 +108,7 @@
     function getCampuses(cb) {
 
         //the sql statement we need
-        var stmt = 'SELECT * FROM ' + campustable + ';';
+        var stmt = SELECT_ALL + CAMPUSES_TABLE + ';';
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -132,7 +141,7 @@
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\');'
         //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ 'INSERT INTO ' + itemtable + '(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
             args;
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -165,7 +174,7 @@
      */
     function addCategory(data,cb) {
 
-        var stmt = "INSERT INTO " + categoriestable + " (cateogy) VALUES ('"+data+"');";
+        var stmt = INSERT + CATEGORIES_TABLE + " (cateogy) VALUES ('"+data+"');";
         console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -198,7 +207,7 @@
      */
     function addCampus(data,cb) {
 
-        var stmt = "INSERT INTO " + campustable + " (campus) VALUES ('"+data+"');";
+        var stmt = INSERT + CAMPUSES_TABLE + " (campus) VALUES ('"+data+"');";
         console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -233,7 +242,7 @@
      * @param cb callback
      */
     function viewItem(cb) {
-        var stmt = "SELECT * FROM items WHERE itemid = 6";
+        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = 6";
 
         pg.connect(db,function(err,client,done){
             if(err){

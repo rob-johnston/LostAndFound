@@ -8,10 +8,17 @@
     pg.defaults.ssl= true;
     //location of our heroku DB
     var db = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
+
     //var names of the tables we have
-    var itemtable = 'items';
-    var campustable = 'campus';
-    var categoriestable = 'category';
+    var ITEMS_TABLE = 'items ';
+    var CAMPUSES_TABLE = 'campus ';
+    var CATEGORIES_TABLE = 'category ';
+
+    //going to use some vars for building our sql queries
+    var SELECT_ALL = 'SELECT * FROM ';
+    var INSERT = 'INSERT INTO ';
+    var UPDATE = 'UPDATE ';
+    var WHERE = "WHERE "
 
 
     //all the functions we can use here
@@ -30,12 +37,15 @@
      * @param cb callback
      */
     function studentSearch(data,cb) {
+        console.log("performing student search");
+
         //format to get info is... data.query.xxxx   where xxxx is category, from , to;
-        //base of the statement - set datestyle and match category
+        //base of the statement - and match category
         if(data.query.category=='All Categories'){
+            //change category to a wildcard if no specific category selected
             data.query.category = '%'
         }
-        var stmt = /*"SET datestyle = \"ISO,DMY\";*/ "SELECT * FROM "+ itemtable +" WHERE category LIKE '" + data.query.category + "' ";
+        var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + data.query.category + "' ";
         //if 'from' date is included, add it to the statement
         if(data.query.from!=''){
             stmt += " AND datefound > '"+data.query.from+"' ";
@@ -78,12 +88,13 @@
      * @param cb callback
      */
     function advancedSearch(data,cb) {
+        console.log("performing advanced search");
 
         //need to build this out to make a super complicated SQL query
         //base of the statement
         console.log(data);
         var words = data.keywords.split(" ");
-        var stmt = 'SELECT * FROM ' + itemtable + ' WHERE ';
+        var stmt = SELECT_ALL + ITEMS_TABLE + WHERE;
         //loop through to flesh out the query
         stmt+="(";
         for(var i =0; i< words.length; i++){
@@ -148,10 +159,11 @@
      * @param cb callback
      */
     function simpleSearch(data,cb) {
+        console.log("performing simple search");
 
         var words =  data.split(" ");
         //base of the statement
-        var stmt = 'SELECT * FROM ' + itemtable + ' WHERE ';
+        var stmt = SELECT_ALL + ITEMS_TABLE + WHERE;
         //loop through to flesh out the query
         for(var i =0; i< words.length; i++){
             stmt = stmt + "ItemName LIKE '%" +words[i]+"%'" +  ' OR Description LIKE ' + "'%" + words[i]+"%' OR ";
@@ -159,7 +171,7 @@
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
         stmt+=' AND datediscarded IS NULL;';
-
+        console.log(stmt);
 
         //connect to db
         pg.connect(db,function(err,client,done){
