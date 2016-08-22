@@ -12,38 +12,39 @@ append styles
   link(rel='stylesheet', href='/stylesheets/skeleton.css')
 
 block body
-        .row
-            include navBar
-        .row
-            br
-            br
-            br
-            h3 Add a new item to the database
-            br
-            h2 #{message}
-            form.centerAdd(action="/addItem",method="post",id="form1" )
+        .col-md-3
+            .row
+                include navBar
+            .row
+                br
+                br
+                br
+                h3 Add a New Item
+                br
+                h2 #{message}
+                form.centerAdd(action="/addItem",method="post",id="form1" )
 
-                h4 Item Name
-                input(class="form-control",type="text", name = "itemName", placeholder="name", form="form1", required)
-                h4 Item Description
-                input(class="form-control",type="text", name = "itemDescription", placeholder="description",form="form1", required)
-                h4 Item Category
-                select(class="form-control",name="category" form="form1")
-                    each category in categories
-                        option(value='#{category.category}') #{category.category}
-                h4 Date Found
-                script.
-                    $(document).ready(function () {
-                        $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
-                    });
-                input(type = "text", id = "datepicker", form="form1", name = "dateFound")
-                h4 Campus
-                select(class="form-control",name="campus" form="form1")
-                    each location in campus
-                        option(value='#{location.campus}') #{location.campus}
-                h4 Location Found
-                    input(class="form-control",type="text", name = "locationFound", placeholder="eg The Hub",form="form1", required)
-                //image upload?
-                h4 Image
-                input.btn.btn-success(type="submit" form="form1" value="submit")
+                    h4 Item Name
+                    input(class="form-control",type="text", name = "itemName", placeholder="name", form="form1", required)
+                    h4 Item Description
+                    input(class="form-control",type="text", name = "itemDescription", placeholder="description",form="form1", required)
+                    h4 Item Category
+                    select(class="form-control",name="category" form="form1")
+                        each category in categories
+                            option(value='#{category.category}') #{category.category}
+                    h4 Date Found
+                    script.
+                        $(document).ready(function () {
+                            $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
+                        });
+                    input(type = "text", id = "datepicker", form="form1", name = "dateFound")
+                    h4 Campus
+                    select(class="form-control",name="campus" form="form1")
+                        each location in campus
+                            option(value='#{location.campus}') #{location.campus}
+                    h4 Location Found
+                        input(class="form-control",type="text", name = "locationFound", placeholder="eg The Hub",form="form1", required)
+                    //image upload?
+                    h4 Image
+                    input.btn.btn-success(type="submit" form="form1" value="submit")
 
