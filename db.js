@@ -269,14 +269,6 @@
      * @param cb callback
      */
     function editItem(data,cb) {
-
-
-        //BUGS -- will be fixing
-        //# Can't update date yet - keep getting [error: invalid input syntax for type date: "Invalid Date"] >> left it out of query for now
-        //# Changing category causes value to be [object Object] >> same issue occurs when changing campus value
-        // var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-        //      + data.category + '\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
-
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
             + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
 
@@ -290,6 +282,7 @@
             console.log("connection successful");
             //submit the statement we want
             client.query(stmt, function(error,result){
+
                 done();
                 if(error){
                     console.log("query failed");

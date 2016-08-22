@@ -31,19 +31,19 @@ block body
             h4 Item Category
             select(class="form-control",name="category" form="form2")
                 each category in categories
-                    option(value='#{category.category}') #{category.category}
+                    option(value='#{itemCategory}') #{category.category}
             h4 Date Found
             script.
                 $(document).ready(function () {
                     $("#datepicker").datepicker({dateformat: "dd-mm-yy"});
                 });
-            input(type = "text", id = "datepicker",form="form2", name = "dateFound")
+            input(type = "text", id = "datepicker",form="form2", name = "dateFound", value='#{itemDateFound}')
             h4 Location Found
             input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2", required)
             h4 Which Campus the item is at
             select(class="form-control",name="campus" form="form2")
                 each location in campus
-                    option(value='#{location.campus}') #{location.campus}
+                    option(value='#{itemCampusLoc}') #{location.campus}
             h4 Image
                 br
                 img(src="images/defaultImg.png" style="width:200px;")
