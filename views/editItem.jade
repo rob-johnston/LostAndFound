@@ -37,7 +37,7 @@ block body
                 $(document).ready(function () {
                     $("#datepicker").datepicker({dateformat: "dd-mm-yy"});
                 });
-            input(type = "text", id = "datepicker")
+            input(type = "text", id = "datepicker",form="form2", name = "dateFound")
             h4 Location Found
             input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2", required)
             h4 Which Campus the item is at
@@ -58,5 +58,5 @@ block body
 
             input.btn.btn-success(type="submit" form="form2" value="submit")
 
-    include Footer
+    include footer
 
