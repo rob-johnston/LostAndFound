@@ -274,13 +274,12 @@
         //BUGS -- will be fixing
         //# Can't update date yet - keep getting [error: invalid input syntax for type date: "Invalid Date"] >> left it out of query for now
         //# Changing category causes value to be [object Object] >> same issue occurs when changing campus value
-        var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-             + data.category + '\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
-
         // var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-        //     + data.category + '\', DateFound = \''+ date.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
+        //      + data.category + '\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
 
-        console.log(data);
+        var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
+            + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
+
         pg.connect(db,function(err,client,done){
             if(err){
                 //deal with db connection issues
@@ -289,7 +288,6 @@
                 return ;
             }
             console.log("connection successful");
-            console.log("Category: " + JSON.stringify(data.campus));
             //submit the statement we want
             client.query(stmt, function(error,result){
                 done();
@@ -300,7 +298,6 @@
                 }
                 cb(false,result);
         });
-        // });
     })};
 
 })();
