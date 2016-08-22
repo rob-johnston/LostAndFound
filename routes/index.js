@@ -116,13 +116,13 @@ router.get('/editItem', function (req, res) {
 });
 
 router.post('/editItem', function (req,res){
-  //get info from table for re-rendering ad page + add edited info to the db
+  //get info from table for re-rendering page + add edited info to the db
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
-      db.editItem(req.body,function(err,result){
-        db.viewItem(function(err,itemresult){
-          res.render('editItem', {title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-            itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
+        db.editItem(req.body,function(err,result){
+            db.viewItem(function(err,itemresult){
+            res.render('viewItem', {title: 'View Item', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+                itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
         })
       })
     })

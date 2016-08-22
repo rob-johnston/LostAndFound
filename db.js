@@ -251,7 +251,6 @@
                 console.log(err);
                 return ;
             }
-
             console.log("connection successful");
             //will change to get item id when item links are working in db view
             client.query(stmt, function(error,result){
@@ -283,13 +282,13 @@
 
         pg.connect(db,function(err,client,done){
             if(err){
-                //deal with db connection issues
                 console.log('cant connect to db');
                 console.log(err);
                 return ;
             }
+
+            console.log("Category: " + data.category);
             console.log("connection successful");
-            //submit the statement we want
             client.query(stmt, function(error,result){
 
                 done();
@@ -298,6 +297,7 @@
                     console.log(error);
                     return;
                 }
+
                 cb(false,result);
         });
     })};

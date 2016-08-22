@@ -29,12 +29,12 @@ block body
             h4 Item Description
             input(class="form-control",type="text", name = "itemDescription", value='#{itemDesc}',form="form2", required)
             h4 Item Category
-            select(class="form-control",name="category" form="form2",  )
+            select(class="form-control",name="category" form="form2")
                 each category in categories
                     if(itemCategory==category.category)
                         option(value='#{itemCategory}',selected='selected') #{category.category}
                     else
-                        option(value='#{itemCategory}') #{category.category}
+                        option(value = '#{category.category}') #{category.category}
             h4 Date Found
             script.
                 $(document).ready(function () {
@@ -46,7 +46,10 @@ block body
             h4 Which Campus the item is at
             select(class="form-control",name="campus" form="form2")
                 each location in campus
-                    option(value='#{itemCampusLoc}') #{location.campus}
+                    if(itemCampusLoc ==location.campus)
+                        option(value='#{itemCampusLoc}',selected='selected') #{location.campus}
+                    else
+                        option(value='#{location.campus}') #{location.campus}
             h4 Image
                 br
                 img(src="images/defaultImg.png" style="width:200px;")
