@@ -1,6 +1,10 @@
 //Created by johnstrobe 8/08/16
 
-extends ../node_modules/jade-bootstrap/_bootstrap
+include ../node_modules/jade-bootstrap/_bootstrap
+block head
+    link(rel = "stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
 
 append styles
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -19,10 +23,15 @@ block body
             h6 Keywords
             input(class="form-control",type="text", name = "keywords", form="form1", required)
             h6 Item Found Date Range
+            script.
+                $(document).ready(function () {
+                    $("#from").datepicker({dateFormat: "dd-mm-yy"});
+                    $("#to").datepicker({dateFormat: "dd-mm-yy"});
+                });
             h6 From  (use format dd-mm-yy)
-            input(class="form-control",type="text", name = "from", form="form1")
+            input(class="form-control",type="text", name = "from", form="form1", id ="from")
             h6 To   (use format dd-mm-yy)
-            input(class="form-control",type="text", name = "to", form="form1")
+            input(class="form-control",type="text", name = "to", form="form1", id ="to")
             h6 Category Filter
             select(class="form-control",name="category" form="form1")
                 each category in categories
