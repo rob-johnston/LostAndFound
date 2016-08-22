@@ -33,9 +33,9 @@ router.get('/search', function(req, res, next) {
           db.getCategories(function(err,categoryresult){
               if(err){
                   console.log.print(err);
-                  res.render('index', { title: 'Express' });
+                  res.render('index', { title: 'Search - VUWSA Lost and Found' });
               }
-              res.render('advancedSearch', { title: 'Express', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows});
+              res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows});
           })
       })
   })
@@ -49,7 +49,7 @@ router.get('/addItem', function(req, res, next) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
       //render page with info from db
-      res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+      res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows});
     })
   })
 });
@@ -60,9 +60,9 @@ router.post('/addItem', function (req,res){
     db.getCategories(function(err,categoryresult){
       db.addItem(req.body,function(err,result){
           if(err){
-              res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item"});
+              res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item"});
           }else {
-              res.render('addItem', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly"});
+              res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly"});
           }
 
       })
@@ -76,13 +76,13 @@ router.get('/advancedSearch', function (req, res) {
     db.getCategories(function(err,categoryresult){
         //blank load with no search
         if(url.parse(req.url,true).search ==''){
-            res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows});
+            res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows});
         } else {
             search.advancedSearch(url.parse(req.url,true).query, function(err,result){
                 if(err) {
                     console.log(err);
                 } else {
-                    res.render('advancedSearch', { title: 'Express', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
+                    res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
                 }
             })
         }
@@ -93,7 +93,7 @@ router.get('/advancedSearch', function (req, res) {
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
       db.viewItem(function(err,itemresult){
-        res.render('viewItem', {title: 'View Item', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+        res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
       })
 });
@@ -108,7 +108,7 @@ router.get('/editItem', function (req, res) {
           var mm = itemresult.datefound.substring(5,7);
           var dd = itemresult.datefound.substring(8,10);
           itemresult.datefound= dd+'-'+mm+"-"+yy;
-        res.render('editItem', {title: 'Edit Item', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+        res.render('editItem', {title: 'Edit Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
       })
     })
@@ -121,7 +121,7 @@ router.post('/editItem', function (req,res){
     db.getCategories(function(err,categoryresult){
         db.editItem(req.body,function(err,result){
             db.viewItem(function(err,itemresult){
-            res.render('viewItem', {title: 'View Item', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
+            res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
                 itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
         })
       })
@@ -131,12 +131,12 @@ router.post('/editItem', function (req,res){
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Log In' });
+  res.render('login', { title: 'Log In - VUWSA Lost and Found' });
 });
 
 /*GET student view page. */
 router.get('/studentView', function(req,res,next){
-  res.render('studentView', {title: 'Student View'});
+  res.render('studentView', {title: 'Student View - VUWSA Lost and Found'});
 });
 
 //deals with performing a restricted student search
@@ -146,7 +146,7 @@ router.get('/studentSearchResults', function(req,res,next){
             //if no url params then just load
             if (url.parse(req.url, true).search == '') {
                 //render the page without results!
-                res.render('studentSearchResults', {title: 'Student Search', categories: categoryresult.rows, campus: campusresult.rows, results: null});
+                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: null});
             } else {
                 //otherwise perform a student search
                 search.studentSearch(url.parse(req.url, true), function (err, result) {
@@ -154,7 +154,7 @@ router.get('/studentSearchResults', function(req,res,next){
                         console.log("error performing student search");
                     } else {
                         //render student results page with the results from the DB
-                        res.render('studentSearchResults', {title: 'Search Results', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
+                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
                     }
                 });
             }
@@ -164,7 +164,7 @@ router.get('/studentSearchResults', function(req,res,next){
 
 /*GET statistics view page. */
 router.get('/statistics', function(req,res,next){
-  res.render('statistics', {title: 'Statistics'});
+  res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
 });
 
 module.exports = router;
