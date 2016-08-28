@@ -1,0 +1,61 @@
+// a page that can be used to edit stuff about the db, such as what categories to include, what campuses etc etc
+   Created by johnstrobe on 1/08/16.
+include ../node_modules/jade-bootstrap/_bootstrap
+block head
+
+append styles
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='/stylesheets/normalize.css')
+  link(rel='stylesheet', href='/stylesheets/skeleton.css')
+
+block body
+        .col-md-10
+            .row
+                include navBar
+        .container
+            .col-md-6
+                //include sidebar
+                .row
+                    br
+                    br
+                    br
+                    h3 Make changes to the database
+                    p Note: If a change has just been completed successfully, you may need to reload the page to see correct DB info
+                    br
+                    h2 #{message}
+                    form.centerAdd(action="/editdb",method="post",id="form1" )
+
+                        h4 Add Category
+                        p  adds a category to the databases list of available categories
+                        input(class="form-control",type="text", name = "addCategory", form="form1")
+                        input.btn.btn-success(type="submit" form="form1" value="execute")
+
+                    form.centerAdd(action="/editdb",method="post",id="form2" )
+
+                        h4 Remove Cateogry
+                        p  remove an existing category
+                        select(class="form-control",name="removeCategory" form="form2")
+                            each category in categories
+                                option(value='#{category.category}') #{category.category}
+                        input.btn.btn-success(type="submit" form="form2" value="execute")
+
+
+                    form.centerAdd(action="/editdb",method="post",id="form3" )
+
+                        h4 Add Campus
+                        p  adds a campus to the database's list of available campuses
+                            input(class="form-control",type="text", name = "addCampus", form="form3")
+                        input.btn.btn-success(type="submit" form="form3" value="execute")
+
+
+                    form.centerAdd(action="/editdb",method="post",id="form4" )
+
+                        h4 Remove Campus
+                        p remove an existing campus
+                        select(class="form-control",name="removeCampus" form="form4")
+                            each location in campus
+                                option(value='#{location.campus}') #{location.campus}
+
+
+
+                        input.btn.btn-success(type="submit" form="form4" value="execute")

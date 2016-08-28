@@ -9,6 +9,7 @@ var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-2
 var db = require('../db.js');
 var search = require('../search.js');
 var url = require('url');
+var editdb = require("../editdb.js");
 
 
 /* GET home page. */
@@ -42,6 +43,32 @@ router.get('/search', function(req, res, next) {
 
 
 });
+
+/* GET edit db page. */
+router.get('/editdb', function(req, res, next) {
+    //need to get categories and campus options from DB to give user the current correct options to use
+    db.getCampuses(function(err,campusresult){
+        db.getCategories(function(err,categoryresult){
+            //render page with info from db
+            res.render('editdb', { title: 'Edit Database - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows});
+        })
+    })
+});
+
+//this is where we deal with posts from the edit db page
+router.post('/editdb', function (req,res){
+    //get info from table for re-rendering ad page + add the item to the db
+    db.getCampuses(function(err,campusresult){
+        db.getCategories(function(err,categoryresult){
+            editdb.editdb(req, function(msg){
+                res.render('editdb', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: msg});
+            });
+        })
+    })
+});
+
+
+
 
 /* GET add item page. */
 router.get('/addItem', function(req, res, next) {

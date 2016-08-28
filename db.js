@@ -20,6 +20,7 @@
     var INSERT = 'INSERT INTO ';
     var UPDATE = 'UPDATE ';
     var WHERE = "WHERE "
+    var DELETE_FROM = "DELETE FROM ";
 
 
 
@@ -32,6 +33,7 @@
         addItem: addItem,
         addCategory: addCategory,
         addCampus: addCampus,
+        removeCampus: removeCampus,
         //example:example
         viewItem: viewItem,
         editItem: editItem
@@ -199,6 +201,40 @@
         });
     }
 
+
+    /**
+     * this method is used to remove a category from the category table in the database
+     * this should only be accessed by a superuser
+     * @param search category to remove
+     * @param cb callback
+     */
+    function removeCategory(data,cb) {
+
+        var stmt = DELETE_FROM + CATEGORIES_TABLE+ " WHERE category LIKE '"+data+"';";
+        console.log(stmt);
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
     /**
      * this method is used to add a campus to the Campus table in the database
      * this should only be accessed by a superuser
@@ -208,6 +244,39 @@
     function addCampus(data,cb) {
 
         var stmt = INSERT + CAMPUSES_TABLE + " (campus) VALUES ('"+data+"');";
+        console.log(stmt);
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+    /**
+     * this method is used to remove a campus from the Campus table in the database
+     * this should only be accessed by a superuser
+     * @param search campus to remove
+     * @param cb callback
+     */
+    function removeCampus(data,cb) {
+
+        var stmt = DELETE_FROM + CAMPUSES_TABLE + " WHERE CAMPUS LIKE '"+data+"';";
         console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
