@@ -158,7 +158,7 @@ router.post('/viewItem', function (req,res){
                 var dd = itemresult.datefound.substring(8,10);
                 itemresult.datefound= dd+'-'+mm+"-"+yy;
                  res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-                itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl});
+                itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid:itemresult.itemid});
         })
       })
     })
