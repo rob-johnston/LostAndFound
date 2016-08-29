@@ -392,15 +392,13 @@
      * @param cb callback
      */
     function viewItem(id,cb) {
-        if(typeof id === "function"){
-            console.log("id isnt a number");
+        if(typeof id === "function" || id==null){
             //use a default thing
-            var cb = id;
-            id = 1;
+            cb(true);
+            //if the params arent right here i think we should just bail and not do anything
         }
-        console.log(id);
-        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = " + id;
 
+        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = " + id;
         pg.connect(db,function(err,client,done){
             if(err){
                 //deal with db connection issues
@@ -415,7 +413,7 @@
                 var q = JSON.stringify(result.rows);
                 var queryResult = JSON.parse(q);
 
-                console.log("Photo URL: "+ queryResult[0].photourl);
+                //console.log("Photo URL: "+ queryResult[0].photourl);
 
                 done();
                 if(error){
@@ -437,7 +435,7 @@
      */
     function editItem(data,cb) {
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-            + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\'  WHERE itemid = 6;';
+            + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\'  WHERE itemid = ' + data.itemid + ' ;';
 
         pg.connect(db,function(err,client,done){
             if(err){
@@ -456,7 +454,6 @@
                     console.log(error);
                     return;
                 }
-
                 cb(false,result);
         });
     })};

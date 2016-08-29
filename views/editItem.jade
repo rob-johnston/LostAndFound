@@ -63,6 +63,7 @@ block body
                         h8 Edit photo url (Clear photo url to delete photo)
                             input.form-control(type='text', name='photourl', value='#{photoSRC}')
 
+                input(type = "hidden", name = "itemid", value = '#{itemid}', form = 'form2')
                 input.btn.btn-success(type="submit" form="form2" value="submit")
 
     include footer
