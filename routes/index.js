@@ -117,7 +117,8 @@ router.get('/advancedSearch', function (req, res) {
 
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
-      db.viewItem(function(err,itemresult){
+    var id = url.parse(req.url, true).query.itemid;
+      db.viewItem(id,function(err,itemresult){
           //format from timestamp to date
           var yy =itemresult.datefound.substring(0,4);
           var mm = itemresult.datefound.substring(5,7);

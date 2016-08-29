@@ -139,7 +139,7 @@
                 cb(false,result);
             });
         });
-        
+
     }
 
     /**
@@ -171,7 +171,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
     /**
@@ -203,7 +203,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
 
@@ -241,7 +241,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
 
@@ -276,7 +276,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
 
@@ -311,7 +311,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
     /**
@@ -345,7 +345,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
     /**
@@ -379,7 +379,7 @@
                 cb(false,result);
             });
         });
-        cb("something went wrong when executing your request!");
+
     }
 
 
@@ -391,8 +391,15 @@
      * Function which is used to view details about an item in the database
      * @param cb callback
      */
-    function viewItem(cb) {
-        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = 6";
+    function viewItem(id,cb) {
+        if(typeof id === "function"){
+            console.log("id isnt a number");
+            //use a default thing
+            var cb = id;
+            id = 1;
+        }
+        console.log(id);
+        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = " + id;
 
         pg.connect(db,function(err,client,done){
             if(err){

@@ -49,8 +49,8 @@ block body
         h5 results
         if(results != null)
             each result in results
-                h6 #{result.itemname}
+                a(href = '/viewitem?itemid=#{result.itemid} ') #{result.itemname}
                 p #{result.description}
-                p #{result.itemid}
+
 
     include footer
