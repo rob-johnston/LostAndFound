@@ -15,13 +15,13 @@ block body
     include navBar
     include sidebar
     .container
-        .col-lg-4
+        .col-lg-10
             .row
             br
             br
             br
             h3 Edit item
-            form.centerAdd(action="/editItem",method="post",id="form2" )
+            form.centerAdd(action="/viewItem",method="post",id="form2" )
                 h4 Item Name
                 input(class="form-control",type="text", name = "itemName", value='#{itemName}', form="form2", required)
                 h4 Item Description
@@ -50,15 +50,18 @@ block body
                             option(value='#{location.campus}') #{location.campus}
                 h4 Image
                     br
-                    img(src="images/defaultImg.png" style="width:200px;")
+                    if photoSRC == '' /* If there is no image for the item */
 
-                    // TO DO: Delete + Upload Button functionality
-                    #photoFunctions.col-sm-12
-                        form(action = "#", method="get")
-                            button.btn.btn-default Edit Photo
-                        form(action = "#", method="get")
-                            button.btn.btn-default Delete Photo
-                    // img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
+                        img(src="images/defaultImg.png" style="width:200px;")
+                        br
+                        h8 Edit photo url (Clear photo url to delete photo)
+                            input.form-control(type='text', name='photourl', placeholder='Photo URL..')
+
+                    else
+                        img(src='#{photoSRC}', style="width:200px;")
+                        br
+                        h8 Edit photo url (Clear photo url to delete photo)
+                            input.form-control(type='text', name='photourl', value='#{photoSRC}')
 
                 input.btn.btn-success(type="submit" form="form2" value="submit")
 

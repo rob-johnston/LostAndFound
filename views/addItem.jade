@@ -15,7 +15,7 @@ block body
     include navBar
     include sidebar
     .container
-        .col-lg-4
+        .col-lg-10
             .row
             br
             br
@@ -46,4 +46,11 @@ block body
                     input(class="form-control",type="text", name = "locationFound", placeholder="eg The Hub",form="form1", required)
                 //image upload?
                 h4 Image
+                    br
+                    img(src="images/defaultImg.png" style="width:200px;")
+                    br
+                    h8 Add photo url (optional)
+                       input.form-control(type='text', name='photourl', placeholder='Photo URL..')
+
+
                 input.btn.btn-success(type="submit" form="form1" value="submit")
