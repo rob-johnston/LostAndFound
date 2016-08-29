@@ -415,6 +415,8 @@
                 var q = JSON.stringify(result.rows);
                 var queryResult = JSON.parse(q);
 
+                console.log("Photo URL: "+ queryResult[0].photourl);
+
                 done();
                 if(error){
                     console.log("query failed");
@@ -435,7 +437,7 @@
      */
     function editItem(data,cb) {
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-            + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\'  WHERE itemid = 6;';
+            + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\'  WHERE itemid = 6;';
 
         pg.connect(db,function(err,client,done){
             if(err){

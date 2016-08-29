@@ -14,12 +14,12 @@ block body
             br
             br
             br
+            if photoSRC == '' /* If there is no image for the item */
+                img(src="images/defaultImg.png" style="width:200px;")
 
-            //if itemPhotoSRC == ' ' /* If there is no image for the item */
-            img(src="images/defaultImg.png" style="width:200px;")
 
-            //else
-                //img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
+            else
+                img(src='#{photoSRC}', style="width:200px;")
 
             #editItemBtn.col-sm-12
                 //form(action='/editItem?id=' + id, method='get')

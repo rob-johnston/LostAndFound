@@ -119,8 +119,13 @@ router.get('/advancedSearch', function (req, res) {
 router.get('/viewItem', function (req, res) {
     var id = url.parse(req.url, true).query.itemid;
       db.viewItem(id,function(err,itemresult){
+          //format from timestamp to date
+          var yy =itemresult.datefound.substring(0,4);
+          var mm = itemresult.datefound.substring(5,7);
+          var dd = itemresult.datefound.substring(8,10);
+          itemresult.datefound= dd+'-'+mm+"-"+yy;
         res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-          itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, itemid: itemresult.itemid});
+          itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid: itemresult.itemid});
       })
 });
 
@@ -136,20 +141,25 @@ router.get('/editItem', function (req, res) {
           var dd = itemresult.datefound.substring(8,10);
           itemresult.datefound= dd+'-'+mm+"-"+yy;
         res.render('editItem', {title: 'Edit Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-          itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, itemid: itemresult.itemid});
+          itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl,itemid: itemresult.itemid});
       })
     })
   })
 });
 
-router.post('/editItem', function (req,res){
+router.post('/viewItem', function (req,res){
   //get info from table for re-rendering page + add edited info to the db
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
         db.editItem(req.body,function(err,result){
             db.viewItem(function(err,itemresult){
+                //format from timestamp to date
+                var yy =itemresult.datefound.substring(0,4);
+                var mm = itemresult.datefound.substring(5,7);
+                var dd = itemresult.datefound.substring(8,10);
+                itemresult.datefound= dd+'-'+mm+"-"+yy;
             res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-                itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
+                itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl});
         })
       })
     })
