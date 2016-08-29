@@ -6,15 +6,18 @@ append styles
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
 block body
     include navBar
-            form(class="vertsync")
-                div(class="container")
-                    div(class="row")
-                        div(class="six columns offset-by-three")
-                            input(type='text', name="username",placeholder="Username", class="u-full-width")
-                    div(class="row")
-                        div(class="six columns offset-by-three")
-                            input(type='password', name="password",placeholder="Password",class="u-full-width")
-                    div(class="row")
-                        div(class="two columns offset-by-seven")
-                            input(type='submit',value='Login' class="button-primary u-full-width")
+    include sidebar
+    .container
+        .col-lg-4
+            .row
+            br
+            br
+            br
+            h3 Log In
+            form.centerAdd(action="/login",method="post",id="loginform" )
+                h10 Username
+                input(type='text', name="username",placeholder="Username", class="u-full-width")
+                h10 Password
+                input(type='password', name="password",placeholder="Password",class="u-full-width")
+                input(type='submit',value='Login' class="button-primary u-full-width")
     include footer
