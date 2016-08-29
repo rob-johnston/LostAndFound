@@ -12,57 +12,55 @@ append styles
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
 
 block body
-    .row
-        include navBar
-    .row
-        br
-        br
-        br
-        br
-        br
-        h3 Edit item
-        br
-        form.centerAdd(action="/editItem",method="post",id="form2" )
+    include navBar
+    include sidebar
+    .container
+        .col-lg-4
+            .row
+            br
+            br
+            br
+            h3 Edit item
+            form.centerAdd(action="/editItem",method="post",id="form2" )
+                h4 Item Name
+                input(class="form-control",type="text", name = "itemName", value='#{itemName}', form="form2", required)
+                h4 Item Description
+                input(class="form-control",type="text", name = "itemDescription", value='#{itemDesc}',form="form2", required)
+                h4 Item Category
+                select(class="form-control",name="category" form="form2")
+                    each category in categories
+                        if(itemCategory==category.category)
+                            option(value='#{itemCategory}',selected='selected') #{category.category}
+                        else
+                            option(value = '#{category.category}') #{category.category}
+                h4 Date Found
+                script.
+                    $(document).ready(function () {
+                        $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
+                    });
+                input(type = "text", id = "datepicker",form="form2", name = "dateFound", value='#{itemDateFound}')
+                h4 Location Found
+                input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2", required)
+                h4 Which Campus the item is at
+                select(class="form-control",name="campus" form="form2")
+                    each location in campus
+                        if(itemCampusLoc ==location.campus)
+                            option(value='#{itemCampusLoc}',selected='selected') #{location.campus}
+                        else
+                            option(value='#{location.campus}') #{location.campus}
+                h4 Image
+                    br
+                    img(src="images/defaultImg.png" style="width:200px;")
 
-            h4 Item Name
-            input(class="form-control",type="text", name = "itemName", value='#{itemName}', form="form2", required)
-            h4 Item Description
-            input(class="form-control",type="text", name = "itemDescription", value='#{itemDesc}',form="form2", required)
-            h4 Item Category
-            select(class="form-control",name="category" form="form2")
-                each category in categories
-                    if(itemCategory==category.category)
-                        option(value='#{itemCategory}',selected='selected') #{category.category}
-                    else
-                        option(value = '#{category.category}') #{category.category}
-            h4 Date Found
-            script.
-                $(document).ready(function () {
-                    $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
-                });
-            input(type = "text", id = "datepicker",form="form2", name = "dateFound", value='#{itemDateFound}')
-            h4 Location Found
-            input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2", required)
-            h4 Which Campus the item is at
-            select(class="form-control",name="campus" form="form2")
-                each location in campus
-                    if(itemCampusLoc ==location.campus)
-                        option(value='#{itemCampusLoc}',selected='selected') #{location.campus}
-                    else
-                        option(value='#{location.campus}') #{location.campus}
-            h4 Image
-                br
-                img(src="images/defaultImg.png" style="width:200px;")
+                    // TO DO: Delete + Upload Button functionality
+                    #photoFunctions.col-sm-12
+                        form(action = "#", method="get")
+                            button.btn.btn-default Edit Photo
+                        form(action = "#", method="get")
+                            button.btn.btn-default Delete Photo
+                    // img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
 
-                // TO DO: Delete + Upload Button functionality
-                #photoFunctions.col-sm-12
-                    form(action = "#", method="get")
-                        button.btn.btn-default Edit Photo
-                    form(action = "#", method="get")
-                        button.btn.btn-default Delete Photo
-                // img(src='#{itemPhotoSRC}', style='margin: auto; width: 100%;')
-
-            input.btn.btn-success(type="submit" form="form2" value="submit")
+                input.btn.btn-success(type="submit" form="form2" value="submit")
 
     include footer
 
