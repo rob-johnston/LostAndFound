@@ -44,7 +44,7 @@ var db = require('./db.js');
                     cb("Campus has been added");
                 }
             })
-        } else if(req.body. removeCampus!=null){
+        } else if(req.body.removeCampus!=null){
             //remove a campus
             db.removeCampus(req.body.removeCampus,function (err, res) {
                 if(err){
@@ -54,10 +54,29 @@ var db = require('./db.js');
                     cb("Campus has been removed");
                 }
             })
+        } else if(req.body.addColName!=null) {
+            //remove a campus
+            db.addCol(req.body.addColName, req.body.addColType, function (err, res) {
+                if (err) {
+                    console.log(err);
+                    cb(err);
+                } else {
+                    cb("New Column has been added to items tabel");
+                }
+            })
         }
-
+        else if(req.body.removeColName!=null) {
+            //remove a campus
+            db.removeCol(req.body.removeColName, function (err, res) {
+                if (err) {
+                    console.log(err);
+                    cb(err);
+                } else {
+                    cb("Column has been dropped from the items table");
+                }
+            })
+        }
     }
-
 
 
 

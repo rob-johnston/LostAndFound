@@ -8,8 +8,10 @@ var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-2
 //our js file for interacting with the db
 var db = require('../db.js');
 var search = require('../search.js');
-var url = require('url');
 var editdb = require("../editdb.js");
+
+var url = require('url');
+
 
 
 /* GET home page. */
@@ -17,10 +19,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
 });
 
-/* GET home page. */
-router.get('/datetest', function(req, res, next) {
-    res.render('datetest', {});
-});
 
 /* GET listing page. */
 router.get('/search', function(req, res, next) {

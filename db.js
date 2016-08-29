@@ -21,6 +21,10 @@
     var UPDATE = 'UPDATE ';
     var WHERE = "WHERE "
     var DELETE_FROM = "DELETE FROM ";
+    var ALTER = "ALTER ";
+    var TABLE = "TABLE ";
+    var ADD_COLUMN = "ADD COLUMN ";
+    var DROP_COLUMN = "DROP COLUMN ";
 
 
 
@@ -32,11 +36,14 @@
         getCampuses: getCampuses,
         addItem: addItem,
         addCategory: addCategory,
+        removeCategory: removeCategory,
         addCampus: addCampus,
         removeCampus: removeCampus,
         //example:example
         viewItem: viewItem,
-        editItem: editItem
+        editItem: editItem,
+        addCol: addCol,
+        removeCol: removeCol
     };
 
 
@@ -132,6 +139,71 @@
             });
         });
     }
+
+    /**
+     * Used to add a Column to items table in our db
+     * @param new column name and the type it should hold
+     * @param cb callback
+     */
+    function addCol(name,type,cb) {
+        var stmt = ALTER + TABLE + ITEMS_TABLE + ADD_COLUMN + name + " " + type + ";";
+        console.log(stmt);
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+    /**
+     * Used to remove a Column from items table in our db
+     * @param column name to remove
+     * @param cb callback
+     */
+    function removeCol(name,cb) {
+        var stmt = ALTER + TABLE + ITEMS_TABLE + DROP_COLUMN + name + ";";
+        console.log(stmt);
+        //connect to db
+        pg.connect(db,function(err,client,done){
+            if(err){
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return ;
+            }
+            console.log("connection successful");
+            //execute the search
+            client.query(stmt, function(error,result){
+                done();
+                if(error){
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                //use call back with out search results
+                cb(false,result);
+            });
+        });
+    }
+
+
+
 
     /**
      * Used to add an item to our database

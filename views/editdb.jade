@@ -59,3 +59,24 @@ block body
 
 
                         input.btn.btn-success(type="submit" form="form4" value="execute")
+
+                    form.centerAdd(action="/editdb",method="post",id="form5" )
+
+                        h4 Add new Information Field (Column) to the item table
+                        p adds a new column to the items field, need the name and data type! (ie dont use this if you dont know what sql is)
+                            p name for this column
+                            input(class="form-control",type="text", name = "addColName", form="form5",required)
+                            p the type of data it will store
+                            input(class="form-control",type="text", name = "addColType", form="form5",required)
+
+
+                        input.btn.btn-success(type="submit" form="form5" value="execute")
+
+                    form.centerAdd(action="/editdb",method="post",id="form6" )
+
+                        h4 Remove an existing information field (column) from the items table
+                        p will attempt to drop the column which matches the name given here within items table
+                            p name of column to drop
+                            input(class="form-control",type="text", name = "removeColName", form="form6",required)
+
+                        input.btn.btn-success(type="submit" form="form6" value="execute")
