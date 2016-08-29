@@ -21,7 +21,8 @@ block body
             br
             br
             h3 Add a New Item
-            h2 #{message}
+            if (message!=null)
+                .alert.alert-success #{message}
             form.centerAdd(action="/addItem",method="post",id="form1" )
 
                 h4 Item Name
@@ -53,4 +54,4 @@ block body
                        input.form-control(type='text', name='photourl', placeholder='Photo URL..')
 
 
-                input.btn.btn-success(type="submit" form="form1" value="submit")
+                input.btn(type="submit" form="form1" value="submit")

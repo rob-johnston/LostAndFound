@@ -7,43 +7,44 @@ append styles
     link(rel='stylesheet', href='/stylesheets/normalize.css')
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
 block body
-    .row
-        include navBar
-    .row
-        #itemPhoto.col-md-3
-            br
-            br
-            br
-            if photoSRC == '' /* If there is no image for the item */
-                img(src="images/defaultImg.png" style="width:200px;")
-
-
-            else
-                img(src='#{photoSRC}', style="width:200px;")
-
-            #editItemBtn.col-sm-12
-                //form(action='/editItem?id=' + id, method='get')
+    include navBar
+    include sidebar
+    .container
+        .row
+            #itemPhoto.col-md-3
                 br
-                a(href='/editItem?id= #{itemid} ')
-                    button.btn.btn-default Edit
+                br
+                br
+                if photoSRC == '' /* If there is no image for the item */
+                    img(src="images/defaultImg.png" style="width:200px;")
 
 
-        #itemDetails.col-md-9
-            br
-            br
-            br
-            h3 #{itemName}
+                else
+                    img(src='#{photoSRC}', style="width:200px;")
 
-            h6 Category: #{itemCategory}
+                #editItemBtn.col-sm-12
+                    //form(action='/editItem?id=' + id, method='get')
+                    br
+                    a(href='/editItem?id= #{itemid} ')
+                        button.btn.btn-default Edit
 
-            //Item Description
-            p #{itemDesc}
 
-            p Date Found: #{itemDateFound}
+            #itemDetails.col-md-9
+                br
+                br
+                br
+                h3 #{itemName}
 
-            p Location Found: #{itemLocFound}
+                h6 Category: #{itemCategory}
 
-            p Currently held in (Campus Location): #{itemCampusLoc}
+                //Item Description
+                p #{itemDesc}
+
+                p Date Found: #{itemDateFound}
+
+                p Location Found: #{itemLocFound}
+
+                p Currently held in (Campus Location): #{itemCampusLoc}
 
 
     include footer
