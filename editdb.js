@@ -1,7 +1,8 @@
 /**
  * Created by johnstrobe on 29/08/16.
  */
-//this file is for figuring out what we should do with a edit db post,
+//this file is for figuring out what we should do with a edit db post, it basically just checks which method should be executed and then does so, also provides the appropriate response
+// message that the page should render afterwards
 var db = require('./db.js');
 
 (function(){
