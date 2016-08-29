@@ -391,8 +391,8 @@
      * Function which is used to view details about an item in the database
      * @param cb callback
      */
-    function viewItem(cb) {
-        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = 6";
+    function viewItem(id,cb) {
+        var stmt = SELECT_ALL + ITEMS_TABLE + " WHERE itemid = " + id;
 
         pg.connect(db,function(err,client,done){
             if(err){

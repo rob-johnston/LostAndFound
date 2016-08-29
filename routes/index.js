@@ -117,7 +117,8 @@ router.get('/advancedSearch', function (req, res) {
 
 /* GET view item page. */
 router.get('/viewItem', function (req, res) {
-      db.viewItem(function(err,itemresult){
+    var id = url.parse(req.url, true).query.itemid;
+      db.viewItem(id,function(err,itemresult){
         res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus});
       })
