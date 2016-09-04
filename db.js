@@ -19,7 +19,7 @@
     var SELECT_ALL = 'SELECT * FROM ';
     var INSERT = 'INSERT INTO ';
     var UPDATE = 'UPDATE ';
-    var WHERE = "WHERE "
+    var WHERE = "WHERE ";
     var DELETE_FROM = "DELETE FROM ";
     var ALTER = "ALTER ";
     var TABLE = "TABLE ";
