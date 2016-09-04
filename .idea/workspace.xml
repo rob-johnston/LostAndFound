@@ -393,7 +393,7 @@
       <workItem from="1470618698529" duration="4748000" />
       <workItem from="1470627863243" duration="16000" />
       <workItem from="1471820173268" duration="8361000" />
-      <workItem from="1473025261435" duration="1379000" />
+      <workItem from="1473025261435" duration="1540000" />
     </task>
     <task id="LOCAL-00001" summary="added vertsync css&#10;">
       <created>1470613028972</created>
@@ -462,7 +462,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32786000" />
+    <option name="totallyTimeSpent" value="32947000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="1924" height="1052" extended-state="6" />
