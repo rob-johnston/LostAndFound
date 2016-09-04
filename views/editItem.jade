@@ -21,7 +21,7 @@ block body
             br
             br
             h3 Edit item
-            form.centerAdd(action="/viewItem",method="post",id="form2" )
+            form.centerAdd(action="/viewItem?id=#{itemid}",method="post",id="form2" )
                 h4 Item Name
                 input(class="form-control",type="text", name = "itemName", value='#{itemName}', form="form2", required)
                 h4 Item Description
