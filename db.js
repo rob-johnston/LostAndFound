@@ -217,9 +217,13 @@
     function addItem(data,cb) {
         //the sql statement we need
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
-            data.locationFound +'\',\'' + data.campus + '\');'
+            data.locationFound +'\',\'' + data.campus + '\',\'' + data.photourl + '\');'
         //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,DateFound,LocationFound,Campus) VALUES ' +
+        if (data.photourl = null){
+            data.photourl = ' ';
+        }
+
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,DateFound,LocationFound,Campus,photourl) VALUES ' +
             args;
         //connect to db
         pg.connect(db,function(err,client,done){
@@ -412,8 +416,6 @@
 
                 var q = JSON.stringify(result.rows);
                 var queryResult = JSON.parse(q);
-
-                //console.log("Photo URL: "+ queryResult[0].photourl);
 
                 done();
                 if(error){

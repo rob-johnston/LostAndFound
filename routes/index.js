@@ -123,10 +123,8 @@ router.get('/viewItem', function (req, res) {
           var yy =itemresult.datefound.substring(0,4);
           var mm = itemresult.datefound.substring(5,7);
           var dd = itemresult.datefound.substring(8,10);
-          itemresult.datefound= dd+'-'+mm+"-"+yy;
-
           var ddNew = Number(dd) + Number(1);
-          //console.log("Date: " + ddNew);
+
           itemresult.datefound= ddNew+'-'+mm+"-"+yy;
         res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid: itemresult.itemid});
@@ -143,7 +141,7 @@ router.get('/editItem', function (req, res) {
           var mm = itemresult.datefound.substring(5,7);
           var dd = itemresult.datefound.substring(8,10);
           var ddNew = Number(dd) + Number(1);
-          //console.log("Date: " + ddNew);
+
           itemresult.datefound= ddNew+'-'+mm+"-"+yy;
         res.render('editItem', {title: 'Edit Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl,itemid: itemresult.itemid});
@@ -163,7 +161,7 @@ router.post('/viewItem', function (req,res){
                 var mm = itemresult.datefound.substring(5,7);
                 var dd = itemresult.datefound.substring(8,10);
                 var ddNew = Number(dd) + Number(1);
-                //console.log("Date: " + ddNew);
+
                 itemresult.datefound= ddNew+'-'+mm+"-"+yy;
                  res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
                 itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid:itemresult.itemid});
