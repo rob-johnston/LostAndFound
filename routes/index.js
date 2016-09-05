@@ -200,7 +200,11 @@ router.get('/studentSearchResults', function(req,res,next){
 
 /*GET statistics view page. */
 router.get('/statistics', function(req,res,next){
-  res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
+    db.countItems(function (err, categoryresult) {
+        
+
+    })
+    res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
 });
 
 module.exports = router;
