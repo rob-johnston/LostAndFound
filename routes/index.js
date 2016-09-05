@@ -184,8 +184,7 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
           var mm = itemresult.datefound.substring(5,7);
           var dd = itemresult.datefound.substring(8,10);
           itemresult.datefound= dd+'-'+mm+"-"+yy;
-
-          var ddNew = Number(dd) + Number(1);
+          
           var ddNew = Number(dd) + Number(1);
           var mmNew = Number(mm);
           // var leapYearCount = Number(0);
