@@ -9,19 +9,78 @@ var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-2
 var db = require('../db.js');
 var search = require('../search.js');
 var editdb = require("../editdb.js");
-
 var url = require('url');
+
+router.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+
+//passport login stuff
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
+
+//example user, will need to actually use db
+const user = {
+    username: 'admin',
+    password: 'admin',
+    id: 1
+}
+
+router.use(passport.initialize());
+router.use(passport.session());
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+       /////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
+        //example check, need to do real password check here!\\
+        ///////////////////////////////////////////////////
+      ///////////////////////////////////////////////////////
+            if(username=='admin' && password == 'admin'){
+                return done(null,user);
+            }
+
+            return done(null, false);
+
+    }
+));
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+});
+function ensureAuthenticated() {
+    return function(req,res,next){
+        console.log(req.isAuthenticated());
+        if (req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/login');
+    }
+}
+
+
+
+
+router.post('/login', passport.authenticate('local', {failureRedirect: '/login',
+        failureFlash: false
+}),function(req,res){
+
+    res.redirect('/');
+    }
+);
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    console.log(req.user);
   res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
 });
 
 
 /* GET listing page. */
-router.get('/search', function(req, res, next) {
+router.get('/search',ensureAuthenticated(), function(req, res, next) {
 
   //search logic goes here
   //extract from url search query
@@ -43,7 +102,10 @@ router.get('/search', function(req, res, next) {
 });
 
 /* GET edit db page. */
-router.get('/editdb', function(req, res, next) {
+router.get('/editdb',
+    ensureAuthenticated(),
+    function(req, res, next) {
+    console.log(req);
     //need to get categories and campus options from DB to give user the current correct options to use
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
@@ -54,7 +116,7 @@ router.get('/editdb', function(req, res, next) {
 });
 
 //this is where we deal with posts from the edit db page
-router.post('/editdb', function (req,res){
+router.post('/editdb', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering ad page + add the item to the db
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
@@ -69,7 +131,7 @@ router.post('/editdb', function (req,res){
 
 
 /* GET add item page. */
-router.get('/addItem', function(req, res, next) {
+router.get('/addItem', ensureAuthenticated(), function(req, res, next) {
   //need to get categories and campus options from DB to give user the current correct options to use
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
@@ -79,7 +141,7 @@ router.get('/addItem', function(req, res, next) {
   })
 });
 
-router.post('/addItem', function (req,res){
+router.post('/addItem', ensureAuthenticated(), function (req,res){
   //get info from table for re-rendering ad page + add the item to the db
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
@@ -96,7 +158,7 @@ router.post('/addItem', function (req,res){
 });
 
 /* GET advanced search page. */
-router.get('/advancedSearch', function (req, res) {
+router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
         //blank load with no search
@@ -116,7 +178,7 @@ router.get('/advancedSearch', function (req, res) {
 });
 
 /* GET view item page. */
-router.get('/viewItem', function (req, res) {
+router.get('/viewItem', ensureAuthenticated(), function (req, res) {
     var id = url.parse(req.url, true).query.itemid;
       db.viewItem(id,function(err,itemresult){
           //format from timestamp to date
@@ -132,7 +194,7 @@ router.get('/viewItem', function (req, res) {
 });
 
 /* GET edit item page. */
-router.get('/editItem', function (req, res) {
+router.get('/editItem', ensureAuthenticated, function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
       db.viewItem(req.query.id, function(err,itemresult){
@@ -150,7 +212,7 @@ router.get('/editItem', function (req, res) {
   })
 });
 
-router.post('/viewItem', function (req,res){
+router.post('/viewItem', ensureAuthenticated(), function (req,res){
   //get info from table for re-rendering page + add edited info to the db
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
@@ -205,8 +267,10 @@ router.get('/studentSearchResults', function(req,res,next){
 });
 
 /*GET statistics view page. */
-router.get('/statistics', function(req,res,next){
+router.get('/statistics',ensureAuthenticated(), function(req,res,next){
   res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
 });
+
+
 
 module.exports = router;
