@@ -194,7 +194,7 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
 });
 
 /* GET edit item page. */
-router.get('/editItem', ensureAuthenticated, function (req, res) {
+router.get('/editItem', ensureAuthenticated(), function (req, res) {
   db.getCampuses(function(err,campusresult){
     db.getCategories(function(err,categoryresult){
       db.viewItem(req.query.id, function(err,itemresult){
