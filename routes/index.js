@@ -201,7 +201,18 @@ router.get('/studentSearchResults', function(req,res,next){
 /*GET statistics view page. */
 router.get('/statistics', function(req,res,next){
     db.countItems(function (err, categoryresult) {
-        
+        var jan = categoryresult[0];
+        var feb = categoryresult[1];
+        var march = categoryresult[2];
+        var april = categoryresult[3];
+        var may = categoryresult[4];
+        var june = categoryresult[5];
+        var july = categoryresult[6];
+        var aug = categoryresult[7];
+        var sept = categoryresult[8];
+        var oct = categoryresult[9];
+        var nov = categoryresult[10];
+        var dec = categoryresult[11];
 
     })
     res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
