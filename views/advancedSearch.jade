@@ -13,7 +13,7 @@ append styles
 block body
     .row
         include navBar
-    .row
+    .col-md-3
         br
         br
         br
@@ -43,14 +43,15 @@ block body
 
             input.btn.btn-success(type="submit" form="form1" value="search")
 
-
+    .col-md-4
         br
         br
-        h5 results
+        h5 Results
         if(results != null)
             each result in results
-                a(href = '/viewitem?itemid=#{result.itemid} ') #{result.itemname}
-                p #{result.description}
+                div(class="resultbox")
+                    a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
+                    p #{result.description}
 
 
     include footer

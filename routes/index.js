@@ -10,7 +10,7 @@ var db = require('../db.js');
 var search = require('../search.js');
 var editdb = require("../editdb.js");
 var url = require('url');
-
+//setting up express session
 router.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
 //passport login stuff
@@ -27,6 +27,7 @@ const user = {
 router.use(passport.initialize());
 router.use(passport.session());
 
+//this is our strategy for logging in, used by passport
 passport.use(new LocalStrategy(
     function(username, password, done) {
        /////////////////////////////////////////////////////
@@ -42,6 +43,7 @@ passport.use(new LocalStrategy(
 
     }
 ));
+//the serialize functions are needed by passport to check the session
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -49,9 +51,9 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
     done(null, user);
 });
+//this method is passed as middleware to see if the user is logged in
 function ensureAuthenticated() {
     return function(req,res,next){
-        console.log(req.isAuthenticated());
         if (req.isAuthenticated()) {
             return next();
         }
@@ -59,17 +61,13 @@ function ensureAuthenticated() {
     }
 }
 
-
-
-
+/* login method*/
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login',
-        failureFlash: false
+        failureFlash: true
 }),function(req,res){
-
     res.redirect('/');
     }
 );
-
 
 
 /* GET home page. */
@@ -185,9 +183,9 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
           var yy =itemresult.datefound.substring(0,4);
           var mm = itemresult.datefound.substring(5,7);
           var dd = itemresult.datefound.substring(8,10);
-          var ddNew = Number(dd) + Number(1);
+          //var ddNew = Number(dd) + Number(1);
 
-          itemresult.datefound= ddNew+'-'+mm+"-"+yy;
+          itemresult.datefound= dd+'-'+mm+"-"+yy;
         res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
           itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid: itemresult.itemid});
       })

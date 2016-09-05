@@ -13,6 +13,25 @@ a {
     color: #00B7FF;
 }
 
+.resultbox {
+    background-color: #f0efe7;
+    min-height : 80px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
+
+}
+.resultbox a{
+    padding: 10px;
+    color: #000000;
+    font: 24px "Lucida Grande",Helvetica,Arail,sans-serif;
+}
+.resultbox p{
+    padding-top : 20px;
+    padding-left: 20px;
+}
+
+
 .btn-custom {
     color: #FFFFFF;
     background-color: #7bae23;   /* change  button color */
