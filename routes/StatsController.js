@@ -25,29 +25,32 @@
         var startNov = new Date().setFullYear(new Date().getFullYear(),10,0);
         var startDec = new Date().setFullYear(new Date().getFullYear(),11,0);
 
-        var queryJan = 'SELECT DateCollected, COUNT(DateCollected) AS collectedCount'
-        queryJan += ' FROM items'
-        queryJan += ' WHERE (DateCollected >= :startJan) && (DateCollected < :startFeb)'
+        var stmt = 'SELECT DateCollected, COUNT(DateCollected) AS collectedCount FROM items WHERE (DateCollected >= :startJan) && (DateCollected < :startFeb);';
+        var listCount = [0,1,2,3,4,5,6,7,8,9,10,11];
 
-        //connect to db
-        pg.connect(db, function (err, client, done) {
-            if (err) {
+        pg.connect(db,function(err,client,done){
+            if(err){
                 //deal with db connection issues
                 console.log('cant connect to db');
                 console.log(err);
-                return;
+                return ;
             }
             console.log("connection successful");
             //execute the search
-            queryResult = client.query(queryJan, function (error, result) {
-                done();
-                if (error) {
-                    console.log("query failed");
-                    console.log(error);
-                    return;
-                }
-            });
+            for (i=0;i<listCount.length();i++) {
+                client.query(stmt, function(error,result){
+                    done();
+                    if(error){
+                        console.log("query failed");
+                        console.log(error);
+                        return;
+                    }
+                    listCount[i]=result;
+                    //use call back with out search results
+                    cb(false,result);
+                });
+            }
+
         });
-        queryResult = queryResult*15;
     }
 });

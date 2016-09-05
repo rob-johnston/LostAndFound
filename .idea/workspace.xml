@@ -4,9 +4,10 @@
     <list default="true" id="2112e63f-ee8f-4967-9937-635000c70f09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.js" afterPath="$PROJECT_DIR$/db.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/StatsController.js" afterPath="$PROJECT_DIR$/routes/StatsController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/statistics.jade" afterPath="$PROJECT_DIR$/views/statistics.jade" />
     </list>
-    <list id="4f1433ca-4eb5-4bf3-8fe2-1b6938c7749e" name="New changelist" comment="" />
     <ignored path="LostAndFound.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,71 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="editItem.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/editItem.jade">
+      <file leaf-file-name="statistics.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/statistics.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewItem.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/viewItem.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studentSearchResults.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/studentSearchResults.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="15" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studentView.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/studentView.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="advancedSearch.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/advancedSearch.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1959">
-              <caret line="222" column="32" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="224" column="32" selection-start-line="224" selection-start-column="32" selection-end-line="224" selection-end-column="32" />
+            <state relative-caret-position="452">
+              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -101,8 +42,28 @@
       <file leaf-file-name="addItem.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/addItem.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="235">
+              <caret line="34" column="58" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.js" pinned="false" current-in-tab="true">
+        <entry file="file:///am/phoenix/home1/borthwstan/Work/SWEN302/Swen302 Lost and found/LostAndFound/db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="490" column="0" selection-start-line="490" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,43 +74,51 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Pug File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Pug File" />
+        <option value="Jade File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/views/testIndex.html" />
+        <option value="$PROJECT_DIR$/LostAndFound/views/topNav.jade" />
+        <option value="$PROJECT_DIR$/LostAndFound/views/navBar.jade" />
+        <option value="$PROJECT_DIR$/LostAndFound/views/index.jade" />
+        <option value="$PROJECT_DIR$/views/navBar.jade" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
+        <option value="$PROJECT_DIR$/public/stylesheets/socialbuttons.css" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/views/itemPage.pug" />
         <option value="$PROJECT_DIR$/views/addItem.pug" />
-        <option value="$PROJECT_DIR$/views/Footer.jade" />
-        <option value="$PROJECT_DIR$/views/index.jade" />
-        <option value="$PROJECT_DIR$/views/studentView.jade" />
-        <option value="$PROJECT_DIR$/views/statistics.jade" />
         <option value="$PROJECT_DIR$/views/navBar.jade" />
-        <option value="$PROJECT_DIR$/views/datepicker.html" />
-        <option value="$PROJECT_DIR$/views/search.js" />
-        <option value="$PROJECT_DIR$/routes/StatsController.js" />
-        <option value="$PROJECT_DIR$/public/date.html" />
-        <option value="$PROJECT_DIR$/views/datetest.jade" />
-        <option value="$PROJECT_DIR$/search.js" />
         <option value="$PROJECT_DIR$/views/addItem.jade" />
-        <option value="$PROJECT_DIR$/views/studentSearchResults.jade" />
-        <option value="$PROJECT_DIR$/views/editdb.jade" />
-        <option value="$PROJECT_DIR$/editdb.js" />
-        <option value="$PROJECT_DIR$/views/editItem.jade" />
-        <option value="$PROJECT_DIR$/views/viewItem.jade" />
-        <option value="$PROJECT_DIR$/views/advancedSearch.jade" />
-        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/views/Statistics.jade" />
+        <option value="$PROJECT_DIR$/views/Footer.jade" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/db.js" />
+        <option value="$PROJECT_DIR$/routes/StatsController.js" />
+        <option value="$PROJECT_DIR$/views/statistics.jade" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="/am/phoenix/home1/borthwstan/Work/SWEN302/Swen302 Lost and found/LostAndFound/db.js" />
       </list>
     </option>
   </component>
@@ -162,8 +131,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="-3" />
+    <option name="y" value="-3" />
+    <option name="width" value="1926" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -190,70 +161,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LostAndFound" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -261,27 +173,718 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/pkg/bin/node" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="js-jscs-nodeInterpreter" value="/usr/pkg/bin/node" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/views" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/routes" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/LostAndFound.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/db.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/stylesheets/style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/advancedSearch.jade</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/editItem.jade</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/views/viewItem.jade</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/base64-url/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/base64-url/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/base64-url/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/base64-url/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/.editorconfig</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/.travis.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/CHANGELOG.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/CONTRIBUTING.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/Gruntfile.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/bower.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/build/build.less</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/build/build3.less</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/build/build_standalone.less</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/build/build_standalone3.less</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/composer.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ar.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.az.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.bg.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.bs.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ca.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.cs.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.cy.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.da.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.de.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.el.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en-AU.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en-GB.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.eo.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.et.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.eu.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fa.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fi.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fo.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr-CH.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.gl.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.he.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.hr.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.hu.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.hy.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.id.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.is.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it-CH.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ja.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ka.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.kh.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.kk.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ko.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.kr.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.lt.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.lv.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.me.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.mk.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.mn.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ms.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nb.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nl-BE.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nl.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.no.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pl.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ro.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.rs-latin.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.rs.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ru.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sk.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sl.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sq.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sr-latin.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sr.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sv.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sw.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.th.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.tr.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.uk.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-TW.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/Makefile</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/environment.pickle</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/events.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/i18n.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/index.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/keyboard.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/markup.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/methods.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/doctrees/options.doctree</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/.buildinfo</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/demo_head.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/markup_component.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/markup_daterange.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/markup_inline.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/markup_input.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_calendarweeks.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_clearbtn.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_daysofweekdisabled.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_enddate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_language.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_multidate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_startdate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_todaybtn.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_todayhighlight.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_images/option_weekstart.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/events.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/i18n.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/index.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/keyboard.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/markup.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/methods.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_sources/options.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/ajax-loader.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/basic.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/comment-bright.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/comment-close.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/comment.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/css/badge_only.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/css/theme.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/doctools.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/down-pressed.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/down.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/file.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/Inconsolata-Bold.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/Inconsolata-Regular.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/Lato-Bold.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/Lato-Regular.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/RobotoSlab-Bold.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/RobotoSlab-Regular.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/fontawesome-webfont.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/fontawesome-webfont.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/fontawesome-webfont.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/fonts/fontawesome-webfont.woff</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/jquery-1.11.1.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/js/modernizr.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/js/theme.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/minus.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/plus.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/pygments.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/demo_head.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/markup_component.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/markup_daterange.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/markup_inline.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/markup_input.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_calendarweeks.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_clearbtn.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_daysofweekdisabled.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_enddate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_language.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_multidate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_startdate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_todaybtn.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_todayhighlight.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/screenshots/option_weekstart.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/searchtools.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/underscore-1.3.1.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/underscore.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/up-pressed.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/up.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/_static/websupport.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/events.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/genindex.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/i18n.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/keyboard.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/markup.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/methods.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/objects.inv</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/options.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/search.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_build/html/searchindex.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/demo_head.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/markup_component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/markup_daterange.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/markup_inline.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/markup_input.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_calendarweeks.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_clearbtn.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_daysofweekdisabled.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_enddate.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_language.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_multidate.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_startdate.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_todaybtn.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_todayhighlight.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/option_weekstart.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/script/common.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/script/common.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/script/debug.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/script/html-imports.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_screenshots/script/screenshot.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/demo_head.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/markup_component.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/markup_daterange.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/markup_inline.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/markup_input.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_calendarweeks.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_clearbtn.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_daysofweekdisabled.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_enddate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_language.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_multidate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_startdate.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_todaybtn.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_todayhighlight.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/_static/screenshots/option_weekstart.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/conf.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/events.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/i18n.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/index.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/keyboard.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/make.bat</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/markup.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/methods.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/options.rst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/docs/requirements.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/grunt/.jshintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/.jscsrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/.jshintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.az.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.bg.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.bs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.cs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.cy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.da.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.de.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.el.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.en-AU.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.en-GB.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.eo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.et.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.eu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.fa.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.fi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.fo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr-CH.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.gl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.he.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.hr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.hu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.hy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.id.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.is.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.it-CH.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.it.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ja.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ka.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.kh.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.kk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ko.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.kr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.lt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.lv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.me.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.mk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.mn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ms.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.nb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.nl-BE.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.nl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.no.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.pl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt-BR.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ro.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.rs-latin.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.rs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.ru.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sq.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sr-latin.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.sw.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.th.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.tr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.uk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.vi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/less/.csslintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/less/datepicker.less</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/less/datepicker3.less</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/coverage.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/jquery-1.7.1.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/mock.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/qunit-logging.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/qunit.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/qunit.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/assets/utils.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/calendar-weeks.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/component.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/data-api.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/events.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/formats.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/inline.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/keyboard_navigation/2011.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/keyboard_navigation/2012.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/keyboard_navigation/all.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/methods.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/methods_jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/mouse_navigation/2011.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/mouse_navigation/2012.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/mouse_navigation/all.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/noconflict.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/options.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/suites/timezone.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/tests.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/bootstrap-datepicker/tests/timezone.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/.eslintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/History.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/bench/redisbench.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/lib/connect-redis.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/test/connect-redis-test.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/connect-redis/test/redis-server.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc1.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc16.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc16_ccitt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc16_kermit.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc16_modbus.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc16_xmodem.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc24.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc32.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc8.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/crc8_1wire.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/define_crc.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/lib/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/crc/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/double-ended-queue/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/double-ended-queue/Gruntfile.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/double-ended-queue/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/double-ended-queue/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/double-ended-queue/js/deque.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/double-ended-queue/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/HISTORY.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/node_modules/cookie/HISTORY.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/node_modules/cookie/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/node_modules/cookie/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/node_modules/cookie/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/node_modules/cookie/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/session/cookie.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/session/memory.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/session/session.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/express-session/session/store.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/LICENSE.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/bower.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/core.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/external/sizzle/LICENSE.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/.eslintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/jsonp.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/load.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/parseXML.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/script.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/var/location.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/var/nonce.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/var/rquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/ajax/xhr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/attributes.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/attributes/attr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/attributes/classes.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/attributes/prop.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/attributes/support.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/attributes/val.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/callbacks.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/DOMEval.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/access.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/init.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/parseHTML.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/ready-no-deferred.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/ready.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/readyException.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/support.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/core/var/rsingleTag.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/addGetHookIf.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/adjustCSS.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/curCSS.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/hiddenVisibleSelectors.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/showHide.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/support.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/var/cssExpand.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/var/getStyles.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/var/isHiddenWithinTree.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/var/rmargin.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/var/rnumnonpx.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/css/var/swap.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/data.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/data/Data.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/data/var/acceptData.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/data/var/dataPriv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/data/var/dataUser.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/deferred.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/deferred/exceptionHook.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/deprecated.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/dimensions.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/effects.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/effects/Tween.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/effects/animatedSelector.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/event.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/event/ajax.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/event/alias.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/event/focusin.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/event/support.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/event/trigger.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/exports/amd.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/exports/global.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/_evalUrl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/buildFragment.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/getAll.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/setGlobalEval.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/support.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rcheckableType.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rscriptType.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rtagName.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/manipulation/wrapMap.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/offset.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/queue.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/queue/delay.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/selector-native.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/selector-sizzle.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/selector.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/serialize.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/traversing.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/traversing/findFilter.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/traversing/var/dir.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/traversing/var/rneedsContext.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/traversing/var/siblings.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/ObjectFunctionString.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/arr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/class2type.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/concat.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/document.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/documentElement.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/fnToString.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/getProto.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/hasOwn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/indexOf.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/pnum.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/push.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/rcssNum.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/rnotwhite.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/slice.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/support.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/var/toString.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/jquery/src/wrap.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-local/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-local/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-local/lib/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-local/lib/strategy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-local/lib/utils.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-local/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/.jshintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/.travis.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/lib/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/lib/strategy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport-strategy/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/authenticator.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/errors/authenticationerror.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/framework/connect.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/http/request.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/middleware/authenticate.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/middleware/initialize.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/lib/strategies/session.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/passport/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/pause/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/pause/History.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/pause/Makefile</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/pause/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/pause/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/pause/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/random-bytes/HISTORY.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/random-bytes/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/random-bytes/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/random-bytes/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/random-bytes/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/.travis.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/changelog.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/commands.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/test/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-commands/tools/build.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/.codeclimate.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/changelog.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/lib/hiredis.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/lib/parser.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/lib/replyError.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis-parser/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/.eslintignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/.eslintrc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/.github/ISSUE_TEMPLATE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/.github/PULL_REQUEST_TEMPLATE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/.npmignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/changelog.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/command.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/commands.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/createClient.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/customErrors.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/debug.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/extendedApi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/individualCommands.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/multi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/lib/utils.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/redis/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/uid-safe/HISTORY.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/uid-safe/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/uid-safe/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/uid-safe/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/uid-safe/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/login.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Node.js.www">
     <configuration default="false" name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="www" working-dir="$PROJECT_DIR$/bin">
-      <method />
-    </configuration>
-    <configuration default="false" name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/routes">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -309,12 +912,6 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -337,14 +934,12 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="2">
+    <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Node.js.www" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.index.js" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Node.js.www" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
   </component>
@@ -356,88 +951,114 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="291ee3c9-e175-44e0-98f5-0099e8d93765" name="Default" comment="" />
+      <changelist id="2112e63f-ee8f-4967-9937-635000c70f09" name="Default" comment="" />
       <created>1470008942703</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470008942703</updated>
-      <workItem from="1470008943836" duration="14068000" />
-      <workItem from="1470268358477" duration="23000" />
-      <workItem from="1470604138304" duration="24029000" />
-      <workItem from="1471208546800" duration="24249000" />
-      <workItem from="1471814359489" duration="15571000" />
-      <workItem from="1472422969552" duration="14273000" />
-      <workItem from="1473023176536" duration="16561000" />
+      <workItem from="1470006724199" duration="536000" />
+      <workItem from="1470007433798" duration="1410000" />
+      <workItem from="1470008976779" duration="54000" />
+      <workItem from="1470009039027" duration="160000" />
+      <workItem from="1470009232108" duration="2777000" />
+      <workItem from="1470012184612" duration="645000" />
+      <workItem from="1470013206555" duration="1792000" />
+      <workItem from="1470015395884" duration="9708000" />
+      <workItem from="1470008943836" duration="13905000" />
+      <workItem from="1470610803253" duration="73000" />
+      <workItem from="1470611975246" duration="2254000" />
+      <workItem from="1470618698529" duration="4748000" />
+      <workItem from="1470627863243" duration="16000" />
+      <workItem from="1473025479198" duration="13946000" />
     </task>
-    <task id="LOCAL-00001" summary="YAS MF DATEPICKER">
-      <created>1471822140408</created>
+    <task id="LOCAL-00001" summary="added vertsync css&#10;">
+      <created>1470613028972</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1471822140408</updated>
+      <updated>1470613028972</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="re-aligned footer">
+      <created>1470614355426</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1470614355426</updated>
+    </task>
+    <task id="LOCAL-00003" summary="re-aligned footer">
+      <created>1470614363324</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1470614363324</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Working on stats page using SVG">
+      <created>1470624110792</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1470624110792</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge branch 'master' of https://gitlab.ecs.vuw.ac.nz/pangaaro/LostAndFound&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
+      <created>1471210009904</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1471210009904</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge branch 'master' of https://gitlab.ecs.vuw.ac.nz/pangaaro/LostAndFound&#10;">
+      <created>1471234038743</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1471234038743</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109372000" />
+    <option name="totallyTimeSpent" value="34993000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <frame x="-3" y="-3" width="1926" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13423352" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49563146" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32465753" sideWeight="0.451946" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328934" sideWeight="0.5125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33972603" sideWeight="0.45432884" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881" sideWeight="0.48541668" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.4875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32465753" sideWeight="0.54805404" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17123288" sideWeight="0.44559175" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328934" sideWeight="0.5125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328934" sideWeight="0.48541668" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328934" sideWeight="0.4875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49563146" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33972603" sideWeight="0.45750597" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17123288" sideWeight="0.55440825" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2025417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -452,110 +1073,90 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="YAS MF DATEPICKER" />
-    <option name="LAST_COMMIT_MESSAGE" value="YAS MF DATEPICKER" />
+    <MESSAGE value="added vertsync css&#10;" />
+    <MESSAGE value="re-aligned footer" />
+    <MESSAGE value="Working on stats page using SVG" />
+    <MESSAGE value="Merge branch 'master' of https://gitlab.ecs.vuw.ac.nz/pangaaro/LostAndFound&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
+    <MESSAGE value="Merge branch 'master' of https://gitlab.ecs.vuw.ac.nz/pangaaro/LostAndFound&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://gitlab.ecs.vuw.ac.nz/pangaaro/LostAndFound&#10;" />
+    <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/studentSearchResults.jade">
+    <entry file="file://$PROJECT_DIR$/views/statistics.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="49" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
+        <state relative-caret-position="317">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="32" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/addItem.jade">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="76" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="1728">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/viewItem.jade">
+    <entry file="file://$PROJECT_DIR$/views/editItem.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        <state relative-caret-position="288">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/navBar.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="58" selection-start-line="9" selection-start-column="8" selection-end-line="12" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/addItem.jade">
+    <entry file="file://$PROJECT_DIR$/views/statistics.jade" />
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="1638">
+          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/views/Footer.jade" />
+    <entry file="file://$PROJECT_DIR$/views/statistics.jade" />
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="1242">
+          <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/Footer.jade" />
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/navBar.jade">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/error.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Footer.jade" />
+    <entry file="file://$PROJECT_DIR$/views/addItem.pug" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -563,33 +1164,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="54">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/addItem.jade">
+    <entry file="file://$PROJECT_DIR$/views/error.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -600,192 +1185,182 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/error.jade">
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/addItem.pug" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="126">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/itemPage.pug" />
-    <entry file="file://$PROJECT_DIR$/views/footer.jade" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/views/testIndex.html" />
+    <entry file="file://$PROJECT_DIR$/LostAndFound/views/index.jade" />
+    <entry file="file://$PROJECT_DIR$/LostAndFound/views/navBar.jade" />
+    <entry file="file://$PROJECT_DIR$/views/itemPage.pug" />
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/error.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        <state relative-caret-position="450">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/navBar.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="72">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/datepicker.html" />
-    <entry file="file://$PROJECT_DIR$/views/statistics.jade">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/socialbuttons.css" />
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/viewItem.jade" />
+    <entry file="file://$PROJECT_DIR$/views/studentSearchResults.jade" />
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/date.html" />
-    <entry file="file://$PROJECT_DIR$/views/datetest.jade" />
-    <entry file="file://$PROJECT_DIR$/views/studentView.jade">
+    <entry file="file://$PROJECT_DIR$/views/studentView.jade" />
+    <entry file="file://$PROJECT_DIR$/views/Footer.jade" />
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="1728">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/footer.jade">
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///am/phoenix/home1/johnstrobe/WebstormProjects/LostAndFound/routes/index.js" />
-    <entry file="file://$PROJECT_DIR$/views/studentSearchResults.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editdb.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/viewItem.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/editItem.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+        <state relative-caret-position="-376">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/editdb.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="79" column="82" selection-start-line="79" selection-start-column="82" selection-end-line="79" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-934">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/StatsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="52" column="3" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/advancedSearch.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/addItem.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        <state relative-caret-position="-270">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="224" column="32" selection-start-line="224" selection-start-column="32" selection-end-line="224" selection-end-column="32" />
+        <state relative-caret-position="90">
+          <caret line="317" column="7" selection-start-line="317" selection-start-column="7" selection-end-line="317" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editdb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/StatsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#45#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///am/phoenix/home1/borthwstan/Work/SWEN302/Swen302 Lost and found/LostAndFound/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/addItem.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="34" column="58" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/statistics.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///am/phoenix/home1/borthwstan/Work/SWEN302/Swen302 Lost and found/LostAndFound/node_modules/pg-pool/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1959">
-          <caret line="222" column="32" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
+        <state relative-caret-position="308">
+          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///am/phoenix/home1/borthwstan/Work/SWEN302/Swen302 Lost and found/LostAndFound/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="490" column="0" selection-start-line="490" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
           <folding />
         </state>
       </provider>
