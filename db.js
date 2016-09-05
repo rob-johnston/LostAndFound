@@ -218,7 +218,9 @@
         //the sql statement we need
         var args = '(\''+ data.itemName + '\',\'' + data.itemDescription +'\',\''+data.category+'\',\''+ data.dateFound +'\',\'' +
             data.locationFound +'\',\'' + data.campus + '\',\'' + data.photourl + '\');'
-        //three unconsidered values here. those are DateReturned,DateDiscarded,ImageID - still need to figure out what we are doing with images??
+        //two unconsidered values here. those are DateReturned,DateDiscarded
+
+        //Sets default photo if no photo url entered
         if (data.photourl = null){
             data.photourl = ' ';
         }
