@@ -43,6 +43,7 @@ passport.use(new LocalStrategy(
 
     }
 ));
+
 //the serialize functions are needed by passport to check the session
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -57,7 +58,14 @@ function ensureAuthenticated() {
         if (req.isAuthenticated()) {
             return next();
         }
-        res.redirect('/login');
+        var urlparts = url.parse(req.url,true);
+       if(urlparts.pathname=='/search'){
+           console.log(urlparts.search);
+           res.redirect('/studentsearchresults');
+       } else {
+           //redirect to login if not logged in
+           res.redirect('/login');
+       }
     }
 }
 
@@ -365,12 +373,11 @@ router.get('/studentView', function(req,res,next){
 
 //deals with performing a restricted student search
 router.get('/studentSearchResults', function(req,res,next){
-    db.getCampuses(function(err,campusresult) {
         db.getCategories(function (err, categoryresult) {
             //if no url params then just load
             if (url.parse(req.url, true).search == '') {
                 //render the page without results!
-                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: null});
+                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, results: 0});
             } else {
                 //otherwise perform a student search
                 search.studentSearch(url.parse(req.url, true), function (err, result) {
@@ -378,12 +385,12 @@ router.get('/studentSearchResults', function(req,res,next){
                         console.log("error performing student search");
                     } else {
                         //render student results page with the results from the DB
-                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
+                        console.log(result.rows.length);
+                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories:categoryresult.rows, results: result.rows.length});
                     }
                 });
             }
         })
-    })
 });
 
 /*GET statistics view page. */

@@ -47,16 +47,17 @@
         }
         var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + data.query.category + "' ";
         //if 'from' date is included, add it to the statement
-        if(data.query.from!=''){
+        if(data.query.from!='' && data.query.from!=undefined){
             stmt += " AND datefound > '"+data.query.from+"' ";
         }
         //if 'to' date is included then add to statement
-        if(data.query.to != ''){
+        if(data.query.to != '' && data.query.from!=undefined){
             stmt += " AND datefound < '"+data.query.to + "'";
         }
         //adding the final semi colon
         stmt += ";";
         // stmt+=' AND datediscarded IS NULL;';
+        console.log(stmt);
 
         //connect to db
         pg.connect(db,function(err,client,done){
