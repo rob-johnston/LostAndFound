@@ -29,17 +29,44 @@ router.use(passport.session());
 
 //this is our strategy for logging in, used by passport
 passport.use(new LocalStrategy(
-    function(username, password, done) {
+    function(USERNAME, PASSWORD, done) {
         /////////////////////////////////////////////////////
         ///////////////////////////////////////////////////
         //example check, need to do real password check here!\\
         ///////////////////////////////////////////////////
         ///////////////////////////////////////////////////////
-        if(username=='admin' && password == 'admin'){
+        console.log(USERNAME+ " " + PASSWORD);
+        pg.connect(database,function(err,client){
+            if(err) {
+                return console.error('could not connect to postgres', err);
+            }
+            console.log('Connected to database');
+            var query = "SELECT * FROM users WHERE username='%NAME%' AND password='%PASSWORD%';".replace("%NAME%", USERNAME).replace("%PASSWORD%", PASSWORD);
+            console.log(query);
+            client.query(query, function(error, result){
+                if(error) {
+                    console.error(error);
+                    return done(null, false);
+                }
+                else if (result.rowCount === 0){
+                    console.log("Fail");
+                    return done(null, false);
+                } else {
+                    console.log("Success!");
+                    const newUser = {
+                        username: USERNAME,
+                        password: PASSWORD,
+                        id: 1
+                    }
+                    return done(null,newUser);
+                }
+            })
+        });
+       /* if(username=='admin' && password == 'admin'){
             return done(null,user);
         }
 
-        return done(null, false);
+        return done(null, false);*/
 
     }
 ));
@@ -65,7 +92,7 @@ function ensureAuthenticated() {
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login',
         failureFlash: true
     }),function(req,res){
-        res.redirect('/');
+        res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
     }
 );
 
