@@ -6,6 +6,7 @@ append styles
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/normalize.css')
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
+
 block body
     include navBar
     include sidebar
@@ -19,31 +20,52 @@ block body
                     img(src="images/defaultImg.png" style="width:200px;")
 
                 else
-                    img(src='#{photoSRC}', style="width:200px;")
+                    // Click on photo to view enlarged item photo
+                    a(href='#{photoSRC}', data-toggle='modal', data-target='#photoModal')
+                        img(src='#{photoSRC}', style="width:200px;")
+
+                    // Modal to view enlarged item photo
+                    #photoModal.modal.fade(role='dialog')
+                        .modal-dialog
+                           .modal-content
+                               .modal-header
+                                   button.close(type='button', data-dismiss='modal') ×
+                                   h4.modal-title #{itemName}
+                               .modal-body
+                                   img(src='#{photoSRC}', style="width:500px;")
+                               .modal-footer
+                                   button.btn.btn-success(type='button', data-dismiss='modal') Close
 
                 #editItemBtn.col-sm-12
-                    //form(action='/editItem?id=' + id, method='get')
                     br
                     a(href='/editItem?id=#{itemid} ')
-                        button.btn.btn-default Edit
+                        button.btn.btn-success Edit
 
 
             #itemDetails.col-md-9
                 br
                 br
                 br
-                h3 #{itemName}
-
-                h6 Category: #{itemCategory}
-
-                //Item Description
-                p #{itemDesc}
-
-                p Date Found: #{itemDateFound}
-
-                p Location Found: #{itemLocFound}
-
-                p Currently held in (Campus Location): #{itemCampusLoc}
+                .panel.panel-success
+                    // Default panel contents
+                    .panel-heading
+                        b #{itemName}
+                    .panel-body
+                        p #{itemDesc}
+                    // List group
+                    ul.list-group
+                        li.list-group-item
+                            b Category:
+                            |  #{itemCategory}
+                        li.list-group-item
+                            b Date Found:
+                            |  #{itemDateFound}
+                        li.list-group-item
+                            b Location Found:
+                            |  #{itemLocFound}
+                        li.list-group-item
+                            b Currently held in (Campus Location):
+                            |  #{itemCampusLoc}
 
 
     include footer
