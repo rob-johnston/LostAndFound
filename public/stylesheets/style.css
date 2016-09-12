@@ -14,17 +14,18 @@ a {
 }
 
 .resultbox {
-    background-color: #f0efe7;
     min-height : 80px;
     margin-top: 5%;
     margin-bottom: 5%;
-
+    background-color: #f4f4f9;
 
 }
+
 .resultbox a{
     padding: 10px;
     color: #000000;
     font: 24px "Lucida Grande",Helvetica,Arail,sans-serif;
+
 }
 .resultbox p{
     padding-top : 20px;
