@@ -13,13 +13,7 @@ router.get('/',function(req,res,next){
 });
 
 router.post('/', function(req,res,next){
-    console.log("Attempting to log in");
-    var USERNAME = req.body.user;
-    var PASSWORD = req.body.password;
-    username = req.body.user;
-    console.log(USERNAME + " " + PASSWORD);
-    var query = "SELECT * FROM Users WHERE username='%NAME%' AND password='%PASSWORD%';".replace("%NAME%", USERNAME).replace("%PASSWORD%", PASSWORD);
-    pg.connect(database, function(err,client,done){
-        
-    })
+    res.render('login',{title:'Login'})
 });
+
+module.exports = router;

@@ -1,72 +1,59 @@
-extends ../node_modules/jade-bootstrap/_bootstrap
+include ../node_modules/jade-bootstrap/_bootstrap
+
+block head
+    link(rel = "stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
+
 append styles
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/normalize.css')
     link(rel='stylesheet', href='/stylesheets/skeleton.css')
+    link(rel = "stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
 block body
     include navBar
+        .col-md-4
+            form.centerAdd(action="/studentSearchResults",method="get",id="form1" )
+                br
+                br
+                h6 Item Found Date Range
+                h6 From  (use format dd-mm-yy)
+                input(class="form-control",type="text", name = "from", form="form1", id ="from")
+                h6 To   (use format dd-mm-yy)
+                input(class="form-control",type="text", name = "to", form="form1", id ="to")
+                script.
+                    $(document).ready(function () {
+                        $("#from").datepicker({dateFormat: "dd-mm-yy"});
+                        $("#to").datepicker({dateFormat: "dd-mm-yy"});
+                    });
+                h6 Category Filter
+                select(class="form-control",name="category" form="form1")
+                    each category in categories
+                        option(value='#{category.category}') #{category.category}
 
-        form.centerAdd(action="/studentSearchResults",method="get",id="form1" )
-            br
-            br
-            h6 Item Found Date Range
-            h6 From
-            input(class="form-control",type="text", name = "from", form="form1")
-            h6 To
-            input(class="form-control",type="text", name = "to", form="form1")
+                input.btn.btn-success(type="submit" form="form1" value="search")
+        .col-md-6
+            div(class="vertsyncresults")
+                br
+                br
+                br
+                br
+                .col-md-2
+                    br
+                h4 Results
+                .col-sm-2
+                    br
+                .col-sm-8
+                    p Your search returned #{results} results
+                    br
+                    p Due to privacy and security reasons we can't allow students full access to the details of the items or to use the full search functionality.
+                    p If you are a student, please search using the Category and Date filters or visit VUWSA to find out more.
+                    p
+                        | If you are a VUWSA member then please
+                        a(href='/login')  log in
+                        | to gain full search privileges
 
-            h6 Category Filter
-            select(class="form-control",name="category" form="form1")
-                each category in categories
-                    option(value='#{category.category}') #{category.category}
-            h6 Campus Filter
-            select(class="form-control",name="campus" form="form1")
-                each location in campus
-                    option(value='#{location.campus}') #{location.campus}
 
-            input.btn.btn-success(type="submit" form="form1" value="search")
-
-    div(class="vertsyncresults")
-        br
-        br
-        br
-        br
-        if( results != null )
-            each result in results
-                p #{result.itemname}
-        br
-        br
-        br
-        br
-        br
-        h3 Searched for TEST
-        br
-        h3 Items Found Today
-        +panel-default
-            table.u-full-width
-                thead
-                    tr
-                        th
-                        th
-                tbody
-                    tr
-                        td T1
-                        td T2
-                    tr
-                        td T3
-                        td T4
-        h3 Items Found This Week
-        +panel-default
-            table.u-full-width
-                thead
-                    tr
-                        th
-                        th
-                tbody
-                    tr
-                        td T1
-                        td T2
-                    tr
-                        td T3
-                        td T4
     include footer

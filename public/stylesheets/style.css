@@ -18,7 +18,7 @@ a {
     min-height : 80px;
     margin-top: 5%;
     margin-bottom: 5%;
-    
+
 
 }
 .resultbox a{
@@ -77,8 +77,8 @@ a {
 }
 
 #itemPhoto{
-  position: relative;
-  text-align: left;
+    position: relative;
+    text-align: left;
 }
 
 #itemDetails{
@@ -87,8 +87,8 @@ a {
 }
 
 #editItemBtn{
-  position: relative;
-  text-align: justify;
+    position: relative;
+    text-align: justify;
 }
 
 .social {
@@ -117,16 +117,16 @@ a {
 }
 
 .carousel{
-  width: 100%;
-  height: 10%;
-  margin-top:5%;
-  margin-bottom: 1%;
-  position: relative;
+    width: 75%;
+    margin-top:3.5%;
+    margin-left: 18%;
+    margin-bottom: 2%;
+    position: relative;
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-  width: 100%;
-  height:10%;
+    width: 100%;
+    height:5%;
 }
 
 .graph .labels.x-labels {
