@@ -57,7 +57,7 @@
         //adding the final semi colon
         stmt += ";";
         // stmt+=' AND datediscarded IS NULL;';
-
+        console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){

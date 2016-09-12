@@ -404,20 +404,28 @@ router.get('/studentView', function(req,res,next){
 
 //deals with performing a restricted student search -RJ
 router.get('/studentSearchResults', function(req,res,next){
+        var urlparts = url.parse(req.url,true);
+
+
         db.getCategories(function (err, categoryresult) {
+
+
             //if no url params then just load
-            if (url.parse(req.url, true).search == '') {
+            if (urlparts.search == '') {
                 //render the page without results!
-                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, results: 0});
+                if(urlparts.query.from==null){ urlparts.query.from='';}
+                if(urlparts.query.to==null){ urlparts.query.to='';}
+                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, results: 0, previousFrom:urlparts.query.from,previousTo:urlparts.query.to, previousCategory:urlparts.query.category});
             } else {
                 //otherwise perform a student search
-                search.studentSearch(url.parse(req.url, true), function (err, result) {
+                search.studentSearch(urlparts, function (err, result) {
                     if (err) {
                         console.log("error performing student search");
                     } else {
+                        if(urlparts.query.from==null){ urlparts.query.from='';}
+                        if(urlparts.query.to==null){ urlparts.query.to='';}
                         //render student results page with the results from the DB
-                        console.log(result.rows.length);
-                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories:categoryresult.rows, results: result.rows.length});
+                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories:categoryresult.rows, results: result.rows.length, previousFrom:urlparts.query.from,previousTo:urlparts.query.to,previousCategory:urlparts.query.category});
                     }
                 });
             }
