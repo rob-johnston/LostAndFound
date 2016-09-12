@@ -22,7 +22,7 @@ block body
             .page-header
                 h4
                     | Edit Item
-                    small   #{itemName}
+                    small   -- #{itemName}
             form.centerAdd(action="/viewItem?id=#{itemid}",method="post",id="form2" )
                 ul.list-group
                     li.list-group-item

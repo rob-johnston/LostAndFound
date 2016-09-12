@@ -17,8 +17,6 @@ block body
         br
         br
         br
-        br
-        br
         form.centerAdd(action="/advancedSearch",method="get",id="form1" )
             h6 Keywords
             input(class="form-control",type="text", name = "keywords", form="form1")
@@ -43,7 +41,12 @@ block body
 
             input.btn.btn-success(type="submit" form="form1" value="search")
 
+            br
+            br
+            br
+
     .col-md-4
+        br
         br
         br
         h5 Results
@@ -53,6 +56,7 @@ block body
                     a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
                     p #{result.description}
 
+        br
         br
         br
         br

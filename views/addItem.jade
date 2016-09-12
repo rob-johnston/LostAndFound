@@ -19,39 +19,65 @@ block body
             .row
             br
             br
-            br
-            h3 Add a New Item
+            .page-header
+                h4
+                    | Add Item
+                    small  -- Add a new record to the database
             if (message!=null)
                 .alert.alert-success #{message}
             form.centerAdd(action="/addItem",method="post",id="form1" )
 
-                h4 Item Name
-                input(class="form-control",type="text", name = "itemName", placeholder="name", form="form1", required)
-                h4 Item Description
-                input(class="form-control",type="text", name = "itemDescription", placeholder="description",form="form1", required)
-                h4 Item Category
-                select(class="form-control",name="category" form="form1")
-                    each category in categories
-                        option(value='#{category.category}') #{category.category}
-                h4 Date Found
-                script.
-                    $(document).ready(function () {
-                        $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
-                    });
-                input(type = "text", id = "datepicker", form="form1", name = "dateFound")
-                h4 Campus
-                select(class="form-control",name="campus" form="form1")
-                    each location in campus
-                        option(value='#{location.campus}') #{location.campus}
-                h4 Location Found
-                    input(class="form-control",type="text", name = "locationFound", placeholder="eg The Hub",form="form1", required)
-                //image upload?
-                h4 Image
-                    br
-                    img(src="images/defaultImg.png" style="width:200px;")
-                    br
-                    h8 Add photo url (optional)
-                       input.form-control(type='text', name='photourl', placeholder='Photo URL..')
+                ul.list-group
+                    li.list-group-item
+                        h8
+                            b Item Name
+                            br
+                            input(class="form-control",type="text", name = "itemName", placeholder="Name", form="form1", required)
+                    li.list-group-item
+                        h8
+                            b Item Description
+                            br
+                            input(class="form-control",type="text", name = "itemDescription", placeholder="Description",form="form1", required)
+                    li.list-group-item
+                        h8
+                            b Item Category
+                            br
+                            select(class="form-control",name="category" form="form1")
+                                each category in categories
+                                    option(value='#{category.category}') #{category.category}
+                    li.list-group-item
+                        h8
+                            b Date Found
+                            br
+                            script.
+                                $(document).ready(function () {
+                                    $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
+                                });
+                            input(type = "text", id = "datepicker", form="form1", name = "dateFound")
+
+                    li.list-group-item
+                        h8
+                            b Campus
+                            br
+                            select(class="form-control",name="campus" form="form1")
+                                each location in campus
+                                    option(value='#{location.campus}') #{location.campus}
+                    li.list-group-item
+                        h8
+                            b Location Found
+                            br
+                            input(class="form-control",type="text", name = "locationFound", placeholder="e.g. The Hub",form="form1", required)
+
+                    li.list-group-item
+                        h8
+                            b Image
+                            br
+                            img(src="images/defaultImg.png" style="width:200px;")
+                            br
+                            br
+                            h8
+                                i Add photo url (optional)
+                            input.form-control(type='text', name='photourl', placeholder='Photo URL..')
 
 
                 input.btn(type="submit" form="form1" value="submit")
