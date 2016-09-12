@@ -37,7 +37,7 @@
      * @param cb callback
      */
     function studentSearch(data,cb) {
-        console.log("performing student search");
+        //console.log("performing student search");
 
         //format to get info is... data.query.xxxx   where xxxx is category, from , to;
         //base of the statement - and match category
@@ -57,7 +57,6 @@
         //adding the final semi colon
         stmt += ";";
         // stmt+=' AND datediscarded IS NULL;';
-        console.log(stmt);
 
         //connect to db
         pg.connect(db,function(err,client,done){

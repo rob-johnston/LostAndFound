@@ -30,11 +30,9 @@ router.use(passport.session());
 //this is our strategy for logging in, used by passport
 passport.use(new LocalStrategy(
     function(USERNAME, PASSWORD, done) {
-        /////////////////////////////////////////////////////
         ///////////////////////////////////////////////////
         //example check, need to do real password check here!\\
         ///////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////
         console.log(USERNAME+ " " + PASSWORD);
         pg.connect(database,function(err,client){
             if(err) {
@@ -100,19 +98,24 @@ function ensureAuthenticated() {
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login',
         failureFlash: true
     }),function(req,res){
-        res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
+        res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user });
     }
 );
+/* logout */
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log(req.user);
-    res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
+    res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
 });
 
 
-/* GET listing page. */
+/* GET listing page.  -RJ */
 router.get('/search',ensureAuthenticated(), function(req, res, next) {
 
     //search logic goes here
@@ -163,7 +166,7 @@ router.post('/editdb', ensureAuthenticated(), function (req,res){
 
 
 
-/* GET add item page. */
+/* GET add item page.  -RJ*/
 router.get('/addItem', ensureAuthenticated(), function(req, res, next) {
     //need to get categories and campus options from DB to give user the current correct options to use
     db.getCampuses(function(err,campusresult){
@@ -174,6 +177,7 @@ router.get('/addItem', ensureAuthenticated(), function(req, res, next) {
     })
 });
 
+/* Actually add an item - RJ*/
 router.post('/addItem', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering ad page + add the item to the db
     db.getCampuses(function(err,campusresult){
@@ -190,7 +194,7 @@ router.post('/addItem', ensureAuthenticated(), function (req,res){
     })
 });
 
-/* GET advanced search page. */
+/* GET advanced search page. -RJ */
 router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
@@ -398,7 +402,7 @@ router.get('/studentView', function(req,res,next){
     res.render('studentView', {title: 'Student View - VUWSA Lost and Found'});
 });
 
-//deals with performing a restricted student search
+//deals with performing a restricted student search -RJ
 router.get('/studentSearchResults', function(req,res,next){
         db.getCategories(function (err, categoryresult) {
             //if no url params then just load
