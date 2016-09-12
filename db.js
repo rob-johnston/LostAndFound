@@ -1,6 +1,9 @@
 /**
  * Created by johnstrobe on 8/08/16.
  */
+var arr = [1,2,3,4,5,6,7,8,9,10,11,12];
+var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'", "'2016-05-01'", "'2016-01-01'", "'2016-06-01'", "'2016-07-01'", "'2016-08-01'", "'2016-09-01'", "'2016-10-01'", "'2016-11-01'", "'2016-12-01'"];
+
 (function() {
 
 
@@ -459,14 +462,30 @@
 
 
 
-    function processArray(listCount, fn) {
-        var i = 0;
-        var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'", "'2016-05-01'", "'2016-01-01'", "'2016-06-01'", "'2016-07-01'", "'2016-08-01'", "'2016-09-01'", "'2016-10-01'", "'2016-11-01'", "'2016-12-01'"];
+    function processArray(listCount, fn,cb) {
+        var index = 0;
 
-        return new Promise(function (resolve, reject) {
-            function next() {
-                if (i < listCount.length) {
-                    var stmt = "SELECT COUNT(*) FROM items WHERE (datereturned >= " + datesArray[i] + ") AND (datereturned < " + datesArray[i + 1] + ");";
+        function next(){
+            if(index<12){
+                processItem(index++).then(next);
+            }
+        }
+        next();
+
+    };
+
+
+    function countItems(cb) {
+
+        processArray(arr, processItem,cb);
+        // need to get this callback to execute after process array has finished
+        ////////////////////////////////////////////////////////////////////////
+    }
+
+    //deal with one of the counts
+    function processItem(item){
+
+                return new Promise(function(resolve,reject){
                     pg.connect(db, function (err, client, done) {
                         if (err) {
                             console.log('cant connect to db');
@@ -474,7 +493,7 @@
                             return;
                         }
                         console.log("connection successful");
-
+                        var stmt = "SELECT COUNT(*) FROM items WHERE (datereturned >= " + datesArray[item] + ") AND (datereturned < " + datesArray[item + 1] + ");";
                         client.query(stmt, function (error, result) {
                             done();
                             if (error) {
@@ -482,23 +501,15 @@
                                 console.log(error);
                                 return;
                             }
-                            listCount[i] = result;
+                            arr[item] = result;
                             console.log("query succesful");
-                        });
-                    })
-                    i++;
-                    fn(listCount[index++]).then(next, reject);
-                } else {
-                    resolve();
-                }
-            }
-            next();
+                            //maybe use the promise count system here??????
+                            resolve();
+                })
+            });
         })
-    };
 
-
-    function countItems(cb) {
-        var listCount = processArray(arr, processItem);
-        cb(false, listCount);
     }
-});
+
+
+})();
