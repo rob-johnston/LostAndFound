@@ -462,24 +462,29 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
 
 
-    function processArray(listCount, fn,cb) {
-        var index = 0;
+    function processArray(listCount, fn) {
+        return new Promise(function(resolve,reject){
+            var index = 0;
 
-        function next(){
-            if(index<12){
-                processItem(index++).then(next);
+            function next() {
+                if(index<12){
+                    processItem(index++).then(next);
+                } else {
+                    resolve();
+                }
             }
-        }
-        next();
+            next();
+        })
 
     };
 
 
     function countItems(cb) {
 
-        processArray(arr, processItem,cb);
-        // need to get this callback to execute after process array has finished
-        ////////////////////////////////////////////////////////////////////////
+        processArray(arr, processItem).then(function(){
+            cb(false,arr);
+        });
+
     }
 
     //deal with one of the counts
@@ -490,7 +495,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                         if (err) {
                             console.log('cant connect to db');
                             console.log(err);
-                            return;
+                            reject();
                         }
                         console.log("connection successful");
                         var stmt = "SELECT COUNT(*) FROM items WHERE (datereturned >= " + datesArray[item] + ") AND (datereturned < " + datesArray[item + 1] + ");";
@@ -499,7 +504,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                             if (error) {
                                 console.log("query failed");
                                 console.log(error);
-                                return;
+                                reject();
                             }
                             arr[item] = result;
                             console.log("query succesful");

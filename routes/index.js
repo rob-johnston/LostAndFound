@@ -436,12 +436,12 @@ router.get('/statistics', function(req,res,next){
         var nov = categoryresult[10];
         var dec = categoryresult[11];
 
-        for( i =0;i<categoryresult.length;i++){
+        for( var i =0;i<categoryresult.length;i++){
             console.log(categoryresult[i]);
         }
-
+        res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
     })
-    res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
+
 });
 
 module.exports = router;
