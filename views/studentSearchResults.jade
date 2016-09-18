@@ -30,11 +30,9 @@ block body
                     });
                 h6 Category Filter
                 select(class="form-control",name="category" form="form1")
+                    option(value=previousCategory, selected = previousCategory) #{previousCategory}
                     each category in categories
-                        if(category == previousCategory )
-                            option(value='#{category.category}',selected='#{category.category}') #{category.category}
-                        else
-                            option(value='#{category.category}') #{category.category}
+                        option(value='#{category.category}') #{category.category}
 
                 input.btn.btn-success(type="submit" form="form1" value="search")
         .col-md-6

@@ -260,7 +260,7 @@
      */
     function addCategory(data,cb) {
 
-        var stmt = INSERT + CATEGORIES_TABLE + " (cateogy) VALUES ('"+data+"');";
+        var stmt = INSERT + CATEGORIES_TABLE + " (category) VALUES ('"+data+"');";
         console.log(stmt);
         //connect to db
         pg.connect(db,function(err,client,done){
