@@ -44,7 +44,8 @@ block body
                             br
                             select(class="form-control",name="category" form="form1")
                                 each category in categories
-                                    option(value='#{category.category}') #{category.category}
+                                    if(category.category != "All Categories")
+                                        option(value='#{category.category}') #{category.category}
                     li.list-group-item
                         h8
                             b Date Found
