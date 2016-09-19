@@ -66,6 +66,13 @@ block body
                         li.list-group-item
                             b Currently held in (Campus Location):
                             |  #{itemCampusLoc}
-
+                        if itemReturnStatus != null && itemReturnStatus != 'Return Status'
+                            li.list-group-item
+                                b Return Status:
+                                |  #{itemReturnStatus}
+                        //if itemReturnStatus == 'Returned to Owner'
+                        //    li.list-group-item
+                        //        b Date Returned:
+                        //        | #{itemDateReturned}
 
     include footer

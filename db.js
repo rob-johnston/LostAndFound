@@ -439,9 +439,10 @@
      * @param cb callback
      */
     function editItem(data,cb) {
-        var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription + '\', Category = \''
-            + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' + data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\'  WHERE itemid = ' + data.itemid + ' ;';
-
+        var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription +
+            '\', Category = \'' + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' +
+            data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
+            data.returnstatus + '\'  WHERE itemid = ' + data.itemid + ' ;';
         pg.connect(db,function(err,client,done){
             if(err){
                 console.log('cant connect to db');

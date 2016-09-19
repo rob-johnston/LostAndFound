@@ -270,10 +270,22 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
         // console.log("VIEWGET mmNew: " + mmNew);
 
         itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
-        res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-            itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid: itemresult.itemid, user:req.user});
+        res.render('viewItem', {
+            title: 'View Item - VUWSA Lost and Found',
+            itemName: itemresult.itemname,
+            itemCategory: itemresult.category,
+            itemDesc: itemresult.description,
+            itemDateFound: itemresult.datefound,
+            itemLocFound: itemresult.locationfound,
+            itemCampusLoc: itemresult.campus,
+            photoSRC: itemresult.photourl,
+            itemid: itemresult.itemid,
+            itemReturnStatus: itemresult.returnstatus
+            //itemDateReturned: itemresult.datereturned
+        });
     })
 });
+
 
 /* GET edit item page. */
 router.get('/editItem', ensureAuthenticated(), function (req, res) {
@@ -328,8 +340,21 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
                 // console.log("EDITGET mmNew: " + mmNew);
 
                 itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
-                res.render('editItem', {title: 'Edit Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-                    itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl,itemid: itemresult.itemid, user:req.user});
+                res.render('editItem', {
+                    title: 'Edit Item - VUWSA Lost and Found',
+                    categories: categoryresult.rows,
+                    campus: campusresult.rows,
+                    itemName: itemresult.itemname,
+                    itemCategory: itemresult.category,
+                    itemDesc: itemresult.description,
+                    itemDateFound: itemresult.datefound,
+                    itemLocFound: itemresult.locationfound,
+                    itemCampusLoc: itemresult.campus,
+                    photoSRC: itemresult.photourl,
+                    itemid: itemresult.itemid,
+                    itemReturnStatus: itemresult.returnstatus
+                    //itemDateReturned: itemresult.datereturned
+                });
             })
         })
     })
@@ -388,8 +413,19 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
                     // console.log("VIEWPOST mmNew: " + mmNew);
 
                     itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
-                    res.render('viewItem', {title: 'View Item - VUWSA Lost and Found', itemName: itemresult.itemname, itemCategory: itemresult.category, itemDesc: itemresult.description, itemDateFound: itemresult.datefound,
-                        itemLocFound: itemresult.locationfound, itemCampusLoc: itemresult.campus, photoSRC: itemresult.photourl, itemid:itemresult.itemid, user:req.user});
+                    res.render('viewItem', {
+                        title: 'View Item - VUWSA Lost and Found',
+                        itemName: itemresult.itemname, itemCategory:
+                        itemresult.category,
+                        itemDesc: itemresult.description,
+                        itemDateFound: itemresult.datefound,
+                        itemLocFound: itemresult.locationfound,
+                        itemCampusLoc: itemresult.campus,
+                        photoSRC: itemresult.photourl,
+                        itemid:itemresult.itemid,
+                        itemReturnStatus: itemresult.returnstatus
+                        //itemDateReturned: itemresult.datereturned
+                    });
                 })
             })
         })
