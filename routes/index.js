@@ -30,9 +30,11 @@ router.use(passport.session());
 //this is our strategy for logging in, used by passport
 passport.use(new LocalStrategy(
     function(USERNAME, PASSWORD, done) {
+        /////////////////////////////////////////////////////
         ///////////////////////////////////////////////////
         //example check, need to do real password check here!\\
         ///////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////
         console.log(USERNAME+ " " + PASSWORD);
         pg.connect(database,function(err,client){
             if(err) {
@@ -98,24 +100,19 @@ function ensureAuthenticated() {
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login',
         failureFlash: true
     }),function(req,res){
-        res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user });
+        res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
     }
 );
-/* logout */
-router.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-});
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log(req.user);
-    res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
+    res.render('index', { title: 'Welcome to VUWSA Lost and Found' });
 });
 
 
-/* GET listing page.  -RJ */
+/* GET listing page. */
 router.get('/search',ensureAuthenticated(), function(req, res, next) {
 
     //search logic goes here
@@ -127,9 +124,9 @@ router.get('/search',ensureAuthenticated(), function(req, res, next) {
             db.getCategories(function(err,categoryresult){
                 if(err){
                     console.log.print(err);
-                    res.render('index', { title: 'Search - VUWSA Lost and Found' , user:req.user});
+                    res.render('index', { title: 'Search - VUWSA Lost and Found' });
                 }
-                res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows, user:req.user});
+                res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows});
             })
         })
     })
@@ -146,7 +143,7 @@ router.get('/editdb',
         db.getCampuses(function(err,campusresult){
             db.getCategories(function(err,categoryresult){
                 //render page with info from db
-                res.render('editdb', { title: 'Edit Database - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
+                res.render('editdb', { title: 'Edit Database - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows});
             })
         })
     });
@@ -157,7 +154,7 @@ router.post('/editdb', ensureAuthenticated(), function (req,res){
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
             editdb.editdb(req, function(msg){
-                res.render('editdb', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: msg, user:req.user});
+                res.render('editdb', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: msg});
             });
         })
     })
@@ -166,27 +163,26 @@ router.post('/editdb', ensureAuthenticated(), function (req,res){
 
 
 
-/* GET add item page.  -RJ*/
+/* GET add item page. */
 router.get('/addItem', ensureAuthenticated(), function(req, res, next) {
     //need to get categories and campus options from DB to give user the current correct options to use
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
             //render page with info from db
-            res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
+            res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows});
         })
     })
 });
 
-/* Actually add an item - RJ*/
 router.post('/addItem', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering ad page + add the item to the db
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
             db.addItem(req.body,function(err,result){
                 if(err){
-                    res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
+                    res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item"});
                 }else {
-                    res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly", user:req.user});
+                    res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly"});
                 }
 
             })
@@ -194,23 +190,19 @@ router.post('/addItem', ensureAuthenticated(), function (req,res){
     })
 });
 
-/* GET advanced search page. -RJ */
+/* GET advanced search page. */
 router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
-            //get url parts
-            var urlparts = url.parse(req.url,true).query;
-
             //blank load with no search
             if(url.parse(req.url,true).search ==''){
-                res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
+                res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows});
             } else {
-                search.advancedSearch(urlparts, function(err,result){
+                search.advancedSearch(url.parse(req.url,true).query, function(err,result){
                     if(err) {
                         console.log(err);
                     } else {
-                        res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows, user:req.user,
-                        previousfrom : urlparts.from, previousto : urlparts.to, previousCategory: urlparts.category, previouschecked : urlparts.includereturned, previouskeywords: urlparts.keywords});
+                        res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows});
                     }
                 })
             }
@@ -442,58 +434,47 @@ router.get('/studentView', function(req,res,next){
     res.render('studentView', {title: 'Student View - VUWSA Lost and Found'});
 });
 
-//deals with performing a restricted student search -RJ
+//deals with performing a restricted student search
 router.get('/studentSearchResults', function(req,res,next){
-        var urlparts = url.parse(req.url,true);
-
-
         db.getCategories(function (err, categoryresult) {
-
-
             //if no url params then just load
-            if (urlparts.search == '') {
+            if (url.parse(req.url, true).search == '') {
                 //render the page without results!
-                if(urlparts.query.from==null){ urlparts.query.from='';}
-                if(urlparts.query.to==null){ urlparts.query.to='';}
-                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, results: 0, previousFrom:urlparts.query.from,previousTo:urlparts.query.to, previousCategory:urlparts.query.category, user:req.user});
+                res.render('studentSearchResults', {title: 'Student Search - VUWSA Lost and Found', categories: categoryresult.rows, results: 0});
             } else {
                 //otherwise perform a student search
-                search.studentSearch(urlparts, function (err, result) {
+                search.studentSearch(url.parse(req.url, true), function (err, result) {
                     if (err) {
                         console.log("error performing student search");
                     } else {
-                        if(urlparts.query.from==null){ urlparts.query.from='';}
-                        if(urlparts.query.to==null){ urlparts.query.to='';}
                         //render student results page with the results from the DB
-                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories:categoryresult.rows, results: result.rows.length, previousFrom:urlparts.query.from,previousTo:urlparts.query.to,previousCategory:urlparts.query.category, user:req.user});
+                        console.log(result.rows.length);
+                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories:categoryresult.rows, results: result.rows.length});
                     }
                 });
             }
         })
 });
 
-/*GET statistics view page. */
+/*GET statistics view page. */  //MUST FIX ONLY WORKS FOR 2016
 router.get('/statistics', function(req,res,next){
-    db.countItems(function (err, categoryresult) {
-        var jan = categoryresult[0];
-        var feb = categoryresult[1];
-        var march = categoryresult[2];
-        var april = categoryresult[3];
-        var may = categoryresult[4];
-        var june = categoryresult[5];
-        var july = categoryresult[6];
-        var aug = categoryresult[7];
-        var sept = categoryresult[8];
-        var oct = categoryresult[9];
-        var nov = categoryresult[10];
-        var dec = categoryresult[11];
+    db.countItems(function (err, arrResult) {
+        var jan = 450 - ((JSON.stringify(arrResult[0]).match(/\d+/)[0])*30);
+        var feb = 450 - ((JSON.stringify(arrResult[1]).match(/\d+/)[0])*30);
+        var mar = 450 - ((JSON.stringify(arrResult[2]).match(/\d+/)[0])*30);
+        var apr = 450 - ((JSON.stringify(arrResult[3]).match(/\d+/)[0])*30);
+        var may = 450 - ((JSON.stringify(arrResult[4]).match(/\d+/)[0])*30);
+        var jun = 450 - ((JSON.stringify(arrResult[5]).match(/\d+/)[0])*30);
+        var jul = 450 - ((JSON.stringify(arrResult[6]).match(/\d+/)[0])*30);
+        var aug = 450 - ((JSON.stringify(arrResult[7]).match(/\d+/)[0])*30);
+        var sep = 450 - ((JSON.stringify(arrResult[8]).match(/\d+/)[0])*30);
+        var oct = 450 - ((JSON.stringify(arrResult[9]).match(/\d+/)[0])*30);
+        var nov = 450 - ((JSON.stringify(arrResult[10]).match(/\d+/)[0])*30);
+        var dec = 450 - ((JSON.stringify(arrResult[11]).match(/\d+/)[0])*30);
 
-        for( i =0;i<categoryresult.length;i++){
-            console.log(categoryresult[i]);
-        }
-
+        res.render('statistics', {title: 'Statistics - VUWSA Lost and Found', january: jan, february: feb, march: mar, april: apr, may: may, june: jun, july: jul, august: aug, september: sep, october: oct, november: nov, december: dec});
     })
-    res.render('statistics', {title: 'Statistics - VUWSA Lost and Found', user:req.user});
+
 });
 
 module.exports = router;
