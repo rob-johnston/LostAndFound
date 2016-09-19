@@ -66,11 +66,11 @@ block body
                         li.list-group-item
                             b Currently held in (Campus Location):
                             |  #{itemCampusLoc}
-                        if itemReturnStatus != null && itemReturnStatus != 'Return Status'
+                        if itemReturnStatus != null && itemReturnStatus != ' '
                             li.list-group-item
                                 b Return Status:
                                 |  #{itemReturnStatus}
-                        if itemReturnStatus == 'Returned to Owner'
+                        if itemReturnStatus == 'Owner'
                             li.list-group-item
                                 b Date Returned:
                                 | #{itemDateReturned}

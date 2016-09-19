@@ -92,7 +92,10 @@ block body
                             b Return Status
                             br
                             .btn-group(data-toggle='buttons', form="form2")
-                                if itemReturnStatus == 'Returned to Owner'
+                                if itemReturnStatus == 'Owner'
+                                    label.btn.btn-default
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
+                                        |  Held by VUWSA
                                     label.btn.btn-default.active
                                         input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
                                         a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
@@ -104,6 +107,9 @@ block body
                                         |  Given to Police
                                 else if itemReturnStatus == 'Disposed'
                                     label.btn.btn-default
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
+                                        |  Held by VUWSA
+                                    label.btn.btn-default
                                         input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
                                         a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default.active
@@ -112,10 +118,13 @@ block body
                                     label.btn.btn-default
                                         input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
                                         |  Given to Police
-                                else if itemReturnStatus == 'Given to Police'
+                                else if itemReturnStatus == 'Police'
+                                    label.btn.btn-default
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
+                                        |  Held by VUWSA
                                     label.btn.btn-default
                                         input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
-                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                        a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
                                         |  Disposed
@@ -123,31 +132,33 @@ block body
                                         input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
                                         |  Given to Police
                                 else
+                                    label.btn.btn-default.active
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
+                                        |  Held by VUWSA
                                     label.btn.btn-default
-                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
-                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')
+                                        a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
                                         |  Disposed
                                     label.btn.btn-default
-                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police')
                                         |  Given to Police
 
-                            #myModal.modal.fade(role='dialog')
+                            #datepickerModal.modal.fade(role='dialog')
                                 .modal-dialog
                                     .modal-content
                                         .modal-header
                                             button.close(type='button', data-dismiss='modal') ×
-                                            h4.modal-title #{itemName}
+                                            h4.modal-title #{itemName} -- Date Returned
                                         .modal-body
                                             input(type = "text", id = "datepicker2", form = "form2", name = "dateReturned", value = '#{itemDateReturned}')
                                             script.
                                                 $(document).ready(function () {
                                                     $("#datepicker2").datepicker({dateFormat: "dd-mm-yy"});
                                                 });
-                                        .modal-footer
-                                            button.btn.btn-success(type='button', data-dismiss='modal') Close
-
+                                            br
+                                            button.btn.btn-success(type='button', data-dismiss='modal') Set Date Returned
 
                 input(type = "hidden", name = "itemid", value = '#{itemid}', form = 'form2')
                 input.btn.btn-success(type="submit" form="form2" value="submit")
