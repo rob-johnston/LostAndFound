@@ -18,14 +18,20 @@ block body
                         g(class="grid x-grid")
                             line(x1="90" x2="90" y1="0" y2="450")
                         g(class="grid y-grid")
-                            line(x1="90" x2="680" y1="450" y2="450")
+                            line(x1="90" x2="720" y1="450" y2="450")
                         g(class="labels x-labels")
-                            text(x="100" y="470") Jan
-                            text(x="202.5" y="470") March
-                            text(x="304" y="470") May
-                            text(x="406.5" y="470") July
-                            text(x="508" y="470") Sept
-                            text(x="609.5" y="470") Dec
+                            text(x="140" y="470") Jan
+                            text(x="190" y="470") Feb
+                            text(x="240" y="470") March
+                            text(x="290" y="470") April
+                            text(x="340" y="470") May
+                            text(x="390" y="470") June
+                            text(x="440" y="470") July
+                            text(x="490" y="470") Aug
+                            text(x="540" y="470") Sept
+                            text(x="590" y="470") Oct
+                            text(x="640" y="470") Nov
+                            text(x="690" y="470") Dec
                             text(x="350" y="490" class="label-title") Month
                         g(class="labels y-labels")
                             text(x='80', y='10') 15
@@ -34,10 +40,17 @@ block body
                             text(x='80', y='450') 0
                             text(x="55" y="200" class="label-title") Number
                         g(class="data" data-setname="data from the database")
-                            circle(cx='90', cy='11', data-value='7.2', r='4')
-                            circle(cx='240', cy='141', data-value='800.1', r='4')
-                            circle(cx='388', cy='179', data-value='7.7', r='4')
-                            circle(cx='531', cy='200', data-value='6.8', r='4')
-                            circle(cx='677', cy='104', data-value='6.7', r='4')
+                            circle(cx='140', cy='#{january}', data-value='7.2', r='4')
+                            circle(cx='190', cy='#{february}', data-value='7.2', r='4')
+                            circle(cx='240', cy='#{march}', data-value='7.2', r='4')
+                            circle(cx='290', cy='#{april}', data-value='7.2', r='4')
+                            circle(cx='340', cy='#{may}', data-value='7.2', r='4')
+                            circle(cx='390', cy='#{june}', data-value='7.2', r='4')
+                            circle(cx='440', cy='#{july}', data-value='7.2', r='4')
+                            circle(cx='490', cy='#{august}', data-value='7.2', r='4')
+                            circle(cx='540', cy='#{september}', data-value='7.2', r='4')
+                            circle(cx='590', cy='#{october}', data-value='7.2', r='4')
+                            circle(cx='640', cy='#{november}', data-value='7.2', r='4')
+                            circle(cx='690', cy='#{december}', data-value='7.2', r='4')
     include footer
 

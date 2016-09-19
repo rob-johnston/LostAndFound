@@ -506,8 +506,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                                 console.log(error);
                                 reject();
                             }
-                            arr[item] = result;
+                            arr[item] = result.rows;
                             console.log("query succesful");
+                            console.log(arr[item]);
                             //maybe use the promise count system here??????
                             resolve();
                 })

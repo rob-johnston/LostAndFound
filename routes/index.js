@@ -422,24 +422,23 @@ router.get('/studentSearchResults', function(req,res,next){
 
 /*GET statistics view page. */
 router.get('/statistics', function(req,res,next){
-    db.countItems(function (err, categoryresult) {
-        var jan = categoryresult[0];
-        var feb = categoryresult[1];
-        var march = categoryresult[2];
-        var april = categoryresult[3];
-        var may = categoryresult[4];
-        var june = categoryresult[5];
-        var july = categoryresult[6];
-        var aug = categoryresult[7];
-        var sept = categoryresult[8];
-        var oct = categoryresult[9];
-        var nov = categoryresult[10];
-        var dec = categoryresult[11];
+    db.countItems(function (err, arrResult) {
+        var jan = 450 - ((JSON.stringify(arrResult[0]).match(/\d+/)[0])*30);
+        var feb = 450 - ((JSON.stringify(arrResult[1]).match(/\d+/)[0])*30);
+        var mar = 450 - ((JSON.stringify(arrResult[2]).match(/\d+/)[0])*30);
+        var apr = 450 - ((JSON.stringify(arrResult[3]).match(/\d+/)[0])*30);
+        var may = 450 - ((JSON.stringify(arrResult[4]).match(/\d+/)[0])*30);
+        var jun = 450 - ((JSON.stringify(arrResult[5]).match(/\d+/)[0])*30);
+        var jul = 450 - ((JSON.stringify(arrResult[6]).match(/\d+/)[0])*30);
+        var aug = 450 - ((JSON.stringify(arrResult[7]).match(/\d+/)[0])*30);
+        var sep = 450 - ((JSON.stringify(arrResult[8]).match(/\d+/)[0])*30);
+        var oct = 450 - ((JSON.stringify(arrResult[9]).match(/\d+/)[0])*30);
+        var nov = 450 - ((JSON.stringify(arrResult[10]).match(/\d+/)[0])*30);
+        var dec = 450 - ((JSON.stringify(arrResult[11]).match(/\d+/)[0])*30);
 
-        for( var i =0;i<categoryresult.length;i++){
-            console.log(categoryresult[i]);
-        }
-        res.render('statistics', {title: 'Statistics - VUWSA Lost and Found'});
+        //console.log('categoryresults');
+        //console.log(sept);
+        res.render('statistics', {title: 'Statistics - VUWSA Lost and Found', january: jan, february: feb, march: mar, april: apr, may: may, june: jun, july: jul, august: aug, september: sep, october: oct, november: nov, december: dec});
     })
 
 });
