@@ -22,9 +22,11 @@
                         small
                             b User
                     ul.nav.nav-pills.nav-stacked
-                        li
-                            a(href='/login') Log In
+                        if(user == null)
+                            li
+                                a(href='/login') Log In
+                        else
+                            li
+                                a(href='/') Log Out
                         li
                             a(href='/statistics') View Statistics
-                        li
-                            a(href='/logout') Log Out
