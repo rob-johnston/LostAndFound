@@ -442,7 +442,8 @@
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription +
             '\', Category = \'' + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' +
             data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
-            data.returnstatus + '\'  WHERE itemid = ' + data.itemid + ' ;';
+            data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
+        //, DateReturned = \'' + data.dateReturned + '\'
         pg.connect(db,function(err,client,done){
             if(err){
                 console.log('cant connect to db');

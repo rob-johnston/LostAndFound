@@ -91,32 +91,62 @@ block body
                         h8
                             b Return Status
                             br
-                            .form-group
-                                label
-                                select(class="form-control",name="returnstatus" form="form2")
-                                    if(itemReturnStatus != null && itemReturnStatus != 'Return Status')
-                                        option(value='#{itemReturnStatus}',selected='selected') #{itemReturnStatus}
-                                        option(value='Return Status') Return Status
-                                        option(value='Returned to Owner') Returned to Owner
-                                        option(value='Discarded') Discarded
-                                        option(value='Given to Police') Given to Police
-                                    else
-                                        option(value='Return Status') Return Status
-                                        option(value='Returned to Owner') Returned to Owner
-                                        option(value='Discarded') Discarded
-                                        option(value='Given to Police') Given to Police
-                    //if itemReturnStatus == 'Returned to Owner'
-                    //    li.list-group-item
-                    //        h8
-                    //            b Date Returned
-                    //            br
-                    //            script.
-                    //                $(document).ready(function () {
-                    //                    $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
-                    //                });
-                    //            input(type = "text", id = "datepicker", form = "form2", name = "dateReturned", value = '#{itemDateReturned}')
+                            .btn-group(data-toggle='buttons', form="form2")
+                                if itemReturnStatus == 'Returned to Owner'
+                                    label.btn.btn-default.active
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
+                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                    label.btn.btn-default
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
+                                        |  Disposed
+                                    label.btn.btn-default
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        |  Given to Police
+                                else if itemReturnStatus == 'Disposed'
+                                    label.btn.btn-default
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
+                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                    label.btn.btn-default.active
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
+                                        |  Disposed
+                                    label.btn.btn-default
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        |  Given to Police
+                                else if itemReturnStatus == 'Given to Police'
+                                    label.btn.btn-default
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
+                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                    label.btn.btn-default
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
+                                        |  Disposed
+                                    label.btn.btn-default.active
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        |  Given to Police
+                                else
+                                    label.btn.btn-default
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
+                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                    label.btn.btn-default
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
+                                        |  Disposed
+                                    label.btn.btn-default
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        |  Given to Police
 
-
+                            #myModal.modal.fade(role='dialog')
+                                .modal-dialog
+                                    .modal-content
+                                        .modal-header
+                                            button.close(type='button', data-dismiss='modal') ×
+                                            h4.modal-title #{itemName}
+                                        .modal-body
+                                            input(type = "text", id = "datepicker2", form = "form2", name = "dateReturned", value = '#{itemDateReturned}')
+                                            script.
+                                                $(document).ready(function () {
+                                                    $("#datepicker2").datepicker({dateFormat: "dd-mm-yy"});
+                                                });
+                                        .modal-footer
+                                            button.btn.btn-success(type='button', data-dismiss='modal') Close
 
 
                 input(type = "hidden", name = "itemid", value = '#{itemid}', form = 'form2')

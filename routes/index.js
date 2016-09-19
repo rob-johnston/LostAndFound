@@ -280,8 +280,8 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
             itemCampusLoc: itemresult.campus,
             photoSRC: itemresult.photourl,
             itemid: itemresult.itemid,
-            itemReturnStatus: itemresult.returnstatus
-            //itemDateReturned: itemresult.datereturned
+            itemReturnStatus: itemresult.returnstatus,
+            itemDateReturned: itemresult.datereturned
         });
     })
 });
@@ -352,8 +352,8 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
                     itemCampusLoc: itemresult.campus,
                     photoSRC: itemresult.photourl,
                     itemid: itemresult.itemid,
-                    itemReturnStatus: itemresult.returnstatus
-                    //itemDateReturned: itemresult.datereturned
+                    itemReturnStatus: itemresult.returnstatus,
+                    itemDateReturned: itemresult.datereturned
                 });
             })
         })
@@ -423,8 +423,8 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
                         itemCampusLoc: itemresult.campus,
                         photoSRC: itemresult.photourl,
                         itemid:itemresult.itemid,
-                        itemReturnStatus: itemresult.returnstatus
-                        //itemDateReturned: itemresult.datereturned
+                        itemReturnStatus: itemresult.returnstatus,
+                        itemDateReturned: itemresult.datereturned
                     });
                 })
             })
