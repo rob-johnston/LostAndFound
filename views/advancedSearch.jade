@@ -17,11 +17,9 @@ block body
         br
         br
         br
-        br
-        br
         form.centerAdd(action="/advancedSearch",method="get",id="form1" )
             h6 Keywords
-            input(class="form-control",type="text", name = "keywords", form="form1")
+            input(class="form-control",type="text", name = "keywords", form="form1", value = ("#{previouskeywords}"==="undefined" ? "" : "#{previouskeywords}"))
             h6 Item Found Date Range
             script.
                 $(document).ready(function () {
@@ -29,11 +27,12 @@ block body
                     $("#to").datepicker({dateFormat: "dd-mm-yy"});
                 });
             h6 From  (use format dd-mm-yy)
-            input(class="form-control",type="text", name = "from", form="form1", id ="from")
+            input(class="form-control",type="text", name = "from", form="form1", id ="from", value = ("#{previousfrom}"==="undefined" ? "" : "#{previousfrom}"))
             h6 To   (use format dd-mm-yy)
-            input(class="form-control",type="text", name = "to", form="form1", id ="to")
+            input(class="form-control",type="text", name = "to", form="form1", id ="to",value = ("#{previousto}"==="undefined" ? "" : "#{previousto}"))
             h6 Category Filter
             select(class="form-control",name="category" form="form1")
+                option(value=previousCategory, selected = previousCategory) #{previousCategory}
                 each category in categories
                     option(value='#{category.category}') #{category.category}
             h6 Campus Filter
@@ -41,9 +40,17 @@ block body
                 each location in campus
                     option(value='#{location.campus}') #{location.campus}
 
+            h6 Include returned/discarded items?
+            input(class="form-control",name ="includereturned", type = "checkbox",id="includereturned", form="form1", checked = ("#{previouschecked}"==='on' ? 'on' : undefined))
+
             input.btn.btn-success(type="submit" form="form1" value="search")
 
+            br
+            br
+            br
+
     .col-md-4
+        br
         br
         br
         h5 Results
@@ -52,7 +59,10 @@ block body
                 div(class="resultbox")
                     a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
                     p #{result.description}
+                    div(style='float: right;')
+                        img(src="images/defaultImg.png" style="height:50px; margin-top:-250%;")
 
+        br
         br
         br
         br

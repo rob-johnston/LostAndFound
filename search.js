@@ -37,15 +37,18 @@
      * @param cb callback
      */
     function studentSearch(data,cb) {
-        console.log("performing student search");
+        //console.log("performing student search");
 
         //format to get info is... data.query.xxxx   where xxxx is category, from , to;
         //base of the statement - and match category
         if(data.query.category=='All Categories'){
             //change category to a wildcard if no specific category selected
-            data.query.category = '%'
+            var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + "%" + "' ";
+        } else {
+            //otherwise just include it like normal
+            var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + data.query.category + "' ";
         }
-        var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + data.query.category + "' ";
+
         //if 'from' date is included, add it to the statement
         if(data.query.from!='' && data.query.from!=undefined){
             stmt += " AND datefound > '"+data.query.from+"' ";
@@ -58,7 +61,6 @@
         stmt += ";";
         // stmt+=' AND datediscarded IS NULL;';
         console.log(stmt);
-
         //connect to db
         pg.connect(db,function(err,client,done){
             if(err){
@@ -106,7 +108,9 @@
         stmt=stmt.substring(0,stmt.length-4);
         stmt+=")";
         //include discarded items in search?
-        stmt+=' AND datediscarded IS NULL ';
+        if(data.includereturned !='on'){
+            stmt+=' AND datereturned IS NULL ';
+        }
         //add category if included
         if(data.category != "All Categories"){
             stmt+= 'AND category LIKE ' + "'"+data.category+"' ";
@@ -171,7 +175,7 @@
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
-        stmt+=' AND datediscarded IS NULL;';
+        stmt+=' AND datereturned IS NULL;';
         console.log(stmt);
 
         //connect to db

@@ -16,8 +16,8 @@ block body
             h3 Log In
             form.centerAdd(action="/login",method="post",id="loginform" )
                 h10 Username
-                input(type='text', name="username",placeholder="Username", class="u-full-width")
+                input(type='text', name="username",placeholder="Username", class="u-full-width", required="true")
                 h10 Password
-                input(type='password', name="password",placeholder="Password",class="u-full-width")
+                input(type='password', name="password",placeholder="Password",class="u-full-width", required="true")
                 input(type='submit',value='Login' class="button-primary u-full-width")
     include footer

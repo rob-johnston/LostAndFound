@@ -20,9 +20,9 @@ block body
                 br
                 h6 Item Found Date Range
                 h6 From  (use format dd-mm-yy)
-                input(class="form-control",type="text", name = "from", form="form1", id ="from")
+                input(class="form-control",type="text", name = "from", form="form1", id ="from", value = "#{previousFrom}")
                 h6 To   (use format dd-mm-yy)
-                input(class="form-control",type="text", name = "to", form="form1", id ="to")
+                input(class="form-control",type="text", name = "to", form="form1", id ="to", value = "#{previousTo}")
                 script.
                     $(document).ready(function () {
                         $("#from").datepicker({dateFormat: "dd-mm-yy"});
@@ -30,6 +30,7 @@ block body
                     });
                 h6 Category Filter
                 select(class="form-control",name="category" form="form1")
+                    option(value=previousCategory, selected = previousCategory) #{previousCategory}
                     each category in categories
                         option(value='#{category.category}') #{category.category}
 
