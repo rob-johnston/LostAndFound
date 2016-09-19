@@ -420,7 +420,7 @@ router.get('/studentSearchResults', function(req,res,next){
         })
 });
 
-/*GET statistics view page. */
+/*GET statistics view page. */  //MUST FIX ONLY WORKS FOR 2016
 router.get('/statistics', function(req,res,next){
     db.countItems(function (err, arrResult) {
         var jan = 450 - ((JSON.stringify(arrResult[0]).match(/\d+/)[0])*30);
@@ -436,8 +436,6 @@ router.get('/statistics', function(req,res,next){
         var nov = 450 - ((JSON.stringify(arrResult[10]).match(/\d+/)[0])*30);
         var dec = 450 - ((JSON.stringify(arrResult[11]).match(/\d+/)[0])*30);
 
-        //console.log('categoryresults');
-        //console.log(sept);
         res.render('statistics', {title: 'Statistics - VUWSA Lost and Found', january: jan, february: feb, march: mar, april: apr, may: may, june: jun, july: jul, august: aug, september: sep, october: oct, november: nov, december: dec});
     })
 
