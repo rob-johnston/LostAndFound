@@ -104,6 +104,11 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login',
     }
 );
 
+/*log out*/
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -236,7 +241,8 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
             photoSRC: itemresult.photourl,
             itemid: itemresult.itemid,
             itemReturnStatus: itemresult.returnstatus,
-            itemDateReturned: itemresult.datereturned
+            itemDateReturned: itemresult.datereturned,
+            user:req.user
         });
     })
 });
