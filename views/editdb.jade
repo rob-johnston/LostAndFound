@@ -2,6 +2,9 @@
    Created by johnstrobe on 1/08/16.
 include ../node_modules/jade-bootstrap/_bootstrap
 block head
+    link(rel = "stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css")
+    script(type = "text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(type = "text/javascript", src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
 
 append styles
   link(rel='stylesheet', href='/stylesheets/style.css')
@@ -80,3 +83,26 @@ block body
                             input(class="form-control",type="text", name = "removeColName", form="form6",required)
 
                         input.btn.btn-success(type="submit" form="form6" value="execute")
+
+                    form.centerAdd(action="/editdb",method="post",id="form7" )
+
+                        h4 Permanently delete an item from the database
+                        p Actually deletes the item, not just marking it as returned/disposed
+                            p Use the Unique item ID
+                            input(class="form-control",type="text", name = "itemRemoveID", form="form7",required)
+
+                        input.btn.btn-success(type="submit" form="form7" value="execute")
+
+
+                    form.centerAdd(action="/editdb",method="post",id="form8" )
+
+                        h4 Permanently Delete all items older than a given data
+                        p Should very rarely be needed
+                            p All items listed before the given date will be deleted - Use with caution!
+                            script.
+                                $(document).ready(function () {
+                                    $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
+                                });
+                            input(class="form-control",type="text", id = "datepicker", name = "itemRemoveDate", form="form8",required)
+
+                        input.btn.btn-success(type="submit" form="form8" value="execute")

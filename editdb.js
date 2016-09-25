@@ -77,6 +77,28 @@ var db = require('./db.js');
                 }
             })
         }
+        else if(req.body.itemRemoveID!=null) {
+            //remove an Item by ID
+            db.deleteItem(req.body.itemRemoveID, function (err, res) {
+                if (err) {
+                    console.log(err);
+                    cb(err);
+                } else {
+                    cb("Item has been deleted from the database");
+                }
+            })
+        }
+        else if(req.body.itemRemoveDate!=null) {
+            //remove all items before a given date
+            db.deleteItemsBeforeDate(req.body.itemRemoveDate, function (err, res) {
+                if (err) {
+                    console.log(err);
+                    cb(err);
+                } else {
+                    cb("All items from before " + req.body.itemRemoveDate + " have been deleted");
+                }
+            })
+        }
     }
 
 

@@ -37,6 +37,8 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         getCategories: getCategories,
         getCampuses: getCampuses,
         addItem: addItem,
+        deleteItem: deleteItem,
+        deleteItemsBeforeDate: deleteItemsBeforeDate,
         addCategory: addCategory,
         removeCategory: removeCategory,
         addCampus: addCampus,
@@ -51,7 +53,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
 
     /**
-     * Returns all the active items from the database
+     * Returns all the active items from the database -RJ
      * @param cb callback
      */
     function getAllItems(cb) {
@@ -83,7 +85,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     /**
      * Returns all possible categories for an item to have
-     * used when populating the dropdown menu when adding a new item
+     * used when populating the dropdown menu when adding a new item -RJ
      * @param cb callback
      */
     function getCategories(cb) {
@@ -114,7 +116,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     /**
      * Returns all the possible campuses
-     * used for populating the dropdown menu when adding a new item
+     * used for populating the dropdown menu when adding a new item -RJ
      * @param cb callback
      */
     function getCampuses(cb) {
@@ -146,7 +148,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     /**
      * Used to add a Column to items table in our db
-     * @param new column name and the type it should hold
+     * @param new column name and the type it should hold -RJ
      * @param cb callback
      */
     function addCol(name, type, cb) {
@@ -177,7 +179,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
     }
 
     /**
-     * Used to remove a Column from items table in our db
+     * Used to remove a Column from items table in our db -RJ
      * @param column name to remove
      * @param cb callback
      */
@@ -210,7 +212,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
 
     /**
-     * Used to add an item to our database
+     * Used to add an item to our database -RJ
      * @param data the required fields to add for the item
      * @param cb callback
      */
@@ -251,9 +253,97 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
     }
 
 
+
+    /**
+     * Used to delete an item from our database -RJ
+     * @param ID of item to delete
+     * @param cb callback
+     */
+    function deleteItem(data, cb) {
+
+        //only try to do the delete if we have a valid number
+        if(parseInt(data,10)>0){
+
+            //for the statement
+            var stmt = DELETE_FROM + ITEMS_TABLE + WHERE + "itemid =" + data +";";
+
+            //connect to db
+            pg.connect(db, function (err, client, done) {
+                if (err) {
+                    //deal with db connection issues
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful");
+                //submit the statement we want
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false, result);
+                });
+
+            });
+
+        }
+    }
+
+
+
+    /**
+     * Used to delete all items before a given date from our database -RJ
+     * @param ID of item to delete
+     * @param cb callback
+     */
+    function deleteItemsBeforeDate(data, cb) {
+
+        console.log(data);
+        //only try to do the delete if we have a valid date
+        //format should be "dd-mm-yyyy" so lets check that first
+        if(data[2] == '-' || data[5] == '-'
+                //check month is valid
+            && parseInt(data[3]+data[4]) < 12 && parseInt(data[3]+data[4]) >0
+                //lazy check day is at lease almost valid
+                && parseInt(data[0]+data[1])<= 31 ){
+
+
+                    //for the statement
+                    var stmt = DELETE_FROM + ITEMS_TABLE + WHERE + "datefound < '" + data +"';";
+                    console.log(stmt);
+                    //connect to db
+                    pg.connect(db, function (err, client, done) {
+                        if (err) {
+                            //deal with db connection issues
+                            console.log('cant connect to db');
+                            console.log(err);
+                            cb(err);
+                        }
+                        console.log("connection successful");
+                        //submit the statement we want
+                        client.query(stmt, function (error, result) {
+                            done();
+                            if (error) {
+                                console.log("query failed");
+                                console.log(error);
+                                cb(error);
+                            }
+                            cb(false, result);
+                        });
+                    });
+
+        }
+    }
+
+
+
+
     /**
      * this method is used to add a category to the Categories table in the database
-     * this should only be accessed by a superuser
+     * this should only be accessed by a superuser -RJ
      * @param search category to add
      * @param cb callback
      */
@@ -289,7 +379,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
     /**
      * this method is used to remove a category from the category table in the database
      * this should only be accessed by a superuser
-     * @param search category to remove
+     * @param search category to remove -RJ
      * @param cb callback
      */
     function removeCategory(data, cb) {
@@ -322,7 +412,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     /**
      * this method is used to add a campus to the Campus table in the database
-     * this should only be accessed by a superuser
+     * this should only be accessed by a superuser -RJ
      * @param search campus to add
      * @param cb callback
      */
@@ -356,7 +446,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     /**
      * this method is used to remove a campus from the Campus table in the database
-     * this should only be accessed by a superuser
+     * this should only be accessed by a superuser -RJ
      * @param search campus to remove
      * @param cb callback
      */
