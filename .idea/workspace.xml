@@ -77,8 +77,8 @@
       <file leaf-file-name="sidebar.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/sidebar.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+            <state relative-caret-position="612">
+              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="35" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -435,7 +435,7 @@
       <workItem from="1473628389748" duration="5938000" />
       <workItem from="1473637175648" duration="2321000" />
       <workItem from="1474234138816" duration="4073000" />
-      <workItem from="1474833874405" duration="2165000" />
+      <workItem from="1474833874405" duration="2849000" />
     </task>
     <task id="LOCAL-00001" summary="added vertsync css&#10;">
       <created>1470613028972</created>
@@ -504,7 +504,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56292000" />
+    <option name="totallyTimeSpent" value="56976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1918" y="-26" width="1924" height="1110" extended-state="4" />
@@ -890,8 +890,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/sidebar.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+        <state relative-caret-position="612">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="35" selection-end-column="69" />
           <folding />
         </state>
       </provider>

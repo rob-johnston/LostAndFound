@@ -13,12 +13,14 @@
                     ul.nav.nav-pills.nav-stacked
                         li
                             a(href='/') Home
-                        li
-                            a(href='/addItem') Add Item
-                        li
-                            a(href='/') Remove Item
-                        li
-                            a(href='/search?mysearch=') View All Items
+                        if(user == null)
+                        else
+                            li
+                                a(href='/addItem') Add Item
+                            li
+                                a(href='/') Remove Item
+                            li
+                                a(href='/search?mysearch=') View All Items
                     h5
                         i.glyphicon.glyphicon-user
                         small
@@ -30,5 +32,5 @@
                         else
                             li
                                 a(href='/') Log Out
-                        li
-                            a(href='/statistics') View Statistics
+                            li
+                                a(href='/statistics') View Statistics
