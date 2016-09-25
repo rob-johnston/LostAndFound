@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2112e63f-ee8f-4967-9937-635000c70f09" name="Default" comment="">
+    <list default="true" id="2112e63f-ee8f-4967-9937-635000c70f09" name="Default" comment="Improved layout of advanced search results page">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/editItem.jade" afterPath="$PROJECT_DIR$/views/editItem.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/advancedSearch.jade" afterPath="$PROJECT_DIR$/views/advancedSearch.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/studentSearchResults.jade" afterPath="$PROJECT_DIR$/views/studentSearchResults.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/viewItem.jade" afterPath="$PROJECT_DIR$/views/viewItem.jade" />
     </list>
     <list id="4f1433ca-4eb5-4bf3-8fe2-1b6938c7749e" name="New changelist" comment="" />
@@ -39,11 +40,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewItem.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewItem.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/viewItem.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+            <state relative-caret-position="465">
+              <caret line="36" column="100" selection-start-line="27" selection-start-column="19" selection-end-line="36" selection-end-column="100" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="advancedSearch.jade" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/advancedSearch.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -64,13 +75,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2991">
               <caret line="530" column="9" selection-start-line="530" selection-start-column="9" selection-end-line="530" selection-end-column="9" />
-              <folding>
-                <marker date="1474841880000" expanded="true" signature="19708:19844" ph="{...}" />
-                <marker date="1474841880000" expanded="true" signature="19708:19859" ph="{...}" />
-                <marker date="1474841880000" expanded="true" signature="19708:19871" ph="{...}" />
-                <marker date="1474841880000" expanded="true" signature="19708:19879" ph="{...}" />
-                <marker date="1474841880000" expanded="true" signature="19708:19883" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,8 +83,18 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="771">
               <caret line="291" column="40" selection-start-line="291" selection-start-column="40" selection-end-line="291" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -131,10 +146,8 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/views/Statistics.jade" />
         <option value="$PROJECT_DIR$/views/Footer.jade" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/views/index.jade" />
-        <option value="$PROJECT_DIR$/views/viewItem.jade" />
         <option value="$PROJECT_DIR$/views/editItem.jade" />
         <option value="$PROJECT_DIR$/views/addItem.jade" />
         <option value="$PROJECT_DIR$/views/login.jade" />
@@ -147,6 +160,10 @@
         <option value="$PROJECT_DIR$/Testing/RoutesTesting.jade" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/studentSearchResults.jade" />
+        <option value="$PROJECT_DIR$/views/viewItem.jade" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/views/advancedSearch.jade" />
       </list>
     </option>
   </component>
@@ -230,7 +247,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LostAndFound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LostAndFound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1233,11 +1268,18 @@
       <option name="project" value="LOCAL" />
       <updated>1474839534937</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed null return date bug + other small bug fixes in view/edit item pages">
+      <created>1474842056420</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1474842056420</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65278000" />
+    <option name="totallyTimeSpent" value="67804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1320,7 +1362,8 @@
     <MESSAGE value="Statistics page now correctly queries DB and displays results (currently only works for 2016 Must FIX)" />
     <MESSAGE value="added testing JS file and added QUnit to package.json" />
     <MESSAGE value="changed from JS testing file to Jade" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed from JS testing file to Jade" />
+    <MESSAGE value="Fixed null return date bug + other small bug fixes in view/edit item pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed null return date bug + other small bug fixes in view/edit item pages" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -1330,13 +1373,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/error.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/statistics.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -1475,19 +1511,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/studentView.jade" />
     <entry file="file://$PROJECT_DIR$/views/footer.jade" />
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1527,32 +1555,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/studentSearchResults.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-556">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/addItem.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="63" column="55" selection-start-line="63" selection-start-column="55" selection-end-line="64" selection-end-column="89" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2991">
-          <caret line="530" column="9" selection-start-line="530" selection-start-column="9" selection-end-line="530" selection-end-column="9" />
-          <folding>
-            <marker date="1474841880000" expanded="true" signature="19708:19844" ph="{...}" />
-            <marker date="1474841880000" expanded="true" signature="19708:19859" ph="{...}" />
-            <marker date="1474841880000" expanded="true" signature="19708:19871" ph="{...}" />
-            <marker date="1474841880000" expanded="true" signature="19708:19879" ph="{...}" />
-            <marker date="1474841880000" expanded="true" signature="19708:19883" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1571,16 +1578,41 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing/routesTesting.js" />
+    <entry file="file://$PROJECT_DIR$/views/studentView.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/studentSearchResults.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Testing/RoutesTesting.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="138">
           <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2991">
+          <caret line="530" column="9" selection-start-line="530" selection-start-column="9" selection-end-line="530" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="771">
           <caret line="291" column="40" selection-start-line="291" selection-start-column="40" selection-end-line="291" selection-end-column="40" />
           <folding />
         </state>
@@ -1596,8 +1628,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/viewItem.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+        <state relative-caret-position="465">
+          <caret line="36" column="100" selection-start-line="27" selection-start-column="19" selection-end-line="36" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/advancedSearch.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>

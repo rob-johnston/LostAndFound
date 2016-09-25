@@ -57,10 +57,17 @@ block body
         if(results != null)
             each result in results
                 div(class="resultbox")
-                    a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
-                    p #{result.description}
-                    div(style='float: right;')
-                        img(src="images/defaultImg.png" style="height:50px; margin-top:-250%;")
+                    .panel.panel-success
+                        .panel-heading
+                            a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
+                        ul.list-group
+                            li.list-group-item
+                                p #{result.description}
+                                div(style='float: right;')
+                                    if result.photourl == '' /* If there is no image for the item */
+                                        img(src="images/defaultImg.png" style="width:80px; margin-top:-150%; margin-left: 130%")
+                                    else
+                                        img(src='#{result.photourl}' style="width:80px; margin-top:-150%; margin-left: 130%")
 
         br
         br

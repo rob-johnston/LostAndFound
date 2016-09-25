@@ -66,7 +66,7 @@ block body
                         li.list-group-item
                             b Currently held in (Campus Location):
                             |  #{itemCampusLoc}
-                        if itemReturnStatus != null && itemReturnStatus != ' '
+                        if itemReturnStatus != null && itemReturnStatus != ' ' && itemReturnStatus != 'Return Status'
                             li.list-group-item
                                 b Return Status:
                                 |  #{itemReturnStatus}
