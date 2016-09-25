@@ -217,54 +217,14 @@ router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
 router.get('/viewItem', ensureAuthenticated(), function (req, res) {
     var id = url.parse(req.url, true).query.itemid;
     db.viewItem(id,function(err,itemresult){
-        //format from timestamp to date
-        var yy =itemresult.datefound.substring(0,4);
-        var mm = itemresult.datefound.substring(5,7);
-        var dd = itemresult.datefound.substring(8,10);
-        var ddNew = Number(dd) + Number(1);
-        var mmNew = Number(mm);
-        // var leapYearCount = Number(0);
 
-        //For months with 30 days -- 4, 6, 9, 11
-        if (dd == 30) {
-            if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
-                mmNew = Number(mm) + Number(1);
-                ddNew = Number(1);
-                itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-            }
-        }
+        var tempDateFound = reformatDate(itemresult.datefound);
+        itemresult.datefound = tempDateFound.itemDate;
 
-        //For months with 31 days -- 1, 3, 5, 7, 8, 10, 12
-        else if (dd == 31){
-            if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12){
-                mmNew = Number(mm) + Number(1);
-                ddNew = Number(1);
-                itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-            }
-        }
+        var tempDateReturned = reformatDate(itemresult.datereturned);
+        itemresult.datereturned = tempDateReturned.itemDate;
 
-        // If current year is a leap year
-        else if (dd == 29 && mm == 2 && Number(yy) % 4 == 0) {
-            mmNew = Number(mm) + Number(1);
-            ddNew = Number(1);
-            itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-        }
-
-        // If current year is not a leap year
-        else if (dd == 28 && mm == 2 && Number(yy) % 4 != 0){
-            mmNew = Number(mm) + Number(1);
-            ddNew = Number(1);
-            itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-        }
-
-
-        // !--- FOR TESTING PURPOSES ---!
-        // console.log("VIEWGET dd: " + dd);
-        // console.log("VIEWGET ddNew: " + ddNew);
-        // console.log("VIEWGET mm: " + mm);
-        // console.log("VIEWGET mmNew: " + mmNew);
-
-        itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
+        // itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
         res.render('viewItem', {
             title: 'View Item - VUWSA Lost and Found',
             itemName: itemresult.itemname,
@@ -287,54 +247,13 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
             db.viewItem(req.query.id, function(err,itemresult){
-                //format from timestamp to date
-                var yy =itemresult.datefound.substring(0,4);
-                var mm = itemresult.datefound.substring(5,7);
-                var dd = itemresult.datefound.substring(8,10);
-                var ddNew = Number(dd) + Number(1);
-                var mmNew = Number(mm);
-                // var leapYearCount = Number(0);
+                var tempDateFound = reformatDate(itemresult.datefound);
+                itemresult.datefound = tempDateFound.itemDate;
 
-                //For months with 30 days -- 4, 6, 9, 11
-                if (dd == 30) {
-                    if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
-                        mmNew = Number(mm) + Number(1);
-                        ddNew = Number(1);
-                        itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                    }
-                }
-
-                //For months with 31 days -- 1, 3, 5, 7, 8, 10, 12
-                else if (dd == 31){
-                    if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12){
-                        mmNew = Number(mm) + Number(1);
-                        ddNew = Number(1);
-                        itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                    }
-                }
-
-                // If current year is a leap year
-                else if (dd == 29 && mm == 2 && Number(yy) % 4 == 0) {
-                    mmNew = Number(mm) + Number(1);
-                    ddNew = Number(1);
-                    itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                }
-
-                // If current year is not a leap year
-                else if (dd == 28 && mm == 2 && Number(yy) % 4 != 0){
-                    mmNew = Number(mm) + Number(1);
-                    ddNew = Number(1);
-                    itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                }
+                var tempDateReturned = reformatDate(itemresult.datereturned);
+                itemresult.datereturned = tempDateReturned.itemDate;
 
 
-                // !--- FOR TESTING PURPOSES ---!
-                // console.log("EDITGET dd: " + dd);
-                // console.log("EDITGET ddNew: " + ddNew);
-                // console.log("EDITGET mm: " + mm);
-                // console.log("EDITGET mmNew: " + mmNew);
-
-                itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
                 res.render('editItem', {
                     title: 'Edit Item - VUWSA Lost and Found',
                     categories: categoryresult.rows,
@@ -361,53 +280,11 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
         db.getCategories(function(err,categoryresult){
             db.editItem(req.body,function(err2,result){
                 db.viewItem(req.body.itemid,function(err,itemresult){
-                    //format from timestamp to date
-                    var yy =itemresult.datefound.substring(0,4);
-                    var mm = itemresult.datefound.substring(5,7);
-                    var dd = itemresult.datefound.substring(8,10);
-                    var ddNew = Number(dd) + Number(1);
-                    var mmNew = Number(mm);
-                    // var leapYearCount = Number(0);
+                    var tempDateFound = reformatDate(itemresult.datefound);
+                    itemresult.datefound = tempDateFound.itemDate;
 
-                    //For months with 30 days -- 4, 6, 9, 11
-                    if (dd == 30) {
-                        if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
-                            mmNew = Number(mm) + Number(1);
-                            ddNew = Number(1);
-                            itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                        }
-                    }
-
-                    //For months with 31 days -- 1, 3, 5, 7, 8, 10, 12
-                    else if (dd == 31){
-                        if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12){
-                            mmNew = Number(mm) + Number(1);
-                            ddNew = Number(1);
-                            itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                        }
-                    }
-
-                    // If current year is a leap year
-                    else if (dd == 29 && mm == 2 && Number(yy) % 4 == 0) {
-                        mmNew = Number(mm) + Number(1);
-                        ddNew = Number(1);
-                        itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                    }
-
-                    // If current year is not a leap year
-                    else if (dd == 28 && mm == 2 && Number(yy) % 4 != 0){
-                        mmNew = Number(mm) + Number(1);
-                        ddNew = Number(1);
-                        itemresult.datefound = ddNew + '-' + mmNew + "-" + yy;
-                    }
-
-                    // !--- FOR TESTING PURPOSES ---!
-                    // console.log("VIEWPOST dd: " + dd);
-                    // console.log("VIEWPOST ddNew: " + ddNew);
-                    // console.log("VIEWPOST mm: " + mm);
-                    // console.log("VIEWPOST mmNew: " + mmNew);
-
-                    itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
+                    var tempDateReturned = reformatDate(itemresult.datereturned);
+                    itemresult.datereturned = tempDateReturned.itemDate;
                     res.render('viewItem', {
                         title: 'View Item - VUWSA Lost and Found',
                         itemName: itemresult.itemname, itemCategory:
@@ -426,6 +303,57 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
         })
     })
 });
+
+
+/* Function to reformat date correctly  -TG */
+reformatDate = function(itemDate) {
+//format from timestamp to date
+
+    if (itemDate == null){
+        itemDate = new Date();
+    }
+    var yy = itemDate.toString().substring(0, 4);
+    var mm = itemDate.toString().substring(5, 7);
+    var dd = itemDate.toString().substring(8, 10);
+    var ddNew = Number(dd) + Number(1);
+    var mmNew = Number(mm);
+
+
+    //For months with 30 days -- 4, 6, 9, 11
+    if (dd == 30) {
+        if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
+            mmNew = Number(mm) + Number(1);
+            ddNew = Number(1);
+            itemDate = ddNew + '-' + mmNew + "-" + yy;
+        }
+    }
+
+    //For months with 31 days -- 1, 3, 5, 7, 8, 10, 12
+    else if (dd == 31) {
+        if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) {
+            mmNew = Number(mm) + Number(1);
+            ddNew = Number(1);
+            itemDate = ddNew + '-' + mmNew + "-" + yy;
+        }
+    }
+
+    // If current year is a leap year
+    else if (dd == 29 && mm == 2 && Number(yy) % 4 == 0) {
+        mmNew = Number(mm) + Number(1);
+        ddNew = Number(1);
+        itemDate = ddNew + '-' + mmNew + "-" + yy;
+    }
+
+    // If current year is not a leap year
+    else if (dd == 28 && mm == 2 && Number(yy) % 4 != 0) {
+        mmNew = Number(mm) + Number(1);
+        ddNew = Number(1);
+        itemDate = ddNew + '-' + mmNew + "-" + yy;
+    }
+
+    itemDate = ddNew + '-' + mmNew + "-" + yy;
+    return {itemDate: itemDate};
+};
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
