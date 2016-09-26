@@ -273,7 +273,8 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
                     photoSRC: itemresult.photourl,
                     itemid: itemresult.itemid,
                     itemReturnStatus: itemresult.returnstatus,
-                    itemDateReturned: itemresult.datereturned
+                    itemDateReturned: itemresult.datereturned,
+                    user:req.user
                 });
             })
         })
