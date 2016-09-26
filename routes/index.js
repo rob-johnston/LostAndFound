@@ -523,7 +523,9 @@ router.get('/statistics', function(req,res,next){
 
 /* GET testing page. */
 router.get('/RoutesTesting', function(req, res, next) {
-    res.render('RoutesTesting', { title: 'Log In - VUWSA Lost and Found' });
+    var dbfunction=db;
+    //console.log(dbfunction);
+    res.render('RoutesTesting', { dbFunc: dbfunction });
 });
 
 module.exports = router;
