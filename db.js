@@ -3,7 +3,7 @@
  */
 var arr = [1,2,3,4,5,6,7,8,9,10,11,12];
 var year = new Date().getFullYear().toString();
-var datesArray = ["'year-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'", "'2016-05-01'", "'2016-01-01'", "'2016-06-01'", "'2016-07-01'", "'2016-08-01'", "'2016-09-01'", "'2016-10-01'", "'2016-11-01'", "'2016-12-01'"];
+var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'", "'2016-05-01'", "'2016-01-01'", "'2016-06-01'", "'2016-07-01'", "'2016-08-01'", "'2016-09-01'", "'2016-10-01'", "'2016-11-01'", "'2016-12-01'"];
 
 (function() {
 
@@ -596,10 +596,13 @@ var datesArray = ["'year-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                             done();
                             if (error) {
                                 console.log("query failed");
+
                                 console.log(error);
                                 reject();
                             }
+
                             arr[item] = result.rows;
+                            console.log(result.rows);
                             console.log("query succesful");
                             console.log(datesArray[0]);
                             //maybe use the promise count system here??????

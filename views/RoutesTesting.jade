@@ -1,0 +1,20 @@
+//
+   Created by borthwstan on 26/09/16.
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Refactored date examples
+        link(rel='stylesheet', href='https://code.jquery.com/qunit/qunit-2.0.1.css')
+        script(src='https://code.jquery.com/qunit/qunit-2.0.1.js')
+        script(src='prettydate.js')
+        script.
+            QUnit.test("testCountItems", function( assert ) {
+                var db = require('../db.js');
+                var array=[2,21,13,157,0,351,59,121,8,3,0,0];
+                var result;
+                db.countItems(function (err, arrResult){result=arrResult;});
+                assert.equal(result, array);
+            });
+    body
+        #qunit
