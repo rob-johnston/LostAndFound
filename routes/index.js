@@ -215,7 +215,7 @@ router.post('/addItem', ensureAuthenticated(), function (req,res){
                     res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
                 } else {
 
-                    if(err){
+                    if(err3){
                         res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
                     }else {
                         res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly", user:req.user});

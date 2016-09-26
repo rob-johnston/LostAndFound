@@ -20,6 +20,8 @@
     var UPDATE = 'UPDATE ';
     var WHERE = "WHERE "
 
+    var DATE_RECEIVED = "datereceived ";
+
 
     //all the functions we can use here
     module.exports = {
@@ -51,11 +53,19 @@
 
         //if 'from' date is included, add it to the statement
         if(data.query.from!='' && data.query.from!=undefined){
+<<<<<<< Updated upstream
             stmt += " AND datereceived > '"+data.query.from+"' ";
         }
         //if 'to' date is included then add to statement
         if(data.query.to != '' && data.query.from!=undefined){
             stmt += " AND datereceived < '"+data.query.to + "'";
+=======
+            stmt += " AND " + DATE_RECEIVED +" > '"+data.query.from+"' ";
+        }
+        //if 'to' date is included then add to statement
+        if(data.query.to != '' && data.query.from!=undefined){
+            stmt += " AND " + DATE_RECEIVED + " < '"+data.query.to + "'";
+>>>>>>> Stashed changes
         }
         //adding the final semi colon
         stmt += ";";
