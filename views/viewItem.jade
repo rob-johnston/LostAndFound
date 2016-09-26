@@ -12,10 +12,10 @@ block body
     include sidebar
     .container
         .row
+            br
+            br
+            br
             #itemPhoto.col-md-3
-                br
-                br
-                br
                 if (photoSRC == '' || photoSRC == null) /* If there is no image for the item */
                     img(src="images/defaultImg.png" style="width:200px;")
 
@@ -43,9 +43,6 @@ block body
 
 
             #itemDetails.col-md-9
-                br
-                br
-                br
                 .panel.panel-success
                     // Default panel contents
                     .panel-heading
@@ -63,10 +60,14 @@ block body
                         li.list-group-item
                             b Location Found:
                             |  #{itemLocFound}
-                        li.list-group-item
-                            b Currently held in (Campus Location):
-                            |  #{itemCampusLoc}
-                        if itemReturnStatus != null && itemReturnStatus != ' ' && itemReturnStatus != 'Return Status'
+                        if itemCampusLoc == 'All Campuses'
+                            li.list-group-item
+                                b Currently held in (Campus Location):
+                        else if itemCampusLoc != 'All Campuses'
+                            li.list-group-item
+                                b Currently held in (Campus Location):
+                                |  #{itemCampusLoc}
+                        if (itemReturnStatus != null && itemReturnStatus != ' ' && itemReturnStatus != 'Return Status' && itemReturnStatus != 'undefined')
                             li.list-group-item
                                 b Return Status:
                                 |  #{itemReturnStatus}
@@ -74,5 +75,12 @@ block body
                             li.list-group-item
                                 b Date Returned:
                                 |  #{itemDateReturned}
+                        if itemReturnStatus == 'Disposed'
+                            li.list-group-item
+                                b Date Disposed:
+                                |  #{itemDateReturned}
+        .row
+            if (message != null)
+                .alert.alert-success #{message}
 
     include footer

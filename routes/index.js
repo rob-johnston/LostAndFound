@@ -281,7 +281,10 @@ router.get('/viewItem', ensureAuthenticated(), function (req, res) {
             var tempDateReturned = reformatDate(itemresult.datereturned);
             itemresult.datereturned = tempDateReturned.itemDate;
 
-            // itemresult.datereceived= ddNew+'-'+mmNew+"-"+yy;
+            if (err){
+                res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
+            }
+
             res.render('viewItem', {
                 title: 'View Item - VUWSA Lost and Found',
                 itemName: itemresult.itemname,
@@ -310,6 +313,23 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
 
                 var tempDateReturned = reformatDate(itemresult.datereturned);
                 itemresult.datereturned = tempDateReturned.itemDate;
+
+                if (err){
+                    res.render('viewItem', {
+                        title: 'View Item - VUWSA Lost and Found',
+                        itemName: itemresult.itemname,
+                        itemCategory: itemresult.category,
+                        itemDesc: itemresult.description,
+                        itemDateReceived: itemresult.datereceived,
+                        itemLocFound: itemresult.locationfound,
+                        itemCampusLoc: itemresult.campus,
+                        photoSRC: itemresult.photourl,
+                        itemid: itemresult.itemid,
+                        itemReturnStatus: itemresult.returnstatus,
+                        itemDateReturned: itemresult.datereturned,
+                        user: req.user
+                    });
+                }
 
 
                 res.render('editItem', {
@@ -344,10 +364,32 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
 
                     var tempDateReturned = reformatDate(itemresult.datereturned);
                     itemresult.datereturned = tempDateReturned.itemDate;
+
+
+                    if (err){
+                        res.render('editItem', {
+                            title: 'Edit Item - VUWSA Lost and Found',
+                            categories: categoryresult.rows,
+                            campus: campusresult.rows,
+                            itemName: itemresult.itemname,
+                            itemCategory: itemresult.category,
+                            itemDesc: itemresult.description,
+                            itemDateReceived: itemresult.datereceived,
+                            itemLocFound: itemresult.locationfound,
+                            itemCampusLoc: itemresult.campus,
+                            photoSRC: itemresult.photourl,
+                            itemid: itemresult.itemid,
+                            itemReturnStatus: itemresult.returnstatus,
+                            itemDateReturned: itemresult.datereturned,
+                            message: "Error editing item",
+                            user:req.user
+                        });
+                    }
+
                     res.render('viewItem', {
                         title: 'View Item - VUWSA Lost and Found',
-                        itemName: itemresult.itemname, itemCategory:
-                        itemresult.category,
+                        itemName: itemresult.itemname,
+                        itemCategory: itemresult.category,
                         itemDesc: itemresult.description,
                         itemDateReceived: itemresult.datereceived,
                         itemLocFound: itemresult.locationfound,
@@ -355,7 +397,9 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
                         photoSRC: itemresult.photourl,
                         itemid:itemresult.itemid,
                         itemReturnStatus: itemresult.returnstatus,
-                        itemDateReturned: itemresult.datereturned
+                        itemDateReturned: itemresult.datereturned,
+                        message: "Item information successfully updated",
+                        user: req.user
                     });
                 })
             })
@@ -370,7 +414,10 @@ reformatDate = function(itemDate) {
 
     if (itemDate == null){
         itemDate = new Date();
+        itemDate = itemDate.toJSON();
     }
+
+    console.log("Date: " + itemDate);
     var yy = itemDate.toString().substring(0, 4);
     var mm = itemDate.toString().substring(5, 7);
     var dd = itemDate.toString().substring(8, 10);
