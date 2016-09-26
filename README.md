@@ -22,6 +22,8 @@ The search function operates by the user specifying key words in the search bar.
 
 ### **Viewing All Items**
 
+It is possible to view all items in the database by clicking the "View All Items" button. 
+
 ### **Adding An Item**
 
 ### **Removing An Item**
