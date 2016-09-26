@@ -59,16 +59,14 @@ block body
                 div(class="resultbox")
                     .panel.panel-success
                         .panel-heading
-                            //a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
-                        ul.list-group
-                            li.list-group-item
-                                a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.description}
-                                div(style='float: right;')
-                                    if (result.photourl == ' ' || result.photourl == null) /* If there is no image for the item */
-                                        img(src="images/defaultImg.png" style="width:80px; margin-top:-130%; margin-left: 130%")
-                                    else
-                                        img(src='#{result.photourl}' style="width:80px; margin-top:-130%; margin-left: 130%")
-
+                        .media
+                            .media-body
+                                    a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.description}
+                            .media-left
+                                if (result.photourl == '' || result.photourl == null) /* If there is no image for the item */
+                                    img.media-object(src="images/defaultImg.png" style="width:50px")
+                                else
+                                    img.media-object(src='#{result.photourl}' style="width:50px")
         br
         br
         br
