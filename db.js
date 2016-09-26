@@ -387,7 +387,7 @@ var datesArray = ["'year-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function removeCategory(data, cb) {
 
-        var stmt = DELETE_FROM + CATEGORIES_TABLE + " WHERE category LIKE '" + data + "';";
+        var stmt = DELETE_FROM + CATEGORIES_TABLE + " WHERE category ILIKE '" + data + "';";
         console.log(stmt);
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -455,7 +455,7 @@ var datesArray = ["'year-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function removeCampus(data, cb) {
 
-        var stmt = DELETE_FROM + CAMPUSES_TABLE + " WHERE CAMPUS LIKE '" + data + "';";
+        var stmt = DELETE_FROM + CAMPUSES_TABLE + " WHERE CAMPUS ILIKE '" + data + "';";
         console.log(stmt);
         //connect to db
         pg.connect(db, function (err, client, done) {
