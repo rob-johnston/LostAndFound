@@ -1,4 +1,4 @@
-# **VUWSA Lost And Found Databse**
+# **VUWSA Lost And Found Database**
 
 ## **Welcome**
 
