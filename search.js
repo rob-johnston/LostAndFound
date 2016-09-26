@@ -20,6 +20,8 @@
     var UPDATE = 'UPDATE ';
     var WHERE = "WHERE "
 
+    var DATE_RECEIVED = "datereceived ";
+
 
     //all the functions we can use here
     module.exports = {
@@ -43,19 +45,20 @@
         //base of the statement - and match category
         if(data.query.category=='All Categories'){
             //change category to a wildcard if no specific category selected
-            var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + "%" + "' ";
+            var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category ILIKE '" + "%" + "' ";
         } else {
             //otherwise just include it like normal
-            var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category LIKE '" + data.query.category + "' ";
+            var stmt = SELECT_ALL + ITEMS_TABLE + WHERE + " category ILIKE '" + data.query.category + "' ";
         }
 
         //if 'from' date is included, add it to the statement
         if(data.query.from!='' && data.query.from!=undefined){
-            stmt += " AND datefound > '"+data.query.from+"' ";
+            stmt += " AND " + DATE_RECEIVED +" > '"+data.query.from+"' ";
         }
         //if 'to' date is included then add to statement
         if(data.query.to != '' && data.query.from!=undefined){
-            stmt += " AND datefound < '"+data.query.to + "'";
+            stmt += " AND " + DATE_RECEIVED + " < '"+data.query.to + "'";
+
         }
         //adding the final semi colon
         stmt += ";";
@@ -101,7 +104,7 @@
         //loop through to flesh out the query
         stmt+="(";
         for(var i =0; i< words.length; i++){
-            stmt = stmt + "ItemName LIKE '%" +words[i]+"%'" +  ' OR Description LIKE ' + "'%" + words[i]+"%' OR ";
+            stmt = stmt + "ItemName ILIKE '%" +words[i]+"%'" +  ' OR Description ILIKE ' + "'%" + words[i]+"%' OR ";
         }
 
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
@@ -113,18 +116,18 @@
         }
         //add category if included
         if(data.category != "All Categories"){
-            stmt+= 'AND category LIKE ' + "'"+data.category+"' ";
+            stmt+= 'AND category ILIKE ' + "'"+data.category+"' ";
         }
         //add campus if included
         if(data.campus != "All Campuses"){
-            stmt+= 'AND campus LIKE ' + "'"+ data.campus + "' ";
+            stmt+= 'AND campus ILIKE ' + "'"+ data.campus + "' ";
         }
         if(data.from!=''){
-            stmt += " AND datefound > '"+data.from+"' ";
+            stmt += " AND datereceived > '"+data.from+"' ";
         }
         //if 'to' date is included then add to statement
         if(data.to != ''){
-            stmt += " AND datefound < '" + data.to + "'";
+            stmt += " AND datereceived < '" + data.to + "'";
         }
 
         //add final semi cln
@@ -171,7 +174,7 @@
         var stmt = SELECT_ALL + ITEMS_TABLE + WHERE;
         //loop through to flesh out the query
         for(var i =0; i< words.length; i++){
-            stmt = stmt + "ItemName LIKE '%" +words[i]+"%'" +  ' OR Description LIKE ' + "'%" + words[i]+"%' OR ";
+            stmt = stmt + "ItemName ILIKE '%" +words[i]+"%'" +  ' OR Description ILIKE ' + "'%" + words[i]+"%' OR ";
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);

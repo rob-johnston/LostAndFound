@@ -218,8 +218,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      * @param cb callback
      */
     function addItem(data, cb) {
+        console.log("adding...");
         //the sql statement we need
-        var args = '(\'' + data.itemName + '\',\'' + data.itemDescription + '\',\'' + data.category + '\',\'' + data.dateFound + '\',\'' +
+        var args = '(\'' + data.itemName + '\',\'' + data.itemDescription + '\',\'' + data.category + '\',\'' + data.dateReceived + '\',\'' +
             data.locationFound + '\',\'' + data.campus + '\',\'' + data.photourl + '\');'
         //two unconsidered values here. those are DateReturned,DateDiscarded
 
@@ -228,8 +229,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             data.photourl = ' ';
         }
 
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,DateFound,LocationFound,Campus,photourl) VALUES ' +
-            args;
+
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES ' +
+
         //connect to db
         pg.connect(db, function (err, client, done) {
             if (err) {
@@ -313,7 +315,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
 
                     //for the statement
-                    var stmt = DELETE_FROM + ITEMS_TABLE + WHERE + "datefound < '" + data +"';";
+                    var stmt = DELETE_FROM + ITEMS_TABLE + WHERE + "datereceived < '" + data +"';";
                     console.log(stmt);
                     //connect to db
                     pg.connect(db, function (err, client, done) {
@@ -385,7 +387,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function removeCategory(data, cb) {
 
-        var stmt = DELETE_FROM + CATEGORIES_TABLE + " WHERE category LIKE '" + data + "';";
+        var stmt = DELETE_FROM + CATEGORIES_TABLE + " WHERE category ILIKE '" + data + "';";
         console.log(stmt);
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -453,7 +455,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function removeCampus(data, cb) {
 
-        var stmt = DELETE_FROM + CAMPUSES_TABLE + " WHERE CAMPUS LIKE '" + data + "';";
+        var stmt = DELETE_FROM + CAMPUSES_TABLE + " WHERE CAMPUS ILIKE '" + data + "';";
         console.log(stmt);
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -501,7 +503,8 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 return;
             }
             console.log("connection successful");
-            //will change to get item id when item links are working in db view
+
+
             client.query(stmt, function (error, result) {
 
                 var q = JSON.stringify(result.rows);
@@ -527,7 +530,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function editItem(data,cb) {
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription +
-            '\', Category = \'' + data.category + '\', DateFound = \''+ data.dateFound +'\', LocationFound = \'' +
+
+            '\', Category = \'' + data.category + '\', datereceived = \''+ data.dateFound +'\', LocationFound = \'' +
+
             data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
             data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
         //, DateReturned = \'' + data.dateReturned + '\'

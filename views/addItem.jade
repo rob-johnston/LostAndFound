@@ -48,13 +48,13 @@ block body
                                         option(value='#{category.category}') #{category.category}
                     li.list-group-item
                         h8
-                            b Date Found
+                            b Date Received
                             br
                             script.
                                 $(document).ready(function () {
                                     $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
                                 });
-                            input(type = "text", id = "datepicker", form="form1", name = "dateFound")
+                            input(type = "text", id = "datepicker", form="form1", name = "dateReceived")
 
                     li.list-group-item
                         h8

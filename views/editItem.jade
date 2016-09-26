@@ -20,6 +20,8 @@ block body
             br
             br
             .page-header
+                if (message != null)
+                    .alert.alert-danger #{message}
                 h4
                     | Edit Item
                     small   -- #{itemName}
@@ -29,7 +31,10 @@ block body
                         h8
                             b Item Name
                             br
-                            input(class="form-control",type="text", name = "itemName", value='#{itemName}', form="form2", required)
+                            if itemName == null
+                                input(class="form-control",type="text", name = "itemName", placeholder = '', form="form2")
+                            else
+                                input(class="form-control",type="text", name = "itemName", value='#{itemName}', form="form2")
                     li.list-group-item
                         h8
                             b Item Description
@@ -39,7 +44,7 @@ block body
                         h8
                             b Item Category
                             br
-                            select(class="form-control",name="category" form="form2")
+                            select(class="form-control",name="category" form="form2", required)
                                 each category in categories
                                     if(itemCategory == category.category)
                                         option(value='#{itemCategory}',selected='selected') #{category.category}
@@ -47,18 +52,21 @@ block body
                                         option(value = '#{category.category}') #{category.category}
                     li.list-group-item
                         h8
-                            b Date Found
+                            b Date Received
                             br
                             script.
                                 $(document).ready(function () {
                                     $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
                                 });
-                            input(type = "text", id = "datepicker", form = "form2", name = "dateFound", value = '#{itemDateFound}')
+                            input(type = "text", id = "datepicker", form = "form2", name = "dateReceived", value = '#{itemDateReceived}', required)
                     li.list-group-item
                         h8
                             b Location Found
                             br
-                            input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2", required)
+                            if itemLocFound == null
+                                input(class="form-control",type="text", name = "locationFound", placeholder= "Item found at ...",form="form2")
+                            else
+                                input(class="form-control",type="text", name = "locationFound", value='#{itemLocFound}',form="form2")
                     li.list-group-item
                         h8
                             b Which Campus the item is at
@@ -73,7 +81,7 @@ block body
                         h8
                             b Image
                             br
-                            if photoSRC == '' /* If there is no image for the item */
+                            if (photoSRC == '' || photoSRC == null) /* If there is no image for the item */
 
                                 img(src="images/defaultImg.png" style="width:200px;")
                                 br
@@ -97,39 +105,39 @@ block body
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
                                         |  Held by VUWSA
                                     label.btn.btn-default.active
-                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
-                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')
+                                        a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
                                         |  Disposed
                                     label.btn.btn-default
-                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police')
                                         |  Given to Police
                                 else if itemReturnStatus == 'Disposed'
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
                                         |  Held by VUWSA
                                     label.btn.btn-default
-                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
-                                        a(href='#myModal', role='button', data-toggle='modal') Returned to Owner
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')
+                                        a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default.active
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
                                         |  Disposed
                                     label.btn.btn-default
-                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police')
                                         |  Given to Police
                                 else if itemReturnStatus == 'Police'
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
                                         |  Held by VUWSA
                                     label.btn.btn-default
-                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Returned to Owner')
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')
                                         a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
                                         |  Disposed
                                     label.btn.btn-default.active
-                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Given to Police')
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police')
                                         |  Given to Police
                                 else
                                     label.btn.btn-default.active
