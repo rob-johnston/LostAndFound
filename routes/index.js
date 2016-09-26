@@ -119,7 +119,6 @@ router.get('/', function(req, res, next) {
 
 /* GET listing page.  -RJ*/
 router.get('/search',ensureAuthenticated(), function(req, res, next) {
-
     //search logic goes here
     //extract from url search query
     var  urlparts = url.parse(req.url,true);
@@ -130,8 +129,9 @@ router.get('/search',ensureAuthenticated(), function(req, res, next) {
                 if(err){
                     console.log.print(err);
                     res.render('index', { title: 'Search - VUWSA Lost and Found' , user:req.user});
+                } else {
+                    res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows, user:req.user});
                 }
-                res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows, user:req.user});
             })
         })
     })
@@ -139,16 +139,26 @@ router.get('/search',ensureAuthenticated(), function(req, res, next) {
 
 });
 
-/* GET edit db page. */
+/* GET edit db page. -RJ*/
 router.get('/editdb',
     ensureAuthenticated(),
     function(req, res, next) {
         console.log(req);
         //need to get categories and campus options from DB to give user the current correct options to use
-        db.getCampuses(function(err,campusresult){
-            db.getCategories(function(err,categoryresult){
-                //render page with info from db
-                res.render('editdb', { title: 'Edit Database - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
+        db.getCampuses(function(err1,campusresult){
+            db.getCategories(function(err2,categoryresult){
+                if(err1 || err2){
+                    console.log("error getting campuses and categories from db");
+                    res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
+                } else {
+                    //render page with info from db
+                    res.render('editdb', {
+                        title: 'Edit Database - VUWSA Lost and Found',
+                        categories: categoryresult.rows,
+                        campus: campusresult.rows,
+                        user: req.user
+                    });
+                }
             })
         })
     });
@@ -156,10 +166,21 @@ router.get('/editdb',
 //this is where we deal with posts from the edit db page
 router.post('/editdb', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering ad page + add the item to the db
-    db.getCampuses(function(err,campusresult){
-        db.getCategories(function(err,categoryresult){
+    db.getCampuses(function(err1,campusresult){
+        db.getCategories(function(err2,categoryresult){
             editdb.editdb(req, function(msg){
-                res.render('editdb', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: msg, user:req.user});
+                if(err1 || err2){
+                    console.log("error getting campuses and categories from db");
+                    res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
+                } else {
+                    res.render('editdb', {
+                        title: 'Add Item - VUWSA Lost and Found',
+                        categories: categoryresult.rows,
+                        campus: campusresult.rows,
+                        message: msg,
+                        user: req.user
+                    });
+                }
             });
         })
     })
@@ -168,26 +189,38 @@ router.post('/editdb', ensureAuthenticated(), function (req,res){
 
 
 
-/* GET add item page. */
+/* GET add item page. -RJ*/
 router.get('/addItem', ensureAuthenticated(), function(req, res, next) {
     //need to get categories and campus options from DB to give user the current correct options to use
-    db.getCampuses(function(err,campusresult){
-        db.getCategories(function(err,categoryresult){
-            //render page with info from db
-            res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
+    db.getCampuses(function(err1,campusresult){
+        db.getCategories(function(err2,categoryresult){
+            if(err1 || err2){
+                console.log("error getting campuses and categories from db");
+                res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
+            } else {
+                //render page with info from db
+                res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
+            }
         })
     })
 });
 
 router.post('/addItem', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering ad page + add the item to the db
-    db.getCampuses(function(err,campusresult){
-        db.getCategories(function(err,categoryresult){
-            db.addItem(req.body,function(err,result){
-                if(err){
-                    res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
-                }else {
-                    res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly", user:req.user});
+    db.getCampuses(function(err1,campusresult){
+        db.getCategories(function(err2,categoryresult){
+            db.addItem(req.body,function(err3,result){
+                if(err1 || err2){
+                    console.log("error getting campuses and categories from db");
+                    res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
+                } else {
+
+                    if(err){
+                        res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
+                    }else {
+                        res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly", user:req.user});
+                    }
+
                 }
 
             })
@@ -197,22 +230,42 @@ router.post('/addItem', ensureAuthenticated(), function (req,res){
 
 /* GET advanced search page. */
 router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
-    db.getCampuses(function(err,campusresult){
-        db.getCategories(function(err,categoryresult){
-            //get url parts
-            var urlparts = url.parse(req.url,true).query;
-            //blank load with no search
-            if(url.parse(req.url,true).search ==''){
-                res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, user:req.user});
-            } else {
-                search.advancedSearch(urlparts, function(err,result){
-                    if(err) {
-                        console.log(err);
-                    } else {
-                        res.render('advancedSearch', { title: 'Search Results - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, results: result.rows, user:req.user,
-                            previousfrom : urlparts.from, previousto : urlparts.to, previousCategory: urlparts.category, previouschecked : urlparts.includereturned, previouskeywords: urlparts.keywords});
-                    }
-                })
+    db.getCampuses(function(err1,campusresult){
+        db.getCategories(function(err2,categoryresult){
+            if(err1 || err2){
+                res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
+            }else {
+
+                //get url parts
+                var urlparts = url.parse(req.url, true).query;
+                //blank load with no search
+                if (url.parse(req.url, true).search == '') {
+                    res.render('advancedSearch', {
+                        title: 'Search Results - VUWSA Lost and Found',
+                        categories: categoryresult.rows,
+                        campus: campusresult.rows,
+                        user: req.user
+                    });
+                } else {
+                    search.advancedSearch(urlparts, function (err, result) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            res.render('advancedSearch', {
+                                title: 'Search Results - VUWSA Lost and Found',
+                                categories: categoryresult.rows,
+                                campus: campusresult.rows,
+                                results: result.rows,
+                                user: req.user,
+                                previousfrom: urlparts.from,
+                                previousto: urlparts.to,
+                                previousCategory: urlparts.category,
+                                previouschecked: urlparts.includereturned,
+                                previouskeywords: urlparts.keywords
+                            });
+                        }
+                    })
+                }
             }
         })
     })
@@ -222,28 +275,27 @@ router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
 router.get('/viewItem', ensureAuthenticated(), function (req, res) {
     var id = url.parse(req.url, true).query.itemid;
     db.viewItem(id,function(err,itemresult){
+            var tempDateFound = reformatDate(itemresult.datefound);
+            itemresult.datefound = tempDateFound.itemDate;
 
-        var tempDateFound = reformatDate(itemresult.datefound);
-        itemresult.datefound = tempDateFound.itemDate;
+            var tempDateReturned = reformatDate(itemresult.datereturned);
+            itemresult.datereturned = tempDateReturned.itemDate;
 
-        var tempDateReturned = reformatDate(itemresult.datereturned);
-        itemresult.datereturned = tempDateReturned.itemDate;
-
-        // itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
-        res.render('viewItem', {
-            title: 'View Item - VUWSA Lost and Found',
-            itemName: itemresult.itemname,
-            itemCategory: itemresult.category,
-            itemDesc: itemresult.description,
-            itemDateFound: itemresult.datefound,
-            itemLocFound: itemresult.locationfound,
-            itemCampusLoc: itemresult.campus,
-            photoSRC: itemresult.photourl,
-            itemid: itemresult.itemid,
-            itemReturnStatus: itemresult.returnstatus,
-            itemDateReturned: itemresult.datereturned,
-            user:req.user
-        });
+            // itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
+            res.render('viewItem', {
+                title: 'View Item - VUWSA Lost and Found',
+                itemName: itemresult.itemname,
+                itemCategory: itemresult.category,
+                itemDesc: itemresult.description,
+                itemDateFound: itemresult.datefound,
+                itemLocFound: itemresult.locationfound,
+                itemCampusLoc: itemresult.campus,
+                photoSRC: itemresult.photourl,
+                itemid: itemresult.itemid,
+                itemReturnStatus: itemresult.returnstatus,
+                itemDateReturned: itemresult.datereturned,
+                user: req.user
+            });
     })
 });
 
@@ -376,6 +428,9 @@ router.get('/studentView', function(req,res,next){
 router.get('/studentSearchResults', function(req,res,next){
     var urlparts = url.parse(req.url,true);
         db.getCategories(function (err, categoryresult) {
+            if(err){
+                console.log("error getting categories from DB");
+            }
             //if no url params then just load
             if (urlparts.search == '') {
                 //render the page without results!
