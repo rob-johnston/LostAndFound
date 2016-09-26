@@ -17,7 +17,7 @@ a {
     min-height : 80px;
     margin-top: 5%;
     margin-bottom: 5%;
-    background-color: #f4f4f9;
+    /*background-color: #f4f4f9;*/
 
 }
 
@@ -32,6 +32,13 @@ a {
     padding-left: 0px;
 }
 
+.media-body{
+    padding-left: 10px;
+}
+
+.media-left{
+    padding-bottom: 10px;
+}
 
 .btn-custom {
     color: #FFFFFF;
