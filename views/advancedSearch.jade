@@ -59,15 +59,15 @@ block body
                 div(class="resultbox")
                     .panel.panel-success
                         .panel-heading
-                            a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
+                            //a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.itemname}
                         ul.list-group
                             li.list-group-item
-                                p #{result.description}
+                                a(href = '/viewitem?itemid=#{result.itemid} ', name='link') #{result.description}
                                 div(style='float: right;')
-                                    if result.photourl == '' /* If there is no image for the item */
-                                        img(src="images/defaultImg.png" style="width:80px; margin-top:-150%; margin-left: 130%")
+                                    if (result.photourl == ' ' || result.photourl == null) /* If there is no image for the item */
+                                        img(src="images/defaultImg.png" style="width:80px; margin-top:-130%; margin-left: 130%")
                                     else
-                                        img(src='#{result.photourl}' style="width:80px; margin-top:-150%; margin-left: 130%")
+                                        img(src='#{result.photourl}' style="width:80px; margin-top:-130%; margin-left: 130%")
 
         br
         br

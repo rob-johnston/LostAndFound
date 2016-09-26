@@ -275,19 +275,19 @@ router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
 router.get('/viewItem', ensureAuthenticated(), function (req, res) {
     var id = url.parse(req.url, true).query.itemid;
     db.viewItem(id,function(err,itemresult){
-            var tempDateFound = reformatDate(itemresult.datefound);
-            itemresult.datefound = tempDateFound.itemDate;
+            var tempDateReceived = reformatDate(itemresult.datereceived);
+            itemresult.datereceived = tempDateReceived.itemDate;
 
             var tempDateReturned = reformatDate(itemresult.datereturned);
             itemresult.datereturned = tempDateReturned.itemDate;
 
-            // itemresult.datefound= ddNew+'-'+mmNew+"-"+yy;
+            // itemresult.datereceived= ddNew+'-'+mmNew+"-"+yy;
             res.render('viewItem', {
                 title: 'View Item - VUWSA Lost and Found',
                 itemName: itemresult.itemname,
                 itemCategory: itemresult.category,
                 itemDesc: itemresult.description,
-                itemDateFound: itemresult.datefound,
+                itemDateReceived: itemresult.datereceived,
                 itemLocFound: itemresult.locationfound,
                 itemCampusLoc: itemresult.campus,
                 photoSRC: itemresult.photourl,
@@ -305,8 +305,8 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
             db.viewItem(req.query.id, function(err,itemresult){
-                var tempDateFound = reformatDate(itemresult.datefound);
-                itemresult.datefound = tempDateFound.itemDate;
+                var tempDateReceived = reformatDate(itemresult.datereceived);
+                itemresult.datereceived = tempDateReceived.itemDate;
 
                 var tempDateReturned = reformatDate(itemresult.datereturned);
                 itemresult.datereturned = tempDateReturned.itemDate;
@@ -319,7 +319,7 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
                     itemName: itemresult.itemname,
                     itemCategory: itemresult.category,
                     itemDesc: itemresult.description,
-                    itemDateFound: itemresult.datefound,
+                    itemDateReceived: itemresult.datereceived,
                     itemLocFound: itemresult.locationfound,
                     itemCampusLoc: itemresult.campus,
                     photoSRC: itemresult.photourl,
@@ -339,8 +339,8 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
         db.getCategories(function(err,categoryresult){
             db.editItem(req.body,function(err2,result){
                 db.viewItem(req.body.itemid,function(err,itemresult){
-                    var tempDateFound = reformatDate(itemresult.datefound);
-                    itemresult.datefound = tempDateFound.itemDate;
+                    var tempDateReceived = reformatDate(itemresult.datereceived);
+                    itemresult.datereceived = tempDateReceived.itemDate;
 
                     var tempDateReturned = reformatDate(itemresult.datereturned);
                     itemresult.datereturned = tempDateReturned.itemDate;
@@ -349,7 +349,7 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
                         itemName: itemresult.itemname, itemCategory:
                         itemresult.category,
                         itemDesc: itemresult.description,
-                        itemDateFound: itemresult.datefound,
+                        itemDateReceived: itemresult.datereceived,
                         itemLocFound: itemresult.locationfound,
                         itemCampusLoc: itemresult.campus,
                         photoSRC: itemresult.photourl,

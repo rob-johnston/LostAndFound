@@ -51,11 +51,11 @@
 
         //if 'from' date is included, add it to the statement
         if(data.query.from!='' && data.query.from!=undefined){
-            stmt += " AND datefound > '"+data.query.from+"' ";
+            stmt += " AND datereceived > '"+data.query.from+"' ";
         }
         //if 'to' date is included then add to statement
         if(data.query.to != '' && data.query.from!=undefined){
-            stmt += " AND datefound < '"+data.query.to + "'";
+            stmt += " AND datereceived < '"+data.query.to + "'";
         }
         //adding the final semi colon
         stmt += ";";
@@ -120,11 +120,11 @@
             stmt+= 'AND campus LIKE ' + "'"+ data.campus + "' ";
         }
         if(data.from!=''){
-            stmt += " AND datefound > '"+data.from+"' ";
+            stmt += " AND datereceived > '"+data.from+"' ";
         }
         //if 'to' date is included then add to statement
         if(data.to != ''){
-            stmt += " AND datefound < '" + data.to + "'";
+            stmt += " AND datereceived < '" + data.to + "'";
         }
 
         //add final semi cln

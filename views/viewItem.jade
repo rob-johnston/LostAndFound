@@ -16,7 +16,7 @@ block body
                 br
                 br
                 br
-                if photoSRC == '' /* If there is no image for the item */
+                if (photoSRC == '' || photoSRC == null) /* If there is no image for the item */
                     img(src="images/defaultImg.png" style="width:200px;")
 
                 else
@@ -58,8 +58,8 @@ block body
                             b Category:
                             |  #{itemCategory}
                         li.list-group-item
-                            b Date Found:
-                            |  #{itemDateFound}
+                            b Date Received:
+                            |  #{itemDateReceived}
                         li.list-group-item
                             b Location Found:
                             |  #{itemLocFound}
