@@ -530,12 +530,14 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function editItem(data,cb) {
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription +
-
-            '\', Category = \'' + data.category + '\', datereceived = \''+ data.dateFound +'\', LocationFound = \'' +
-
+            '\', Category = \'' + data.category + '\', datereceived = \''+ data.dateReceived +'\', LocationFound = \'' +
             data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
             data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
-        //, DateReturned = \'' + data.dateReturned + '\'
+
+        if (data.returnstatus == undefined){ 
+            data.returnstatus =  document.getElementById("returnStatus").value;
+         }
+
         pg.connect(db,function(err,client,done){
             if(err){
                 console.log('cant connect to db');
@@ -543,7 +545,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 return;
             }
 
-            console.log("Category: " + data.category);
             console.log("connection successful");
             client.query(stmt, function (error, result) {
 
