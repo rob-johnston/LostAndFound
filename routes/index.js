@@ -6,9 +6,9 @@ pg.defaults.ssl= true;
 //location of our heroku DB
 var database = "postgres://kwumrsivhgpwme:OkWx2rA84KLrjTPOmSkOc2CIna@ec2-23-21-234-201.compute-1.amazonaws.com:5432/d54qeacf1ad3fc";
 //our js file for interacting with the db
-var db = require('../db.js');
-var search = require('../search.js');
-var editdb = require("../editdb.js");
+var db = require('./db.js');
+var search = require('./search.js');
+var editdb = require("./editdb.js");
 var url = require('url');
 //setting up express session
 router.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
@@ -23,7 +23,7 @@ const user = {
     password: 'admin',
     id: 1
 };
-var login = require("../login.js");
+var login = require("./login.js");
 router.use(passport.initialize());
 router.use(passport.session());
 
