@@ -487,7 +487,7 @@ router.get('/statistics', function(req,res,next){
 
 /* GET testing page. */
 router.get('/RoutesTesting', function(req, res, next) {
-    var dbfunction=db;
+    var dbfunction=db.countItems();
     //console.log(dbfunction);
     res.render('RoutesTesting', { dbFunc: dbfunction });
 });
