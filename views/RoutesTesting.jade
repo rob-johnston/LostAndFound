@@ -7,16 +7,29 @@ html
         title Refactored date examples
         link(rel='stylesheet', href='https://code.jquery.com/qunit/qunit-2.0.1.css')
         script(src='https://code.jquery.com/qunit/qunit-2.0.1.js')
-        script(src='db.js')
         script.
-            var db = #{dbFunc};
-            console.log("test");
+            var data = !{JSON.stringify(result)} ;
+            var test = !{JSON.stringify(test)} ;
+            console.log(data);
+            var dataFormatted = [];
+            for(var i = 0 ; i<data.length; i++){
 
-            QUnit.test("testCountItems", function( assert ) {
-                var array=[2,21,13,157,0,351,59,121,8,3,0,0];
-                var result;
-                db(function (err, arrResult){result=arrResult;});
-                assert.equal(result, array);
-            });
+            }
+
+            if(test=="countitems"){
+                QUnit.test("testCountItems", function (assert) {
+                    var array=[2,21,13,157,0,351,59,121,8,3,0,0];
+                    array = JSON.stringify(array);
+                    assert.equal(data,array);
+                });
+
+            } else if(test=="second"){
+                QUnit.test("testCountItems", function (assert) {
+                    assert.equal(data, "test passed");
+                });
+
+            }
+
+
     body
         #qunit

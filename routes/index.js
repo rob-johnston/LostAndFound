@@ -10,6 +10,8 @@ var db = require('./db.js');
 var search = require('./search.js');
 var editdb = require("./editdb.js");
 var url = require('url');
+var testSuite = require('./testSuite.js');
+
 //setting up express session
 router.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
@@ -17,12 +19,6 @@ router.use(require('express-session')({ secret: 'keyboard cat', resave: false, s
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 
-//example user, will need to actually use db
-const user = {
-    username: 'admin',
-    password: 'admin',
-    id: 1
-};
 var login = require("./login.js");
 router.use(passport.initialize());
 router.use(passport.session());
@@ -486,10 +482,27 @@ router.get('/statistics', function(req,res,next){
 });
 
 /* GET testing page. */
-router.get('/RoutesTesting', function(req, res, next) {
-    var dbfunction=db.countItems();
-    //console.log(dbfunction);
-    res.render('RoutesTesting', { dbFunc: dbfunction });
+router.get('/testing/*', function(req, res, next) {
+
+    var urlparts = url.parse(req.url,true);
+    urlparts = urlparts.path;
+    //isolate the sub path we want to use
+    var subPath  = urlparts.replace("/testing/","");
+
+
+    testSuite.test(subPath, function(err,result){
+        //which test page do we want to render?
+        if(subPath=="countitems"){
+
+            res.render("RoutesTesting", {test: subPath, result: result});
+
+        } else if (subPath=="second"){
+            res.render("RoutesTesting", {test: subPath, result: result});
+        }
+
+    });
 });
+
+
 
 module.exports = router;
