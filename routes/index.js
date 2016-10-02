@@ -22,7 +22,7 @@ const user = {
     username: 'admin',
     password: 'admin',
     id: 1
-}
+};
 
 router.use(passport.initialize());
 router.use(passport.session());
@@ -57,7 +57,7 @@ passport.use(new LocalStrategy(
                         username: USERNAME,
                         password: PASSWORD,
                         id: 1
-                    }
+                    };
                     return done(null,newUser);
                 }
             })
