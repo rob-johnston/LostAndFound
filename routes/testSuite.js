@@ -46,10 +46,47 @@
                 }
             })
 
+            //testing the ability to add and remove categories
+        } else if(subPath =="addremovecategory"){
+            db.countCategories(function(err,result){
+                console.log(result);
+                var initialCount = result;
+                db.addCategory("testcategory",function(err,result){
+                    db.countCategories(function(err2,result2){
+                        var firstConditional = (result2-initialCount==1);
+                        db.removeCategory("testCategory", function(err,result){
+                            db.countCategories(function(err3,result3){
+                                var secondConditional = (result3==initialCount);
+                                var toReturn = {first: firstConditional,
+                                    second: secondConditional
+                                }
+                                cb(false,toReturn);
+                            })
+                        })
+                    })
+                });
+            })
 
-        } else if(subPath =="second"){
-            //do stuff
-            cb(false, "test failed");
+        } else if (subPath =="addremovecampus"){
+            db.countCampuses(function(err,result){
+                console.log(result);
+                var initialCount = result;
+                db.addCampus("testcampus",function(err,result){
+                    db.countCampuses(function(err2,result2){
+                        var firstConditional = (result2-initialCount==1);
+                        db.removeCampus("testcampus", function(err,result){
+                            db.countCampuses(function(err3,result3){
+                                var secondConditional = (result3==initialCount);
+                                var toReturn = {first: firstConditional,
+                                    second: secondConditional
+                                }
+                                cb(false,toReturn);
+                            })
+                        })
+                    })
+                });
+            })
+
         }
 
     }

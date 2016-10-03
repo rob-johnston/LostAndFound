@@ -496,10 +496,11 @@ router.get('/testing/*', function(req, res, next) {
 
             res.render("RoutesTesting", {test: subPath, result: result});
 
-        } else if (subPath=="second"){
+        } else if (subPath=="addremovecategory"){
+            res.render("RoutesTesting", {test: subPath, result: result});
+        } else if(subPath =="addremovecampus"){
             res.render("RoutesTesting", {test: subPath, result: result});
         }
-
     });
 });
 

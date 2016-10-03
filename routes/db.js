@@ -49,7 +49,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         editItem: editItem,
         addCol: addCol,
         removeCol: removeCol,
-        countItems: countItems
+        countItems: countItems,
+        countCategories: countCategories,
+        countCampuses: countCampuses
     };
 
 
@@ -351,7 +353,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
      */
     function addCategory(data, cb) {
 
-        var stmt = INSERT + CATEGORIES_TABLE + " (cateogy) VALUES ('" + data + "');";
+        var stmt = INSERT + CATEGORIES_TABLE + " (category) VALUES ('" + data + "');";
         console.log(stmt);
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -612,6 +614,54 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         })
 
     }
+
+    function countCategories(cb){
+        pg.connect(db, function (err, client, done) {
+            if (err) {
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return;
+            }
+            console.log("connection successful");
+            var stmt = "SELECT COUNT(category) FROM category;";
+            //submit the statement we want
+            client.query(stmt, function (error, result) {
+                done();
+                if (error) {
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                var count = result.rows[0].count;
+                cb(false,count);
+            });
+        });
+    }
+    function countCampuses(cb){
+        pg.connect(db, function (err, client, done) {
+            if (err) {
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return;
+            }
+            console.log("connection successful");
+            var stmt = "SELECT COUNT(campus) FROM campus;";
+            //submit the statement we want
+            client.query(stmt, function (error, result) {
+                done();
+                if (error) {
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                var count = result.rows[0].count;
+                cb(false,count);
+            });
+        });
+    }
+
 
 
 })();
