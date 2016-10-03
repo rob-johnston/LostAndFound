@@ -316,9 +316,9 @@ router.get('/editItem', ensureAuthenticated(), function (req, res) {
 router.post('/viewItem', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering page + add edited info to the db
     db.getCampuses(function(err,campusresult){
-        db.getCategories(function(err,categoryresult){
-            db.editItem(req.body,function(err,result){
-                db.viewItem(req.body.itemid,function(err,itemresult){
+        db.getCategories(function(err2,categoryresult){
+            db.editItem(req.body,function(err3,result){
+                db.viewItem(req.body.itemid,function(err4,itemresult){
                     var tempDateReceived = reformatDate(itemresult.datereceived);
                     itemresult.datereceived = tempDateReceived.itemDate;
 
@@ -326,7 +326,7 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
                     itemresult.datereturned = tempDateReturned.itemDate;
 
 
-                    if (err){
+                    if (err || err2 || err3 || err4){
                         res.render('editItem', {
                             title: 'Edit Item - VUWSA Lost and Found',
                             categories: categoryresult.rows,
@@ -501,6 +501,10 @@ router.get('/testing/*', function(req, res, next) {
         }
 
     });
+});
+
+router.get('/itemPagesTesting', function(req, res, next) {
+    res.render("itemPagesTesting");
 });
 
 
