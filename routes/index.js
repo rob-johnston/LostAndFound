@@ -317,7 +317,7 @@ router.post('/viewItem', ensureAuthenticated(), function (req,res){
     //get info from table for re-rendering page + add edited info to the db
     db.getCampuses(function(err,campusresult){
         db.getCategories(function(err,categoryresult){
-            db.editItem(req.body,function(err2,result){
+            db.editItem(req.body,function(err,result){
                 db.viewItem(req.body.itemid,function(err,itemresult){
                     var tempDateReceived = reformatDate(itemresult.datereceived);
                     itemresult.datereceived = tempDateReceived.itemDate;

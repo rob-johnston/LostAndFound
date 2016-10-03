@@ -15,6 +15,7 @@ block body
     include navBar
     include sidebar
     .container
+        .col-lg-1
         .col-lg-10
             .row
             br
@@ -99,13 +100,13 @@ block body
                         h8
                             b Return Status
                             br
-                            .btn-group(data-toggle='buttons', form="form2", id = "returnStatus")
+                            .btn-group(data-toggle='buttons', id = "returnStatus", form="form2")
                                 if itemReturnStatus == 'Owner'
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
                                         |  Held by VUWSA
                                     label.btn.btn-default.active
-                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')
+                                        input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner', checked='')
                                         a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
@@ -121,7 +122,7 @@ block body
                                         input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')
                                         a(href='#datepickerModal', role='button', data-toggle='modal') Returned to Owner
                                     label.btn.btn-default.active
-                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed', checked='')
                                         a(href='#datepickerModal', role='button', data-toggle='modal') Disposed
                                     label.btn.btn-default
                                         input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police')
@@ -137,11 +138,11 @@ block body
                                         input#option2(type='radio', name='returnstatus', autocomplete='off', value = 'Disposed')
                                         a(href='#datepickerModal', role='button', data-toggle='modal') Disposed
                                     label.btn.btn-default.active
-                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police')
+                                        input#option3(type='radio', name='returnstatus', autocomplete='off', value = 'Police', checked='')
                                         |  Given to Police
                                 else
                                     label.btn.btn-default.active
-                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ')
+                                        input#option2(type='radio', name='returnstatus', autocomplete='off', value = ' ', checked='')
                                         |  Held by VUWSA
                                     label.btn.btn-default
                                         input#option1(type='radio', name='returnstatus', autocomplete='off', value = 'Owner')

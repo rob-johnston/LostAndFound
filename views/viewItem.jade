@@ -15,6 +15,7 @@ block body
             br
             br
             br
+            .col-md-1
             #itemPhoto.col-md-3
                 if (photoSRC == '' || photoSRC == null) /* If there is no image for the item */
                     img(src="images/defaultImg.png" style="width:200px;")
@@ -42,7 +43,7 @@ block body
                         button.btn.btn-success Edit
 
 
-            #itemDetails.col-md-9
+            #itemDetails.col-md-8
                 .panel.panel-success
                     // Default panel contents
                     .panel-heading
@@ -67,7 +68,7 @@ block body
                             li.list-group-item
                                 b Currently held in (Campus Location):
                                 |  #{itemCampusLoc}
-                        if (itemReturnStatus != null && itemReturnStatus != ' ')
+                        if (itemReturnStatus != null && itemReturnStatus != ' ' && itemReturnStatus != 'undefined')
                             li.list-group-item
                                 b Return Status:
                                 |  #{itemReturnStatus}
@@ -79,6 +80,8 @@ block body
                             li.list-group-item
                                 b Date Disposed:
                                 |  #{itemDateReturned}
+    .col-md-2
+    .col-md-9
         .row
             if (message != null)
                 .alert.alert-success #{message}

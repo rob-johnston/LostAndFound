@@ -222,7 +222,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         //the sql statement we need
         var args = '(\'' + data.itemName + '\',\'' + data.itemDescription + '\',\'' + data.category + '\',\'' + data.dateReceived + '\',\'' +
             data.locationFound + '\',\'' + data.campus + '\',\'' + data.photourl + '\');'
-        //two unconsidered values here. those are DateReturned,DateDiscarded
 
         //Sets default photo if no photo url entered
         if (data.photourl = null) {
@@ -534,10 +533,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
             data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
 
-        if (data.returnstatus == undefined){ 
-            data.returnstatus =  document.getElementById("returnStatus").value;
-         }
-
         pg.connect(db,function(err,client,done){
             if(err){
                 console.log('cant connect to db');
@@ -558,7 +553,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             });
         })
     };
-
 
 
     function processArray(listCount, fn) {
