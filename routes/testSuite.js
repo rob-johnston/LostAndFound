@@ -27,6 +27,8 @@
     function test(subPath, cb){
 
         //do the actions we actually need to be testing -call back with the results
+
+        //count items test
         if(subPath=="countitems"){
             //do stuff
             db.countItems(function(err,result){
@@ -35,7 +37,6 @@
                 } else {
                     //format our result nicely for testing
                     var array = [0,0,0,0,0,0,0,0,0,0,0,0];
-
                     for(var i = 0; i<array.length; i++){
                         array[i]=parseInt(result[i][0].count);
                     }
@@ -44,7 +45,6 @@
                     cb(false, array);
                 }
             })
-
 
 
         } else if(subPath =="second"){

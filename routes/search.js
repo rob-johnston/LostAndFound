@@ -104,7 +104,8 @@
         //loop through to flesh out the query
         stmt+="(";
         for(var i =0; i< words.length; i++){
-            stmt = stmt + "ItemName ILIKE '%" +words[i]+"%'" +  ' OR Description ILIKE ' + "'%" + words[i]+"%' OR ";
+            stmt = stmt + "ItemName ILIKE '%" +words[i]+"%'" +  ' OR Description ILIKE ' + "'%" + words[i]+"%' OR " ;
+                if(parseInt(words[i])>0){ stmt += 'itemid= ' +words[i] + " OR ";}
         }
 
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
@@ -115,11 +116,11 @@
             stmt+=' AND datereturned IS NULL ';
         }
         //add category if included
-        if(data.category != "All Categories"){
+        if(data.category != "All Categories" && data.category != ""){
             stmt+= 'AND category ILIKE ' + "'"+data.category+"' ";
         }
         //add campus if included
-        if(data.campus != "All Campuses"){
+        if(data.campus != "All Campuses" && data.campus != ""){
             stmt+= 'AND campus ILIKE ' + "'"+ data.campus + "' ";
         }
         if(data.from!=''){
@@ -173,8 +174,11 @@
         //base of the statement
         var stmt = SELECT_ALL + ITEMS_TABLE + WHERE;
         //loop through to flesh out the query
-        for(var i =0; i< words.length; i++){
-            stmt = stmt + "ItemName ILIKE '%" +words[i]+"%'" +  ' OR Description ILIKE ' + "'%" + words[i]+"%' OR ";
+        for(var i =0; i< words.length; i++) {
+            stmt = stmt + "ItemName ILIKE '%" + words[i] + "%'" + ' OR Description ILIKE ' + "'%" + words[i] + "%' OR ";
+            if (parseInt(words[i]) > 0) {
+                stmt += 'itemid= ' + words[i] + " OR ";
+            }
         }
         //end of loop, remove trailing OR and replace with semicolon to finish query - is there a better way to do this??
         stmt=stmt.substring(0,stmt.length-4);
