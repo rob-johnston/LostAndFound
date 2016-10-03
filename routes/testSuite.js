@@ -35,9 +35,12 @@
                 } else {
                     //format our result nicely for testing
                     var array = [0,0,0,0,0,0,0,0,0,0,0,0];
+
                     for(var i = 0; i<array.length; i++){
-                        array[i]=JSON.stringify(result[i]);
+                        array[i]=parseInt(result[i][0].count);
                     }
+                    console.log(array[0]);
+
                     cb(false, array);
                 }
             })

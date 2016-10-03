@@ -11,17 +11,15 @@ html
             var data = !{JSON.stringify(result)} ;
             var test = !{JSON.stringify(test)} ;
             console.log(data);
-            var dataFormatted = [];
-            for(var i = 0 ; i<data.length; i++){
-
-            }
+            data = JSON.stringify(data);
 
             if(test=="countitems"){
                 QUnit.test("testCountItems", function (assert) {
-                    var array=[2,21,13,157,0,351,59,121,8,3,0,0];
+                    var array=[2,21,13,157,0,351,59,121,8,3,1,0];
                     array = JSON.stringify(array);
                     assert.equal(data,array);
                 });
+                
 
             } else if(test=="second"){
                 QUnit.test("testCountItems", function (assert) {
