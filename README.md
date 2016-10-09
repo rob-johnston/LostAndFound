@@ -4,6 +4,25 @@
 
 This document will cover the usage of the web application used to manage VUWSA's Lost And Found Database. This database is intended to replace the existing system of an Excel spreadsheet. It aims to improve ease-of-use and accessibility for both staff and students. For new users, please read the Tutorial below.
 
+## **The Team**
+
+The team behind the VUWSA Lost and Found Database consists of five members. These members are:
+Aaron Pang
+Robert Johnson
+Stanton Borthwick
+Trish Gelido
+Priyanka Bhula
+
+Each of these members were responsible for the requirement analysis documents and code created.
+
+## **Architecture**
+
+The application is written in NodeJS with a Jade front-end and a PSQL database to hold all the items.
+
+## **Installation Instructions**
+
+
+
 ## **Tutorial**
 
 Upon opening the web application, you will be presented with a home screen. On this screen is a sidebar containing "Home" and "Log In" buttons, a search bar at the top of the website and social media links at the footer.  
