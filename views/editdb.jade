@@ -113,3 +113,16 @@ block body
                         p Could be used to avoid always connecting directly to DB
                             input(class="form-control",type="text",hidden="true",name="publish",form="form9", value="publish",required)
                         input.btn.btn-success(type="submit" form="form9" value="PUBLISH")
+
+                    form.centerAdd(action="/editdb",method="post",id="form10" )
+
+                        h4 Submit a new user to the system (for logging on)
+                        p username
+                            input(class="form-control",type="text",name="username",form="form10", value="publish",required)
+                        p password
+                            input(class="form-control",type="password",name="password",form="form10", value="publish",required)
+                        p confirm password
+                            input(class="form-control",type="text",name="password2",form="form10", value="publish",required)
+
+
+                        input.btn.btn-success(type="submit" form="form10" value="newuser")

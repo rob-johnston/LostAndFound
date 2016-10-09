@@ -53,6 +53,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         countCategories: countCategories,
         countCampuses: countCampuses,
         getJSONSnapshot: getJSONSnapshot, 
+        getRestrictedJSONSnapshot:getRestrictedJSONSnapshot,
         countItems: countItems, 
         addItemTest: addItemTest, 
         deleteItemTest: deleteItemTest 
@@ -235,13 +236,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         }
 
 
-<<<<<<< HEAD
         var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound, ownerName, Campus,photourl) VALUES' + args ;
-
-
-=======
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES (' + args + ');"';
->>>>>>> 77f2418573b35d6a9ccccac894034a3ee0f0cb6b
 
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -652,6 +647,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     }
 
+    /*a full and glorius representation of our database in javascript object notation (thats JSON btw) */
     function getJSONSnapshot(cb){
 
         pg.connect(db, function (err, client, done) {
@@ -663,6 +659,51 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             }
             console.log("connection successful");
             var stmt = "SELECT row_to_json(t) FROM (SELECT * FROM items) t;";
+            //submit the statement we want
+            client.query(stmt, function (error, result) {
+                done();
+                if (error) {
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+
+                //create and return a json representation of our db
+                var finalString = "[";
+
+                //get each parsed row and add a comma to be correct
+                for(var i=0;  i<result.rows.length; i++){
+                    var stringtoadd = JSON.stringify(result.rows[i]);
+                    var objectstring = JSON.parse(stringtoadd);
+
+                    //dont add a comma on the last entry
+                    finalString+= JSON.stringify(objectstring.row_to_json);
+                    if(i<result.rows.length-1){
+                        finalString+=",";
+                    }
+                }
+                //add final closing square bracket
+                finalString+="]";
+
+                cb(false,finalString);
+            });
+        });
+
+
+    }
+
+    /*creates a json representation of our database - restricted to only the given values - ie so students cant see all info about the item*/
+    function getRestrictedJSONSnapshot(cb){
+
+        pg.connect(db, function (err, client, done) {
+            if (err) {
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return;
+            }
+            console.log("connection successful");
+            var stmt = "SELECT row_to_json(t) FROM (SELECT itemname, category,locationfound, itemid FROM items) t;";
             //submit the statement we want
             client.query(stmt, function (error, result) {
                 done();

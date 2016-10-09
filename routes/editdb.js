@@ -4,6 +4,7 @@
 //this file is for figuring out what we should do with a edit db post, it basically just checks which method should be executed and then does so, also provides the appropriate response
 // message that the page should render afterwards
 var db = require('./db.js');
+var fs = require('fs');
 
 (function(){
 
@@ -103,13 +104,18 @@ var db = require('./db.js');
             console.log("requesting snapshot");
 
 
-            db.getJSONSnapshot(function(err,res){
+            db.getRestrictedJSONSnapshot(function(err,res){
 
                 if(err){
                     console.error(err);
                 }else {
                     console.log("successful snapshot created");
-                    cb(res);
+                    fs.writeFile("../static/jsondb.json",res,function(err,data){
+                        if(err){
+                            console.error(err);
+                        }
+                        cb("static file created");
+                    });
                 }
             })
 
