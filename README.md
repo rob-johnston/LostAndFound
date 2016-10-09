@@ -6,12 +6,7 @@ This document will cover the usage of the web application used to manage VUWSA's
 
 ## **The Team**
 
-The team behind the VUWSA Lost and Found Database consists of five members. These members are:
-Aaron Pang
-Robert Johnson
-Stanton Borthwick
-Trish Gelido
-Priyanka Bhula
+The team behind the VUWSA Lost and Found Database consists of five members. These members are: Aaron Pang, Robert Johnson, Stanton Borthwick, Trish Gelido, Priyanka Bhula
 
 Each of these members were responsible for the requirement analysis documents and code created.
 
@@ -21,7 +16,9 @@ The application is written in NodeJS with a Jade front-end and a PSQL database t
 
 ## **Installation Instructions**
 
+One can use the following Heroku link:
 
+Alternatively, download or clone the repository and then use the Terminal to navigate to the folder holding it and execute the command "npm start". Following this, navigate to localhost:3000 in your preferred web browser.
 
 ## **Tutorial**
 
