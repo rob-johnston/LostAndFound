@@ -22,8 +22,16 @@ The search function operates by the user specifying key words in the search bar.
 
 ### **Viewing All Items**
 
-It is possible to view all items in the database by clicking the "View All Items" button. 
+It is possible to view all items in the database by clicking the "View All Items" button. A user must be logged in to access and use this function.
 
 ### **Adding An Item**
 
-### **Removing An Item**
+Clicking the "Add Item" button will lead the user to a screen where they can provide item details (Name, Description, Category, Date Received, Campus, Location Found and an Image of the item). Once added, this item will be placed in the database and present in searches. Users must be logged in to access this function.
+
+### **Modifying Item Status**
+
+An item's status can be modified by specifically clicking the "Edit" button on an item. This allows a logged-in user to change the current status of a specfic item, specifying whether it has been returned or disposed of or given to the Police.
+
+### **Database Admin**
+
+This allows a logged-in user to modify the database. Features include: Adding Categories, Removing Categories, Adding and Removing Campuses, Adding and Removing Information fields and permanently deleting items from the database (either by using the item's ID or by specifying a date that will cause all items older than that date to be deleted).
