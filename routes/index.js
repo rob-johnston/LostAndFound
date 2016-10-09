@@ -12,6 +12,8 @@ var editdb = require("./editdb.js");
 var url = require('url');
 var testSuite = require('./testSuite.js');
 
+
+
 //setting up express session
 router.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
@@ -84,13 +86,17 @@ router.get('/search',ensureAuthenticated(), function(req, res, next) {
     var  urlparts = url.parse(req.url,true);
     //at the moment use simple search
     search.simpleSearch(urlparts.query.mysearch,function(err,result){
-        db.getCampuses(function(err,campusresult){
-            db.getCategories(function(err,categoryresult){
-                if(err){
+        db.getCampuses(function(err1,campusresult){
+            db.getCategories(function(err2,categoryresult){
+                if(err || err1 ||err2){
                     console.log.print(err);
                     res.render('index', { title: 'Search - VUWSA Lost and Found' , user:req.user});
                 } else {
-                    res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found', results : result.rows, campus: campusresult.rows, categories: categoryresult.rows, user:req.user});
+                    res.render('advancedSearch', { title: 'Search - VUWSA Lost and Found',
+                        results : result.rows,
+                        campus: campusresult.rows,
+                        categories: categoryresult.rows,
+                        user:req.user});
                 }
             })
         })
@@ -176,9 +182,16 @@ router.post('/addItem', ensureAuthenticated(), function (req,res){
                 } else {
 
                     if(err3){
-                        res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
+                        res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows,
+                            campus: campusresult.rows,
+                            message: "Error when adding item",
+                            user:req.user});
                     }else {
-                        res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Item added successfuly", user:req.user});
+                        res.render('addItem', { title: 'Add Item - VUWSA Lost and Found',
+                            categories: categoryresult.rows,
+                            campus: campusresult.rows,
+                            message: "Item added successfuly",
+                            user:req.user});
                     }
 
                 }
@@ -193,7 +206,11 @@ router.get('/advancedSearch', ensureAuthenticated(), function (req, res) {
     db.getCampuses(function(err1,campusresult){
         db.getCategories(function(err2,categoryresult){
             if(err1 || err2){
-                res.render('addItem', { title: 'Add Item - VUWSA Lost and Found', categories: categoryresult.rows, campus: campusresult.rows, message: "Error when adding item", user:req.user});
+                res.render('addItem', { title: 'Add Item - VUWSA Lost and Found',
+                    categories: categoryresult.rows,
+                    campus: campusresult.rows,
+                    message: "Error when adding item",
+                    user:req.user});
             }else {
 
                 //get url parts
