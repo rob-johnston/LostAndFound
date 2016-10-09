@@ -35,3 +35,7 @@ An item's status can be modified by specifically clicking the "Edit" button on a
 ### **Database Admin**
 
 This allows a logged-in user to modify the database. Features include: Adding Categories, Removing Categories, Adding and Removing Campuses, Adding and Removing Information fields and permanently deleting items from the database (either by using the item's ID or by specifying a date that will cause all items older than that date to be deleted).
+
+### **View Statistics**
+
+This allows a logged-in user to view Statistics about the Lost and Found Database, such as number of items returned per month and other figures pertaining to VUWSA's Lost and Found operations.
