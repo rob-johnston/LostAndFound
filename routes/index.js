@@ -500,7 +500,10 @@ router.get('/testing/*', function(req, res, next) {
             res.render("RoutesTesting", {test: subPath, result: result});
         } else if(subPath =="addremovecampus"){
             res.render("RoutesTesting", {test: subPath, result: result});
+        } else if(subPath =="addremoveitem"){
+            res.render("RoutesTesting", {test: subPath, result: result});
         }
+
     });
 });
 
