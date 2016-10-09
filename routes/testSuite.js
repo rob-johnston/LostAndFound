@@ -19,7 +19,7 @@
         test: test,
         testAll : testAll
     }
-
+;
     function testAll(){
         return;
     }
@@ -44,7 +44,7 @@
 
                     cb(false, array);
                 }
-            })
+            });
 
             //testing the ability to add and remove categories
         } else if(subPath =="addremovecategory"){
@@ -59,7 +59,7 @@
                                 var secondConditional = (result3==initialCount);
                                 var toReturn = {first: firstConditional,
                                     second: secondConditional
-                                }
+                                };
                                 cb(false,toReturn);
                             })
                         })
@@ -79,7 +79,7 @@
                                 var secondConditional = (result3==initialCount);
                                 var toReturn = {first: firstConditional,
                                     second: secondConditional
-                                }
+                                };
                                 cb(false,toReturn);
                             })
                         })

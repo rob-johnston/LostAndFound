@@ -224,7 +224,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         console.log("adding...");
         //the sql statement we need
         var args = '(\'' + data.itemName + '\',\'' + data.itemDescription + '\',\'' + data.category + '\',\'' + data.dateReceived + '\',\'' +
-            data.locationFound + '\',\'' + data.campus + '\',\'' + data.photourl + '\');'
+            data.locationFound + '\',\'' + data.ownerName  + '\',\'' + data.campus + '\',\'' + data.photourl + '\');';
 
         //Sets default photo if no photo url entered
         if (data.photourl = null) {
@@ -232,7 +232,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         }
 
 
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES ' +
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound, ownerName, Campus,photourl) VALUES' + args ;
+
+
 
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -533,7 +535,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
     function editItem(data,cb) {
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription +
             '\', Category = \'' + data.category + '\', datereceived = \''+ data.dateReceived +'\', LocationFound = \'' +
-            data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
+            data.locationFound + '\', OwnerName = \'' + data.ownerName + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
             data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
 
         pg.connect(db,function(err,client,done){
@@ -555,7 +557,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 cb(false, result);
             });
         })
-    };
+    }
 
 
     function processArray(listCount, fn) {
@@ -572,7 +574,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             next();
         })
 
-    };
+    }
 
 
     function countItems(cb) {
