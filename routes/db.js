@@ -52,8 +52,11 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         countItems: countItems,
         countCategories: countCategories,
         countCampuses: countCampuses,
-        getJSONSnapshot: getJSONSnapshot
-    };
+        getJSONSnapshot: getJSONSnapshot, 
+        countItems: countItems, 
+        addItemTest: addItemTest, 
+        deleteItemTest: deleteItemTest 
+};
 
 
     /**
@@ -232,9 +235,13 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         }
 
 
+<<<<<<< HEAD
         var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound, ownerName, Campus,photourl) VALUES' + args ;
 
 
+=======
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES (' + args + ');"';
+>>>>>>> 77f2418573b35d6a9ccccac894034a3ee0f0cb6b
 
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -689,6 +696,75 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     }
 
+    function countItems(cb){ 
+        pg.connect(db, function (err, client, done) { 
+            if (err) { 
+                //deal with db connection issues 
+                console.log('cant connect to db'); 
+                console.log(err); 
+                return; 
+            } 
+            console.log("connection successful"); 
+            var stmt = "SELECT COUNT(itemname) FROM original;"; 
+            //submit the statement we want 
+            client.query(stmt, function (error, result) { 
+                done(); 
+                if (error) { 
+                    console.log("query failed"); 
+                    console.log(error); 
+                    return; 
+                } 
+                var count = result.rows[0].count; 
+                cb(false,count); 
+            }); 
+        }); }  
 
+        function addItemTest(data, cb){ 
+            pg.connect(db, function (err, client, done) { 
+                if (err) { 
+                    //deal with db connection issues 
+                    console.log('cant connect to db'); 
+                    console.log(err); 
+                    return; 
+                } 
+                console.log("connection successful - ADD"); 
+                var stmt = "INSERT INTO original (itemname) VALUES ('" + data + "');";  
+                console.log(stmt);
+                // var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + "original (itemName,Description,Category,datefound,LocationFound,Campus,photourl) VALUES ('" + data + "');"; 
+                client.query(stmt, function (error, result) { 
+                    done(); 
+                    if (error) { 
+                        console.log("query failed - ADD"); 
+                        console.log(error); 
+                        return; 
+                    }
+                    cb(false,result); 
+                }); 
+            }); 
+        }
 
+          function deleteItemTest(data, cb) {  
+            pg.connect(db, function (err, client, done) { 
+                if (err) {
+
+                    //deal with db connection issues 
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful - DELETE");
+                var stmt = DELETE_FROM + "original WHERE itemname ILIKE '" + data + "';";
+                console.log(stmt);
+                //submit the statement we want 
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed - DELETE");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false, result);
+                });
+            });
+        }
 })();

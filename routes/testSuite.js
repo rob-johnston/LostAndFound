@@ -89,6 +89,28 @@
 
         }
 
+        else if (subPath == "addremoveitem"){
+            db.countItems(function(err,result){
+                console.log(result);
+                var initialCount = result;
+                db.addItemTest("testitemname",function(err,result){
+                    db.countItems(function(err2,result2){
+                        var firstConditional = (result2-initialCount==1);
+                        db.deleteItemTest("testitemname", function(err,result){
+                            db.countItems(function(err3,result3){
+                                var secondConditional = (result3==initialCount);
+                                var toReturn = {first: firstConditional,
+                                    second: secondConditional
+                                }
+                                cb(false,toReturn);
+                            })
+                        })
+                    })
+                });
+            })
+        }
+
+
     }
 
 

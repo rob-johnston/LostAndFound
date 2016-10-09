@@ -89,7 +89,7 @@
       <file leaf-file-name="addItem.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/addItem.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="534">
               <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
               <folding />
             </state>
@@ -414,7 +414,7 @@
       <workItem from="1474234138816" duration="4073000" />
       <workItem from="1474833874405" duration="6990000" />
       <workItem from="1475438461600" duration="14709000" />
-      <workItem from="1476043313712" duration="7280000" />
+      <workItem from="1476043313712" duration="7443000" />
     </task>
     <task id="LOCAL-00001" summary="added vertsync css&#10;">
       <created>1470613028972</created>
@@ -483,7 +483,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83106000" />
+    <option name="totallyTimeSpent" value="83269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1918" y="-26" width="1924" height="1110" extended-state="4" />
@@ -831,7 +831,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/addItem.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="534">
           <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
           <folding />
         </state>
