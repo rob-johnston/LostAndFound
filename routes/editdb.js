@@ -99,6 +99,21 @@ var db = require('./db.js');
                 }
             })
         }
+        else if(req.body.publish!=null){
+            console.log("requesting snapshot");
+
+
+            db.getJSONSnapshot(function(err,res){
+
+                if(err){
+                    console.error(err);
+                }else {
+                    console.log("successful snapshot created");
+                    cb(res);
+                }
+            })
+
+        }
     }
 
 

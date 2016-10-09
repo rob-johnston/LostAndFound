@@ -106,3 +106,10 @@ block body
                             input(class="form-control",type="text", id = "datepicker", name = "itemRemoveDate", form="form8",required)
 
                         input.btn.btn-success(type="submit" form="form8" value="execute")
+
+                    form.centerAdd(action="/editdb",method="post",id="form9" )
+
+                        h4 Get Static JSON representation of DB
+                        p Could be used to avoid always connecting directly to DB
+                            input(class="form-control",type="text",hidden="true",name="publish",form="form9", value="publish",required)
+                        input.btn.btn-success(type="submit" form="form9" value="PUBLISH")

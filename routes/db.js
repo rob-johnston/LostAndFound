@@ -51,7 +51,8 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         removeCol: removeCol,
         countItems: countItems,
         countCategories: countCategories,
-        countCampuses: countCampuses
+        countCampuses: countCampuses,
+        getJSONSnapshot: getJSONSnapshot
     };
 
 
@@ -639,6 +640,11 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         });
     }
     function countCampuses(cb){
+
+    }
+
+    function getJSONSnapshot(cb){
+
         pg.connect(db, function (err, client, done) {
             if (err) {
                 //deal with db connection issues
@@ -647,7 +653,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 return;
             }
             console.log("connection successful");
-            var stmt = "SELECT COUNT(campus) FROM campus;";
+            var stmt = "SELECT row_to_json(t) FROM (SELECT * FROM items) t;";
             //submit the statement we want
             client.query(stmt, function (error, result) {
                 done();
@@ -656,10 +662,29 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                     console.log(error);
                     return;
                 }
-                var count = result.rows[0].count;
-                cb(false,count);
+
+                //create and return a json representation of our db
+                var finalString = "[";
+
+                //get each parsed row and add a comma to be correct
+                for(var i=0;  i<result.rows.length; i++){
+                    var stringtoadd = JSON.stringify(result.rows[i]);
+                    var objectstring = JSON.parse(stringtoadd);
+
+                    //dont add a comma on the last entry
+                    finalString+= JSON.stringify(objectstring.row_to_json);
+                    if(i<result.rows.length-1){
+                        finalString+=",";
+                    }
+                }
+                //add final closing square bracket
+                finalString+="]";
+
+                cb(false,finalString);
             });
         });
+
+
     }
 
 
