@@ -15,7 +15,7 @@ html
 
             if(test=="countitems"){
                 QUnit.test("testCountItems", function (assert) {
-                    var array=[2,21,13,157,0,351,59,121,8,3,1,0];
+                    var array=[2,21,13,157,0,351,59,121,8,3,2,0];
                     array = JSON.stringify(array);
                     assert.equal(data,array);
                 });
@@ -33,6 +33,11 @@ html
                 QUnit.test("testaddremovecampus", function (assert) {
                     var ob = JSON.parse(data);
                     assert.ok(ob.first && ob.second);
+                });
+            } else if (test == "editItem") {
+                QUnit.test("editItem", function (assert) {
+                    var ob = JSON.parse(data);
+                    assert.equal(ob.second,ob.first);
                 });
             }
 

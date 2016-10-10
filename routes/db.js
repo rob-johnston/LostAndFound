@@ -231,7 +231,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         }
 
 
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES ' +
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES ' + args;
 
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -534,7 +534,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             '\', Category = \'' + data.category + '\', datereceived = \''+ data.dateReceived +'\', LocationFound = \'' +
             data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
             data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
-
+        console.log(stmt);
         pg.connect(db,function(err,client,done){
             if(err){
                 console.log('cant connect to db');

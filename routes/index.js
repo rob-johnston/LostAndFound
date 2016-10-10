@@ -493,12 +493,12 @@ router.get('/testing/*', function(req, res, next) {
     testSuite.test(subPath, function(err,result){
         //which test page do we want to render?
         if(subPath=="countitems"){
-
             res.render("RoutesTesting", {test: subPath, result: result});
-
         } else if (subPath=="addremovecategory"){
             res.render("RoutesTesting", {test: subPath, result: result});
         } else if(subPath =="addremovecampus"){
+            res.render("RoutesTesting", {test: subPath, result: result});
+        }else if(subPath =="editItem"){
             res.render("RoutesTesting", {test: subPath, result: result});
         }
     });
