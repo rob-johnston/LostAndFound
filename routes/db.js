@@ -56,7 +56,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         getRestrictedJSONSnapshot:getRestrictedJSONSnapshot,
         countItems: countItems, 
         addItemTest: addItemTest, 
-        deleteItemTest: deleteItemTest 
+        deleteItemTest: deleteItemTest ,
+        addUser: addUser,
+        removeUser:removeUser
 };
 
 
@@ -703,7 +705,8 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 return;
             }
             console.log("connection successful");
-            var stmt = "SELECT row_to_json(t) FROM (SELECT itemname, category,locationfound, itemid FROM items) t;";
+            //number at end is count of items from the last x days. The category,locationfound,itemid,datereveived are the field we will return and save of the items
+            var stmt = "SELECT row_to_json(t) FROM (SELECT itemname, category,locationfound, itemid, datereceived FROM items) t WHERE datereceived > CURRENT_DATE - integer '90';";
             //submit the statement we want
             client.query(stmt, function (error, result) {
                 done();
@@ -805,6 +808,52 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                         return;
                     }
                     cb(false, result);
+                });
+            });
+        }
+
+        function addUser(username,password,cb){
+            pg.connect(db, function (err, client, done) {
+                if (err) {
+                    //deal with db connection issues 
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful - ADD USER");
+                var stmt = "INSERT INTO users (username,password) VALUES ('" + username+ "','"+password + "');";
+                console.log(stmt);
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed - ADD USER");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false,result);
+                });
+            });
+        }
+
+        function removeUser(username,cb){
+            pg.connect(db, function (err, client, done) {
+                if (err) {
+                    //deal with db connection issues 
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful - ADD USER");
+                var stmt = "DELETE FROM Users WHERE username like '"+username+"' ;";
+                console.log(stmt);
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed - ADD USER");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false,result);
                 });
             });
         }

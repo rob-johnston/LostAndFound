@@ -120,6 +120,34 @@ var fs = require('fs');
             })
 
         }
+        else if(req.body.username!=null && req.body.password!=null){
+            console.log("trying to add new user");
+
+            if(req.body.password!= req.body.password2){
+                console.log("passwords dont match");
+                cb("error adding user");
+            }
+
+            db.addUser(req.body.username,req.body.password,function(err,res){
+                if(err){
+                    console.error(err);
+                }else {
+                    cb("user added");
+                }
+            })
+
+        }
+        else if(req.body.toRemove!=null){
+            console.log("trying to remove user");
+            db.removeUser(req.body.toRemove,function(err,res){
+                if(err){
+                    console.error(err);
+                }else {
+                    cb("user deleted");
+                }
+            })
+
+        }
     }
 
 

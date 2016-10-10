@@ -12,6 +12,17 @@ var editdb = require("./editdb.js");
 var url = require('url');
 var testSuite = require('./testSuite.js');
 
+var fs = require('fs');
+
+//set up static db on boot
+db.getRestrictedJSONSnapshot(function(err,result){
+    if(err){
+        console.error(err);
+    }
+    console.log("application booted");
+    console.log("restricted local version of DB created");
+})
+
 
 
 
@@ -477,7 +488,13 @@ router.get('/studentSearchResults', function(req,res,next){
                         if(urlparts.query.from==null){ urlparts.query.from='';}
                         if(urlparts.query.to==null){ urlparts.query.to='';}
                         //render student results page with the results from the DB
-                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found', categories:categoryresult.rows, results: result.rows.length, previousFrom:urlparts.query.from,previousTo:urlparts.query.to,previousCategory:urlparts.query.category, user:req.user});
+                        res.render('studentSearchResults', {title: 'Search Results - VUWSA Lost and Found',
+                            categories:categoryresult.rows,
+                            results: result.rows.length,
+                            previousFrom:urlparts.query.from,
+                            previousTo:urlparts.query.to,
+                            previousCategory:urlparts.query.category,
+                            user:req.user});
                     }
                 });
             }
@@ -535,6 +552,19 @@ router.get('/itemPagesTesting', function(req, res, next) {
     res.render("itemPagesTesting");
 });
 
+router.get('/staticStudentView',function(req,res,next){
+    fs.readFile("../static/jsondb.json", function(err,data){
+        if(err){
+            console.error(err);
+        }
+        var dbobject = JSON.parse(data);
+        res.render("staticStudentView", {title: 'Search Results - VUWSA Lost and Found',
+            resultslength: dbobject.length,
+            results: dbobject,
+            user:req.user});
 
+    } )
+
+})
 
 module.exports = router;

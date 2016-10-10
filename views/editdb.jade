@@ -118,11 +118,17 @@ block body
 
                         h4 Submit a new user to the system (for logging on)
                         p username
-                            input(class="form-control",type="text",name="username",form="form10", value="publish",required)
+                            input(class="form-control",type="text",name="username",form="form10",required)
                         p password
-                            input(class="form-control",type="password",name="password",form="form10", value="publish",required)
+                            input(class="form-control",type="password",name="password",form="form10",required)
                         p confirm password
-                            input(class="form-control",type="text",name="password2",form="form10", value="publish",required)
+                            input(class="form-control",type="text",name="password2",form="form10",required)
 
+                        input.btn.btn-success(type="submit" form="form10" value="execute")
 
-                        input.btn.btn-success(type="submit" form="form10" value="newuser")
+                    form.centerAdd(action="/editdb",method="post",id="form11" )
+
+                        h4 Removes a user from the system
+                        p username = name of user to remove
+                            input(class="form-control",type="text",name="toRemove",form="form11",required)
+                        input.btn.btn-success(type="submit" form="form11" value="execute")
