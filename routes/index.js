@@ -87,7 +87,6 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log(req.user);
     res.render('index', { title: 'Welcome to VUWSA Lost and Found', user:req.user});
 });
 
@@ -122,7 +121,6 @@ router.get('/search',ensureAuthenticated(), function(req, res, next) {
 router.get('/editdb',
     ensureAuthenticated(),
     function(req, res, next) {
-        console.log(req);
         //need to get categories and campus options from DB to give user the current correct options to use
         db.getCampuses(function(err1,campusresult){
             db.getCategories(function(err2,categoryresult){

@@ -58,8 +58,9 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         addItemTest: addItemTest, 
         deleteItemTest: deleteItemTest ,
         addUser: addUser,
-        removeUser:removeUser
-};
+        removeUser:removeUser,
+        getItemsCount:getItemsCount
+    };
 
 
     /**
@@ -740,7 +741,8 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
 
     }
 
-    function countItems(cb){ 
+
+    function getItemsCount(cb){ 
         pg.connect(db, function (err, client, done) { 
             if (err) { 
                 //deal with db connection issues 
@@ -749,7 +751,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 return; 
             } 
             console.log("connection successful"); 
-            var stmt = "SELECT COUNT(itemname) FROM original;"; 
+            var stmt = "SELECT COUNT(itemid) FROM items;"; 
             //submit the statement we want 
             client.query(stmt, function (error, result) { 
                 done(); 
@@ -762,6 +764,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 cb(false,count); 
             }); 
         }); }  
+
 
         function addItemTest(data, cb){ 
             pg.connect(db, function (err, client, done) { 
