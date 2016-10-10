@@ -55,3 +55,19 @@ This allows a logged-in user to modify the database. Features include: Adding Ca
 ### **View Statistics**
 
 This allows a logged-in user to view Statistics about the Lost and Found Database, such as number of items returned per month and other figures pertaining to VUWSA's Lost and Found operations.
+
+## **Testing**
+
+To perform the test suites designed for the program, simply add the appropriate extension to the URL.
+These are:
+
+/countitems
+
+/addremovecategory
+
+/addremovecampus
+
+/addremoveitems
+
+
+Each of these tests allows the user to test the appropriate section of the code.
