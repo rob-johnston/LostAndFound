@@ -35,7 +35,7 @@ var fs = require('fs');
                    cb("Category has been removed");
                 }
             })
-
+        //adding a campus
         } else if (req.body.addCampus!=null){
             //add a campus
             db.addCampus(req.body.addCampus, function(err,res){
@@ -46,6 +46,7 @@ var fs = require('fs');
                     cb("Campus has been added");
                 }
             })
+            //removing a campus
         } else if(req.body.removeCampus!=null){
             //remove a campus
             db.removeCampus(req.body.removeCampus,function (err, res) {
@@ -56,8 +57,8 @@ var fs = require('fs');
                     cb("Campus has been removed");
                 }
             })
+            //adding a column to the item table
         } else if(req.body.addColName!=null) {
-            //remove a campus
             db.addCol(req.body.addColName, req.body.addColType, function (err, res) {
                 if (err) {
                     console.log(err);
@@ -67,8 +68,8 @@ var fs = require('fs');
                 }
             })
         }
+        //removing a column from the items table
         else if(req.body.removeColName!=null) {
-            //remove a campus
             db.removeCol(req.body.removeColName, function (err, res) {
                 if (err) {
                     console.log(err);
@@ -78,6 +79,7 @@ var fs = require('fs');
                 }
             })
         }
+        //for removing a specific item by itemid
         else if(req.body.itemRemoveID!=null) {
             //remove an Item by ID
             db.deleteItem(req.body.itemRemoveID, function (err, res) {
@@ -89,6 +91,7 @@ var fs = require('fs');
                 }
             })
         }
+        //for removing all items before a certain date
         else if(req.body.itemRemoveDate!=null) {
             //remove all items before a given date
             db.deleteItemsBeforeDate(req.body.itemRemoveDate, function (err, res) {
@@ -100,6 +103,7 @@ var fs = require('fs');
                 }
             })
         }
+        //for publishing a static version of the db to a json file
         else if(req.body.publish!=null){
             console.log("requesting snapshot");
 
@@ -120,6 +124,7 @@ var fs = require('fs');
             })
 
         }
+        //for adding a new user
         else if(req.body.username!=null && req.body.password!=null){
             console.log("trying to add new user");
 
@@ -137,6 +142,7 @@ var fs = require('fs');
             })
 
         }
+        //for dealing with removing a user
         else if(req.body.toRemove!=null){
             console.log("trying to remove user");
             db.removeUser(req.body.toRemove,function(err,res){
