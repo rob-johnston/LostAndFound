@@ -72,7 +72,10 @@ block body
                         h8
                             b Owner's Name
                             br
-                            input(class="form-control", type="text", name="ownerName", placeholder="Insert name here",form="form2")
+                            if itemOwnerName == null
+                                input(class="form-control", type="text", name="ownerName", placeholder="Insert name here",form="form2")
+                            else
+                                input(class="form-control", type = "text", name = "ownerName", value='#{itemOwnerName}', form = "form2")
                     li.list-group-item
                         h8
                             b Which Campus the item is at
