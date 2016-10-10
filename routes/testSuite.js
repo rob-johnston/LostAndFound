@@ -89,28 +89,32 @@
 
         }
 
-        else if (subPath == "addremoveitem"){
-            db.countItems(function(err,result){
-                console.log(result);
+        else if (subPath == "addremoveitem") {
+            db.countItems(function (err, result) {
+                console.log("INITIAL: " + result);
                 var initialCount = result;
-                db.addItemTest("testitemname",function(err,result){
-                    db.countItems(function(err2,result2){
-                        var firstConditional = (result2-initialCount==1);
-                        db.deleteItemTest("testitemname", function(err,result){
-                            db.countItems(function(err3,result3){
-                                var secondConditional = (result3==initialCount);
-                                var toReturn = {first: firstConditional,
-                                    second: secondConditional
-                                }
-                                cb(false,toReturn);
+                var data = { itemName: "testItemName", itemDescription: "testDescription", category: "testCategory", dateReceived: "Mon Oct 3 2016 14:53:54", locationFound: "testLocFound", ownerName: "testOwnerName", campus: "testCampus", photourl: "testPhotourl"};
+                db.addItem(data, function (err, result) {
+                    db.countItems(function (err2, result2) {
+                        var firstConditional = (result2 - initialCount == 1);
+                        console.log("1st Cond: " + (result2 - initialCount));
+                        db.getLastAddedItemid(function(err3, result3){
+                            db.deleteItem(result3, function (err, result) {
+                                db.countItems(function (err4, result4) {
+                                    var secondConditional = (result4 == initialCount);
+                                    console.log("2nd Cond: " + result4);
+                                    var toReturn = {
+                                        first: firstConditional,
+                                        second: secondConditional
+                                    }
+                                    cb(false, toReturn);
+                                })
                             })
                         })
                     })
                 });
             })
         }
-
-
     }
 
 
