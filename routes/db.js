@@ -49,9 +49,15 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         editItem: editItem,
         addCol: addCol,
         removeCol: removeCol,
-        countItems: countItems,
         countCategories: countCategories,
-        countCampuses: countCampuses
+        countCampuses: countCampuses,
+        getJSONSnapshot: getJSONSnapshot, 
+        getRestrictedJSONSnapshot:getRestrictedJSONSnapshot,
+        countItems: countItems,
+        getLastAddedItemid: getLastAddedItemid,
+        addUser: addUser,
+        removeUser:removeUser,
+        getItemsCount:getItemsCount
     };
 
 
@@ -223,7 +229,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         console.log("adding...");
         //the sql statement we need
         var args = '(\'' + data.itemName + '\',\'' + data.itemDescription + '\',\'' + data.category + '\',\'' + data.dateReceived + '\',\'' +
-            data.locationFound + '\',\'' + data.campus + '\',\'' + data.photourl + '\');'
+            data.locationFound + '\',\'' + data.ownerName  + '\',\'' + data.campus + '\',\'' + data.photourl + '\');';
 
         //Sets default photo if no photo url entered
         if (data.photourl = null) {
@@ -231,7 +237,11 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         }
 
 
+<<<<<<< HEAD
         var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES ' + args;
+=======
+        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound, ownerName, Campus,photourl) VALUES' + args ;
+>>>>>>> a02fba066ce4d82f86aacf07efdb43769f66f7f5
 
         //connect to db
         pg.connect(db, function (err, client, done) {
@@ -532,7 +542,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
     function editItem(data,cb) {
         var stmt = 'UPDATE  items SET itemName =  \''+ data.itemName + '\', Description =  \'' + data.itemDescription +
             '\', Category = \'' + data.category + '\', datereceived = \''+ data.dateReceived +'\', LocationFound = \'' +
-            data.locationFound + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
+            data.locationFound + '\', OwnerName = \'' + data.ownerName + '\', Campus = \'' + data.campus + '\', photourl = \'' + data.photourl + '\', returnstatus = \'' +
             data.returnstatus + '\', DateReturned = \'' + data.dateReturned + '\'  WHERE itemid = ' + data.itemid + ' ;';
         console.log(stmt);
         pg.connect(db,function(err,client,done){
@@ -554,7 +564,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 cb(false, result);
             });
         })
-    };
+    }
 
 
     function processArray(listCount, fn) {
@@ -571,7 +581,7 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             next();
         })
 
-    };
+    }
 
 
     function countItems(cb) {
@@ -639,6 +649,12 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         });
     }
     function countCampuses(cb){
+
+    }
+
+    /*a full and glorius representation of our database in javascript object notation (thats JSON btw) */
+    function getJSONSnapshot(cb){
+
         pg.connect(db, function (err, client, done) {
             if (err) {
                 //deal with db connection issues
@@ -647,8 +663,219 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 return;
             }
             console.log("connection successful");
-            var stmt = "SELECT COUNT(campus) FROM campus;";
+            var stmt = "SELECT row_to_json(t) FROM (SELECT * FROM items) t;";
             //submit the statement we want
+            client.query(stmt, function (error, result) {
+                done();
+                if (error) {
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+
+                //create and return a json representation of our db
+                var finalString = "[";
+
+                //get each parsed row and add a comma to be correct
+                for(var i=0;  i<result.rows.length; i++){
+                    var stringtoadd = JSON.stringify(result.rows[i]);
+                    var objectstring = JSON.parse(stringtoadd);
+
+                    //dont add a comma on the last entry
+                    finalString+= JSON.stringify(objectstring.row_to_json);
+                    if(i<result.rows.length-1){
+                        finalString+=",";
+                    }
+                }
+                //add final closing square bracket
+                finalString+="]";
+
+                cb(false,finalString);
+            });
+        });
+
+
+    }
+
+    /*creates a json representation of our database - restricted to only the given values - ie so students cant see all info about the item*/
+    function getRestrictedJSONSnapshot(cb){
+
+        pg.connect(db, function (err, client, done) {
+            if (err) {
+                //deal with db connection issues
+                console.log('cant connect to db');
+                console.log(err);
+                return;
+            }
+            console.log("connection successful");
+            //number at end is count of items from the last x days. The category,locationfound,itemid,datereveived are the field we will return and save of the items
+            var stmt = "SELECT row_to_json(t) FROM (SELECT itemname, category,locationfound, itemid, datereceived FROM items) t WHERE datereceived > CURRENT_DATE - integer '90';";
+            //submit the statement we want
+            client.query(stmt, function (error, result) {
+                done();
+                if (error) {
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+
+                //create and return a json representation of our db
+                var finalString = "[";
+
+                //get each parsed row and add a comma to be correct
+                for(var i=0;  i<result.rows.length; i++){
+                    var stringtoadd = JSON.stringify(result.rows[i]);
+                    var objectstring = JSON.parse(stringtoadd);
+
+                    //dont add a comma on the last entry
+                    finalString+= JSON.stringify(objectstring.row_to_json);
+                    if(i<result.rows.length-1){
+                        finalString+=",";
+                    }
+                }
+                //add final closing square bracket
+                finalString+="]";
+
+                cb(false,finalString);
+            });
+        });
+
+
+    }
+
+
+    function getItemsCount(cb){ 
+        pg.connect(db, function (err, client, done) { 
+            if (err) { 
+                //deal with db connection issues 
+                console.log('cant connect to db'); 
+                console.log(err); 
+                return; 
+            } 
+            console.log("connection successful"); 
+            var stmt = "SELECT COUNT(itemid) FROM items;"; 
+            //submit the statement we want 
+            client.query(stmt, function (error, result) { 
+                done(); 
+                if (error) { 
+                    console.log("query failed"); 
+                    console.log(error); 
+                    return; 
+                } 
+                var count = result.rows[0].count; 
+                cb(false,count); 
+            }); 
+        }); }  
+
+
+        function addItemTest(data, cb){ 
+            pg.connect(db, function (err, client, done) { 
+                if (err) { 
+                    //deal with db connection issues 
+                    console.log('cant connect to db'); 
+                    console.log(err); 
+                    return; 
+                } 
+                console.log("connection successful - ADD"); 
+                var stmt = "INSERT INTO original (itemname) VALUES ('" + data + "');";  
+                console.log(stmt);
+                // var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + "original (itemName,Description,Category,datefound,LocationFound,Campus,photourl) VALUES ('" + data + "');"; 
+                client.query(stmt, function (error, result) { 
+                    done(); 
+                    if (error) { 
+                        console.log("query failed - ADD"); 
+                        console.log(error); 
+                        return; 
+                    }
+                    cb(false,result); 
+                }); 
+            }); 
+        }
+
+          function deleteItemTest(data, cb) {  
+            pg.connect(db, function (err, client, done) { 
+                if (err) {
+
+                    //deal with db connection issues 
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful - DELETE");
+                var stmt = DELETE_FROM + "original WHERE itemname ILIKE '" + data + "';";
+                console.log(stmt);
+                //submit the statement we want 
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed - DELETE");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false, result);
+                });
+            });
+        }
+
+        function addUser(username,password,cb){
+            pg.connect(db, function (err, client, done) {
+                if (err) {
+                    //deal with db connection issues 
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful - ADD USER");
+                var stmt = "INSERT INTO users (username,password) VALUES ('" + username+ "','"+password + "');";
+                console.log(stmt);
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed - ADD USER");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false,result);
+                });
+            });
+        }
+
+        function removeUser(username,cb){
+            pg.connect(db, function (err, client, done) {
+                if (err) {
+                    //deal with db connection issues 
+                    console.log('cant connect to db');
+                    console.log(err);
+                    return;
+                }
+                console.log("connection successful - ADD USER");
+                var stmt = "DELETE FROM Users WHERE username like '"+username+"' ;";
+                console.log(stmt);
+                client.query(stmt, function (error, result) {
+                    done();
+                    if (error) {
+                        console.log("query failed - ADD USER");
+                        console.log(error);
+                        return;
+                    }
+                    cb(false,result);
+                });
+            });
+        }
+
+    /* Count number of items in testing database - counting by item date received since it is a required field whenever adding a new item in the actual database. */
+    function countItems(cb){
+        pg.connect(db, function (err, client, done) {
+            if (err) {
+                //deal with db connection issues 
+                console.log('cant connect to db');
+                console.log(err);
+                return;
+            }
+            console.log("connection successful");
+            // var stmt = "SELECT COUNT(itemname) FROM original;"; 
+            var stmt = "SELECT COUNT(itemid) FROM items;";
+            //submit the statement we want 
             client.query(stmt, function (error, result) {
                 done();
                 if (error) {
@@ -662,6 +889,32 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         });
     }
 
-
+    /* Get id of last item added - to be used for deleting added test item */
+    function getLastAddedItemid(cb){
+        pg.connect(db, function (err, client, done) {
+            if (err) {
+                //deal with db connection issues 
+                console.log('cant connect to db');
+                console.log(err);
+                return;
+            }
+            console.log("connection successful");
+            // var stmt = "SELECT COUNT(itemname) FROM original;"; 
+            var stmt = "SELECT MAX(itemid) FROM items;";
+            //submit the statement we want 
+            client.query(stmt, function (error, result) {
+                done();
+                if (error) {
+                    console.log("query failed");
+                    console.log(error);
+                    return;
+                }
+                var maxid = JSON.stringify(result.rows);
+                maxid = maxid.toString().substring(8, 12)
+                console.log("MAX ID: " + maxid);
+                cb(false, maxid);
+            });
+        });
+    }
 
 })();

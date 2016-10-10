@@ -16,24 +16,20 @@
     //function that checks the database to see if the username password pairing exists
     function login(USERNAME, PASSWORD,done){
 
-        console.log(USERNAME+ " " + PASSWORD);
         pg.connect(database,function(err,client){
             if(err) {
                 return console.error('could not connect to postgres', err);
             }
             console.log('Connected to database');
             var query = "SELECT * FROM users WHERE username='%NAME%' AND password='%PASSWORD%';".replace("%NAME%", USERNAME).replace("%PASSWORD%", PASSWORD);
-            console.log(query);
             client.query(query, function(error, result){
                 if(error) {
                     console.error(error);
                     return done(null, false);
                 }
                 else if (result.rowCount === 0){
-                    console.log("Fail");
                     return done(null, false);
                 } else {
-                    console.log("Success!");
                     const newUser = {
                         username: USERNAME,
                         password: PASSWORD,

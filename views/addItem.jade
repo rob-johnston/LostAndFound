@@ -71,6 +71,12 @@ block body
 
                     li.list-group-item
                         h8
+                            b Owner's Name
+                            br
+                            input(class="form-control", type="text", name="ownerName", placeholder="Insert name here",form="form1")
+
+                    li.list-group-item
+                        h8
                             b Image
                             br
                             img(src="images/defaultImg.png" style="width:200px;")
@@ -81,12 +87,7 @@ block body
                             input.form-control(type='text', name='photourl', placeholder='Photo URL..')
                             br
                             br
-                            h8
-                                i Upload image (optional)
-                            form(action='http://127.0.0.1:8081/file_upload', method='POST', enctype='multipart/form-data')
-                                input(type='file', name='file', size='50')
-                                br
-                                input(type='submit', value='Upload File')
+
 
 
 

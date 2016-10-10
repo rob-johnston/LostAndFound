@@ -42,7 +42,12 @@ html
             }
 
 
-
+            } else if (test == "addremoveitem") {
+                QUnit.test("testaddremoveitem", function (assert) {
+                    var ob = JSON.parse(data);
+                    assert.ok(ob.first && ob.second);
+                });
+            }
 
 
     body
