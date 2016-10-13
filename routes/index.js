@@ -537,11 +537,8 @@ router.get('/testing/*', function(req, res, next) {
             res.render("RoutesTesting", {test: subPath, result: result});
         } else if(subPath =="addremovecampus"){
             res.render("RoutesTesting", {test: subPath, result: result});
-<<<<<<< HEAD
         }else if(subPath =="editItem"){
-=======
         } else if(subPath =="addremoveitem"){
->>>>>>> a02fba066ce4d82f86aacf07efdb43769f66f7f5
             res.render("RoutesTesting", {test: subPath, result: result});
         }
 
@@ -568,3 +565,4 @@ router.get('/staticStudentView',function(req,res,next){
 })
 
 module.exports = router;
+
