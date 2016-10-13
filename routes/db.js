@@ -237,11 +237,8 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
         }
 
 
-<<<<<<< HEAD
-        var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound,Campus,photourl) VALUES ' + args;
-=======
         var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + ITEMS_TABLE + '(itemName,Description,Category,datereceived,LocationFound, ownerName, Campus,photourl) VALUES' + args ;
->>>>>>> a02fba066ce4d82f86aacf07efdb43769f66f7f5
+
 
         //connect to db
         pg.connect(db, function (err, client, done) {
