@@ -776,7 +776,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 console.log("connection successful - ADD"); 
                 var stmt = "INSERT INTO original (itemname) VALUES ('" + data + "');";  
                 console.log(stmt);
-                // var stmt = /*'SET datestyle = \"ISO,DMY\";*/ INSERT + "original (itemName,Description,Category,datefound,LocationFound,Campus,photourl) VALUES ('" + data + "');"; 
                 client.query(stmt, function (error, result) { 
                     done(); 
                     if (error) { 
@@ -883,7 +882,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
                 }
                 var maxid = JSON.stringify(result.rows);
                 maxid = maxid.toString().substring(8, 12)
-                console.log("MAX ID: " + maxid);
                 cb(false, maxid);
             });
         });
