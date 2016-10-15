@@ -860,31 +860,6 @@ var datesArray = ["'2016-01-01'", "'2016-02-01'", "'2016-03-01'", "'2016-04-01'"
             });
         }
 
-    /* Count number of items in testing database - counting by item date received since it is a required field whenever adding a new item in the actual database. */
-    function countItems(cb){
-        pg.connect(db, function (err, client, done) {
-            if (err) {
-                //deal with db connection issues 
-                console.log('cant connect to db');
-                console.log(err);
-                return;
-            }
-            console.log("connection successful");
-            // var stmt = "SELECT COUNT(itemname) FROM original;"; 
-            var stmt = "SELECT COUNT(itemid) FROM items;";
-            //submit the statement we want 
-            client.query(stmt, function (error, result) {
-                done();
-                if (error) {
-                    console.log("query failed");
-                    console.log(error);
-                    return;
-                }
-                var count = result.rows[0].count;
-                cb(false,count);
-            });
-        });
-    }
 
     /* Get id of last item added - to be used for deleting added test item */
     function getLastAddedItemid(cb){

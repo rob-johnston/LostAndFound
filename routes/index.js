@@ -500,20 +500,20 @@ router.get('/studentSearchResults', function(req,res,next){
 });
 
 /*GET statistics view page. */  //MUST FIX ONLY WORKS FOR 2016
-router.get('/statistics', function(req,res,next){
+router.get('/statistics', ensureAuthenticated(), function(req,res,next){
     db.countItems(function (err, arrResult) {
-        var jan = 450 - ((JSON.stringify(arrResult[0]).match(/\d+/)[0])*30);
-        var feb = 450 - ((JSON.stringify(arrResult[1]).match(/\d+/)[0])*30);
-        var mar = 450 - ((JSON.stringify(arrResult[2]).match(/\d+/)[0])*30);
-        var apr = 450 - ((JSON.stringify(arrResult[3]).match(/\d+/)[0])*30);
-        var may = 450 - ((JSON.stringify(arrResult[4]).match(/\d+/)[0])*30);
-        var jun = 450 - ((JSON.stringify(arrResult[5]).match(/\d+/)[0])*30);
-        var jul = 450 - ((JSON.stringify(arrResult[6]).match(/\d+/)[0])*30);
-        var aug = 450 - ((JSON.stringify(arrResult[7]).match(/\d+/)[0])*30);
-        var sep = 450 - ((JSON.stringify(arrResult[8]).match(/\d+/)[0])*30);
-        var oct = 450 - ((JSON.stringify(arrResult[9]).match(/\d+/)[0])*30);
-        var nov = 450 - ((JSON.stringify(arrResult[10]).match(/\d+/)[0])*30);
-        var dec = 450 - ((JSON.stringify(arrResult[11]).match(/\d+/)[0])*30);
+        var jan = 450 - ((JSON.stringify(arrResult[0]).match(/\d+/)[0]));
+        var feb = 450 - ((JSON.stringify(arrResult[1]).match(/\d+/)[0]));
+        var mar = 450 - ((JSON.stringify(arrResult[2]).match(/\d+/)[0]));
+        var apr = 450 - ((JSON.stringify(arrResult[3]).match(/\d+/)[0]));
+        var may = 450 - ((JSON.stringify(arrResult[4]).match(/\d+/)[0]));
+        var jun = 450 - ((JSON.stringify(arrResult[5]).match(/\d+/)[0]));
+        var jul = 450 - ((JSON.stringify(arrResult[6]).match(/\d+/)[0]));
+        var aug = 450 - ((JSON.stringify(arrResult[7]).match(/\d+/)[0]));
+        var sep = 450 - ((JSON.stringify(arrResult[8]).match(/\d+/)[0]));
+        var oct = 450 - ((JSON.stringify(arrResult[9]).match(/\d+/)[0]));
+        var nov = 450 - ((JSON.stringify(arrResult[10]).match(/\d+/)[0]));
+        var dec = 450 - ((JSON.stringify(arrResult[11]).match(/\d+/)[0]));
 
         res.render('statistics', {title: 'Statistics - VUWSA Lost and Found', january: jan, february: feb, march: mar, april: apr, may: may, june: jun, july: jul, august: aug, september: sep, october: oct, november: nov, december: dec, user:req.user});
     })
