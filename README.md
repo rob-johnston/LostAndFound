@@ -16,7 +16,7 @@ The application is written in NodeJS with a Jade front-end and a PSQL database t
 
 ## **Installation Instructions**
 
-One can use the following Heroku link: https://vuw-lost-and-found.herokuapp.com/login
+One can use the following Heroku link: https://vuw-lost-and-found.herokuapp.com
 
 Alternatively, download or clone the repository and then use the Terminal to navigate to the folder holding it and execute the command "npm start". Following this, navigate to localhost:3000 in your preferred web browser.
 
